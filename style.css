@@ -374,14 +374,14 @@ ul { list-style: none; }
 .parchment__inner {
   display: flex;
   align-items: flex-start;
-  gap: 48px;
+  gap: 40px;
   max-width: 1400px;
   margin: 0 auto;
   padding: 54px 56px 60px;
 }
 
-.pillars     { flex: 0 0 38%; }
-.leadership  { flex: 1 1 auto; }
+.pillars     { flex: 1 1 0; min-width: 0; }
+.leadership  { flex: 1 1 0; min-width: 0; }
 
 .parchment__divider {
   flex: 0 0 1px;
@@ -437,24 +437,30 @@ ul { list-style: none; }
 .sec-head__line--l::after { right: 0; }
 .sec-head__line--r::after { left: 0; }
 
-/* ---- Pillars 2x2 grid ---- */
+/* ---- Pillars : 4 in a single row ---- */
 .pillars__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 36px;
-  row-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 18px;
+  row-gap: 0;
 }
 
 .pillar {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.pillar__head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
 
 .pillar__badge {
   flex: 0 0 auto;
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: var(--badge-navy);
   color: var(--gold-icon);
@@ -464,43 +470,40 @@ ul { list-style: none; }
   box-shadow: 0 2px 7px rgba(28, 11, 46, 0.22);
 }
 
-.pillar__badge svg { width: 25px; height: 25px; }
+.pillar__badge svg { width: 19px; height: 19px; }
 
 .pillar__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-size: 12.5px;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--ink);
-  margin-top: 2px;
 }
 
 .pillar__desc {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--body-mauve);
-  margin-top: 8px;
-  max-width: 250px;
 }
 
 /* ---- Founding Leadership row ---- */
 .leadership__row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 12px;
 }
 
 .leader { text-align: center; }
 
 .leader__photo {
   display: block;
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 13px;
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 12px;
   border-radius: 50%;
   background: var(--photo-neutral);
   border: 2px solid var(--gold-ring);
@@ -519,9 +522,8 @@ ul { list-style: none; }
 .leader__name {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 14.5px;
-  line-height: 1.1;
-  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.15;
   color: var(--ink);
 }
 
@@ -529,7 +531,7 @@ ul { list-style: none; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 14.5px;
+  font-size: 13.5px;
   color: var(--ink);
   margin-top: 2px;
 }
@@ -537,10 +539,10 @@ ul { list-style: none; }
 .leader__bio {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--body-mauve);
-  margin-top: 10px;
+  margin-top: 9px;
 }
 
 /* ---- Section 2 responsive ---- */
@@ -904,8 +906,8 @@ ul { list-style: none; }
 .footer__connect { max-width: 300px; }
 .footer__label {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 500;
-  font-size: 17px;
+  font-weight: 600;
+  font-size: 21px;
   letter-spacing: 0.03em;
   color: var(--ft-gold);
   margin: 0 0 9px;

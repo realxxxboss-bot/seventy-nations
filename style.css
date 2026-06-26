@@ -1,0 +1,317 @@
+/* ===================================================================
+   The Seventy Nations — Header + Hero
+   Colors extracted directly from assets/mockup-full.png
+   =================================================================== */
+:root {
+  --purple-deep:   #0A0522;  /* far-left hero background        */
+  --purple-base:   #07051E;  /* darkest nav / emblem ground     */
+  --purple-mid:    #1E1038;  /* gradient mid / nav right tone   */
+  --gold:          #E3BC82;  /* bright gold — subheading/accents*/
+  --gold-soft:     #D0A56B;  /* logo / muted gold               */
+  --gold-btn-1:    #D49C45;  /* button gradient top             */
+  --gold-btn-2:    #A56A23;  /* button gradient bottom          */
+  --white:         #F8F5FF;  /* heading white                   */
+  --text-muted:    #CFC9DC;  /* paragraph lavender-grey         */
+  --nav-text:      #ECE7F4;  /* nav links                       */
+  --quote-text:    #E7DEF1;  /* isaiah quote                    */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--purple-deep);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===================== HEADER ===================== */
+.site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 56px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand__emblem {
+  height: 64px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 0.98;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+
+.brand__sub {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-top: 4px;
+}
+
+/* ---- Nav ---- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.main-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.main-nav__list a {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nav-text);
+  transition: color 0.2s ease;
+}
+
+.main-nav__list a:hover { color: var(--gold); }
+
+.btn-donate {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple-base);
+  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
+  padding: 11px 26px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transition: filter 0.2s ease;
+}
+
+.btn-donate:hover { filter: brightness(1.08); }
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("assets/hero-bg.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* dark purple gradient overlay: opaque left -> sunset reveal right */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      var(--purple-deep) 0%,
+      var(--purple-deep) 22%,
+      rgba(11, 5, 36, 0.92) 38%,
+      rgba(14, 7, 44, 0.62) 54%,
+      rgba(18, 9, 50, 0.3) 72%,
+      rgba(22, 11, 56, 0.1) 90%,
+      rgba(24, 12, 58, 0.05) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 5, 24, 0.55) 0%,
+      rgba(7, 5, 24, 0) 22%,
+      rgba(7, 5, 24, 0) 70%,
+      rgba(7, 5, 24, 0.55) 100%
+    );
+}
+
+/* ---- Isaiah quote (top-right) ---- */
+.hero__quote {
+  position: absolute;
+  top: 130px;
+  right: 90px;
+  z-index: 3;
+  text-align: center;
+  max-width: 460px;
+}
+
+.hero__quote blockquote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--quote-text);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.hero__quote figcaption {
+  margin-top: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---- Left content ---- */
+.hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 620px;
+  padding: 0 56px;
+  padding-top: 26vh;
+  padding-bottom: 8vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__title {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 1.05;
+  white-space: nowrap;
+  color: var(--white);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero__subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+  margin-top: 10px;
+}
+
+.hero__rule {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 22px;
+}
+
+.hero__rule span {
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, rgba(227, 188, 130, 0) 100%);
+}
+
+.hero__rule span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.hero__lede {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 440px;
+}
+
+/* ---- Buttons ---- */
+.hero__actions {
+  display: flex;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 4px;
+  transition: all 0.22s ease;
+}
+
+.btn__arrow { font-size: 15px; line-height: 1; }
+
+.btn--solid {
+  color: var(--purple-base);
+  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn--solid:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+.btn--ghost {
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold-soft);
+}
+
+.btn--ghost:hover {
+  background: rgba(227, 188, 130, 0.1);
+  border-color: var(--gold);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1100px) {
+  .site-header { padding: 18px 32px; }
+  .main-nav { gap: 24px; }
+  .main-nav__list { gap: 22px; }
+  .hero__quote { top: 110px; right: 32px; max-width: 360px; }
+  .hero__quote blockquote { font-size: 18px; }
+  .hero__content { padding-left: 32px; padding-right: 32px; }
+  .hero__title { font-size: 54px; }
+}
+
+@media (max-width: 760px) {
+  .main-nav__list { display: none; }
+  .hero__quote { position: static; margin: 0 auto; padding-top: 110px; text-align: center; }
+  .hero__content { padding-top: 24px; min-height: auto; padding-bottom: 80px; }
+  .hero__title { font-size: 42px; }
+  .hero__actions { flex-wrap: wrap; }
+}

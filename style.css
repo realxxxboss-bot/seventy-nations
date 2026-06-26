@@ -14,6 +14,16 @@
   --text-muted:    #CFC9DC;  /* paragraph lavender-grey         */
   --nav-text:      #ECE7F4;  /* nav links                       */
   --quote-text:    #E7DEF1;  /* isaiah quote                    */
+
+  /* --- Section 2 (parchment) — extracted from mockup --- */
+  --cream:         #EFE6D6;  /* parchment background fallback   */
+  --ink:           #1C0B2E;  /* headings / titles / names       */
+  --body-mauve:    #5C4B54;  /* descriptions & bios             */
+  --badge-navy:    #1A0A38;  /* circular icon badge fill        */
+  --gold-icon:     #CDA063;  /* badge icon stroke               */
+  --gold-line:     #C49A5E;  /* decorative heading lines        */
+  --gold-ring:     #C8A06A;  /* headshot ring                   */
+  --photo-neutral: #C9BBA8;  /* headshot placeholder fill       */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -314,4 +324,201 @@ ul { list-style: none; }
   .hero__content { padding-top: 24px; min-height: auto; padding-bottom: 80px; }
   .hero__title { font-size: 42px; }
   .hero__actions { flex-wrap: wrap; }
+}
+
+/* ===================================================================
+   SECTION 2 — Four Pillars + Founding Leadership (parchment)
+   =================================================================== */
+.parchment {
+  background-color: var(--cream);
+  background-image: url("assets/section2-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--ink);
+}
+
+.parchment__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 56px 76px;
+}
+
+.pillars     { flex: 0 0 42%; }
+.leadership  { flex: 1 1 auto; }
+
+.parchment__divider {
+  flex: 0 0 1px;
+  align-self: stretch;
+  margin: 16px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(196, 154, 94, 0) 0%,
+    rgba(196, 154, 94, 0.45) 18%,
+    rgba(196, 154, 94, 0.45) 82%,
+    rgba(196, 154, 94, 0) 100%
+  );
+}
+
+/* ---- Decorative section heading ---- */
+.sec-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 42px;
+}
+
+.sec-head__text {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.sec-head__line {
+  position: relative;
+  height: 1px;
+  width: 64px;
+  background: var(--gold-line);
+}
+
+/* small diamond + arrow head pointing toward the text */
+.sec-head__line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  background: var(--gold-line);
+  transform: translateY(-50%) rotate(45deg);
+}
+.sec-head__line--l { background: linear-gradient(90deg, rgba(196,154,94,0) 0%, var(--gold-line) 100%); }
+.sec-head__line--r { background: linear-gradient(90deg, var(--gold-line) 0%, rgba(196,154,94,0) 100%); }
+.sec-head__line--l::after { right: 0; }
+.sec-head__line--r::after { left: 0; }
+
+/* ---- Pillars 2x2 grid ---- */
+.pillars__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  row-gap: 38px;
+}
+
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.pillar__badge {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--badge-navy);
+  color: var(--gold-icon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(28, 11, 46, 0.22);
+}
+
+.pillar__badge svg { width: 28px; height: 28px; }
+
+.pillar__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+.pillar__desc {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--body-mauve);
+  margin-top: 10px;
+  max-width: 215px;
+}
+
+/* ---- Founding Leadership row ---- */
+.leadership__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.leader { text-align: center; }
+
+.leader__photo {
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--photo-neutral);
+  border: 2px solid var(--gold-ring);
+  box-shadow: 0 0 0 4px rgba(200, 160, 106, 0.18);
+  overflow: hidden;
+}
+
+.leader__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.leader__name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.leader__role {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-top: 3px;
+}
+
+.leader__bio {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--body-mauve);
+  margin-top: 12px;
+}
+
+/* ---- Section 2 responsive ---- */
+@media (max-width: 1100px) {
+  .parchment__inner { flex-direction: column; gap: 56px; padding: 56px 32px 64px; }
+  .pillars, .leadership { flex: 1 1 auto; width: 100%; }
+  .parchment__divider { display: none; }
+  .leadership__row { gap: 20px; }
+}
+
+@media (max-width: 760px) {
+  .pillars__grid { grid-template-columns: 1fr; row-gap: 28px; }
+  .pillar__desc { max-width: none; }
+  .leadership__row { grid-template-columns: 1fr 1fr; row-gap: 36px; }
 }

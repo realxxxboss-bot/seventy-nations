@@ -48,6 +48,16 @@
   --s5-navy-warm:  #2A1A3A;  /* warm sunset edge of overlay       */
   --s5-heading:    #F4EFE6;  /* cream/white heading               */
   --s5-text:       #D8D0C4;  /* cream paragraph text              */
+
+  /* ---- Footer — extracted from mockup --- */
+  --ft-navy:        #0B0626;  /* footer navy base                 */
+  --ft-gold:        #DCAE5E;  /* labels / icons / serif crest     */
+  --ft-gold-soft:   #C99A52;  /* secondary gold serif text        */
+  --ft-btn:         #C0883E;  /* solid SUBSCRIBE button gold      */
+  --ft-btn-text:    #1A0E2E;  /* dark navy text on button         */
+  --ft-muted:       #C7B493;  /* muted cream-gold body / copyright*/
+  --ft-line:        rgba(220, 174, 94, 0.30); /* gold dividers    */
+  --ft-ring:        rgba(220, 174, 94, 0.55); /* social icon rings*/
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -824,4 +834,177 @@ ul { list-style: none; }
   .future__title { font-size: 28px; }
   .future__text  { font-size: 12px; line-height: 1.8; }
   .future__text br { display: none; }
+}
+
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+.footer {
+  background-color: var(--ft-navy);
+  background-image: url("assets/footer-bg.png");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--ft-gold);
+}
+.footer__inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 40px 48px 26px;
+}
+
+/* ---- Top row ---- */
+.footer__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+/* 1. Brand crest */
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer__crest { color: var(--ft-gold); flex: 0 0 auto; line-height: 0; }
+.footer__brand-text { display: flex; flex-direction: column; }
+.footer__brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.08;
+  letter-spacing: 0.12em;
+  color: var(--ft-gold);
+}
+.footer__brand-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  color: var(--ft-gold-soft);
+  margin-top: 4px;
+}
+
+/* 2. Sub-brands */
+.footer__marks { display: flex; gap: 26px; }
+.footer__mark { display: flex; align-items: center; gap: 11px; }
+.footer__mark-icon { color: var(--ft-gold); line-height: 0; flex: 0 0 auto; }
+.footer__mark-text {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  color: var(--ft-gold);
+}
+
+/* 3. Stay Connected */
+.footer__connect { max-width: 260px; }
+.footer__label {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: var(--ft-gold);
+  margin: 0 0 8px;
+}
+.footer__connect-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--ft-muted);
+  margin: 0 0 12px;
+}
+.footer__subscribe { display: flex; align-items: stretch; }
+.footer__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--ft-line);
+  border-right: none;
+  color: var(--ft-muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  padding: 0 12px;
+  height: 32px;
+}
+.footer__input::placeholder { color: rgba(199, 180, 147, 0.7); }
+.footer__input:focus { outline: none; border-color: var(--ft-gold); }
+.footer__sub-btn {
+  flex: 0 0 auto;
+  background: var(--ft-btn);
+  color: var(--ft-btn-text);
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  padding: 0 16px;
+  height: 32px;
+  cursor: pointer;
+}
+.footer__sub-btn:hover { filter: brightness(1.07); }
+
+/* 4. Follow Us */
+.footer__social { display: flex; gap: 10px; }
+.footer__social-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--ft-ring);
+  color: var(--ft-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.footer__social-btn:hover {
+  background: var(--ft-gold);
+  color: var(--ft-navy);
+}
+
+/* ---- Bottom bar ---- */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ft-line);
+}
+.footer__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.footer__nav a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ft-muted);
+  text-decoration: none;
+}
+.footer__nav a:hover { color: var(--ft-gold); }
+.footer__nav span { color: var(--ft-line); font-size: 11px; }
+.footer__copy {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--ft-muted);
+}
+
+@media (max-width: 920px) {
+  .footer__top { gap: 26px; }
+  .footer__connect, .footer__follow { flex: 1 1 100%; }
+}
+@media (max-width: 620px) {
+  .footer__inner { padding: 32px 24px 22px; }
+  .footer__top { flex-direction: column; gap: 24px; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+  .footer__connect-text br { display: none; }
 }

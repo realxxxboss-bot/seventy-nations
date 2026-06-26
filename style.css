@@ -171,7 +171,7 @@ ul { list-style: none; }
 /* ===================== HERO ===================== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 600px;
   background-image: url("assets/hero-bg.png");
   background-size: cover;
   background-position: right center;
@@ -238,10 +238,7 @@ ul { list-style: none; }
   position: relative;
   z-index: 3;
   max-width: 620px;
-  padding: 0 60px;
-  padding-top: 31vh;
-  padding-bottom: 8vh;
-  min-height: 100vh;
+  padding: 150px 60px 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -380,10 +377,10 @@ ul { list-style: none; }
   gap: 48px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 38px 56px 42px;
+  padding: 54px 56px 60px;
 }
 
-.pillars     { flex: 0 0 40%; }
+.pillars     { flex: 0 0 38%; }
 .leadership  { flex: 1 1 auto; }
 
 .parchment__divider {
@@ -405,13 +402,13 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin-bottom: 26px;
+  margin-bottom: 34px;
 }
 
 .sec-head__text {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -421,7 +418,7 @@ ul { list-style: none; }
 .sec-head__line {
   position: relative;
   height: 1px;
-  width: 48px;
+  width: 60px;
   background: var(--gold-line);
 }
 
@@ -444,20 +441,20 @@ ul { list-style: none; }
 .pillars__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 32px;
-  row-gap: 22px;
+  column-gap: 36px;
+  row-gap: 30px;
 }
 
 .pillar {
   display: flex;
   align-items: flex-start;
-  gap: 13px;
+  gap: 16px;
 }
 
 .pillar__badge {
   flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--badge-navy);
   color: var(--gold-icon);
@@ -467,43 +464,43 @@ ul { list-style: none; }
   box-shadow: 0 2px 7px rgba(28, 11, 46, 0.22);
 }
 
-.pillar__badge svg { width: 18px; height: 18px; }
+.pillar__badge svg { width: 25px; height: 25px; }
 
 .pillar__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.2;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--ink);
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .pillar__desc {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 10.5px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.55;
   color: var(--body-mauve);
-  margin-top: 6px;
-  max-width: 195px;
+  margin-top: 8px;
+  max-width: 250px;
 }
 
 /* ---- Founding Leadership row ---- */
 .leadership__row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 18px;
 }
 
 .leader { text-align: center; }
 
 .leader__photo {
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 9px;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 13px;
   border-radius: 50%;
   background: var(--photo-neutral);
   border: 2px solid var(--gold-ring);
@@ -522,7 +519,7 @@ ul { list-style: none; }
 .leader__name {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 12.5px;
+  font-size: 14.5px;
   line-height: 1.1;
   white-space: nowrap;
   color: var(--ink);
@@ -532,18 +529,18 @@ ul { list-style: none; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 11.5px;
+  font-size: 14.5px;
   color: var(--ink);
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .leader__bio {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
   color: var(--body-mauve);
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 /* ---- Section 2 responsive ---- */
@@ -581,31 +578,31 @@ ul { list-style: none; }
 .center__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 56px 44px;
+  padding: 56px 56px 60px;
 }
 
 .center__panel {
-  max-width: 480px;
+  max-width: 540px;
 }
 
 .center__badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: 1px solid var(--s3-gold);
   color: var(--s3-gold);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.center__badge svg { width: 26px; height: 26px; }
+.center__badge svg { width: 32px; height: 32px; }
 
 .center__title {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 31px;
+  font-size: 40px;
   line-height: 1.1;
   letter-spacing: 0.01em;
   color: var(--s3-gold);
@@ -615,32 +612,32 @@ ul { list-style: none; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 22px;
   color: var(--s3-gold-soft);
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .center__text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 11.5px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--s3-cream);
-  margin-top: 16px;
-  max-width: 430px;
+  margin-top: 20px;
+  max-width: 500px;
 }
 
 .center__btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 20px;
-  padding: 10px 22px;
+  margin-top: 26px;
+  padding: 13px 28px;
   background: var(--s3-btn);
   color: var(--s3-btn-dark);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -650,7 +647,7 @@ ul { list-style: none; }
 
 .center__btn:hover { background: var(--s3-gold); transform: translateY(-1px); }
 
-.center__btn-arrow { font-size: 13px; line-height: 1; }
+.center__btn-arrow { font-size: 15px; line-height: 1; }
 
 /* ---- Section 3 responsive ---- */
 @media (max-width: 1100px) {
@@ -678,7 +675,7 @@ ul { list-style: none; }
 .involve__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 18px 56px 20px;
+  padding: 32px 56px 36px;
 }
 
 .involve__head {
@@ -691,7 +688,7 @@ ul { list-style: none; }
 .involve__title {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 19px;
+  font-size: 25px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--s4-gold);
@@ -700,7 +697,7 @@ ul { list-style: none; }
 
 .involve__line {
   height: 1px;
-  width: 70px;
+  width: 90px;
   background: var(--s4-line);
 }
 
@@ -709,15 +706,15 @@ ul { list-style: none; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
   color: var(--s4-gold-soft);
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 .involve__row {
   display: flex;
   align-items: center;
-  margin-top: 14px;
+  margin-top: 24px;
 }
 
 .involve__items {
@@ -733,8 +730,8 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
-  padding: 2px 10px;
+  gap: 11px;
+  padding: 2px 12px;
 }
 
 .involve__item + .involve__item {
@@ -742,12 +739,12 @@ ul { list-style: none; }
 }
 
 .involve__icon { color: var(--s4-gold); line-height: 0; }
-.involve__icon svg { width: 27px; height: 27px; }
+.involve__icon svg { width: 36px; height: 36px; }
 
 .involve__label {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 10.5px;
+  font-size: 13.5px;
   line-height: 1.35;
   color: var(--s4-label);
   text-align: center;
@@ -758,13 +755,13 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-left: 36px;
-  padding: 11px 22px;
+  margin-left: 40px;
+  padding: 13px 28px;
   background: var(--s4-btn);
   color: var(--s4-btn-text);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
@@ -773,7 +770,7 @@ ul { list-style: none; }
 }
 
 .involve__btn:hover { background: #4d2455; transform: translateY(-1px); }
-.involve__btn-arrow { font-size: 13px; line-height: 1; }
+.involve__btn-arrow { font-size: 15px; line-height: 1; }
 
 /* ---- Section 4 responsive ---- */
 @media (max-width: 1100px) {
@@ -807,14 +804,14 @@ ul { list-style: none; }
 .future__inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 46px 56px 50px;
+  padding: 60px 56px 64px;
   text-align: center;
 }
 
 .future__title {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 38px;
+  font-size: 46px;
   line-height: 1.15;
   letter-spacing: 0.01em;
   color: var(--s5-heading);
@@ -824,11 +821,11 @@ ul { list-style: none; }
 .future__text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.95;
   letter-spacing: 0.02em;
   color: var(--s5-text);
-  margin: 18px 0 0;
+  margin: 24px 0 0;
 }
 
 @media (max-width: 760px) {
@@ -852,7 +849,7 @@ ul { list-style: none; }
 .footer__inner {
   max-width: 1340px;
   margin: 0 auto;
-  padding: 28px 48px 16px;
+  padding: 56px 56px 32px;
 }
 
 /* ---- Top row ---- */
@@ -860,7 +857,7 @@ ul { list-style: none; }
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 28px;
+  gap: 48px 40px;
   flex-wrap: wrap;
 }
 
@@ -868,57 +865,57 @@ ul { list-style: none; }
 .footer__brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 14px;
 }
 .footer__crest { color: var(--ft-gold); flex: 0 0 auto; line-height: 0; }
-.footer__crest svg { width: 44px; height: 44px; }
+.footer__crest svg { width: 56px; height: 56px; }
 .footer__brand-text { display: flex; flex-direction: column; }
 .footer__brand-name {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 19px;
   line-height: 1.08;
   letter-spacing: 0.12em;
   color: var(--ft-gold);
 }
 .footer__brand-sub {
   font-family: "Cormorant Garamond", serif;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.34em;
   color: var(--ft-gold-soft);
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 /* 2. Sub-brands */
-.footer__marks { display: flex; gap: 22px; }
-.footer__mark { display: flex; align-items: center; gap: 9px; }
+.footer__marks { display: flex; gap: 32px; }
+.footer__mark { display: flex; align-items: center; gap: 11px; }
 .footer__mark-icon { color: var(--ft-gold); line-height: 0; flex: 0 0 auto; }
-.footer__mark-icon svg { width: 32px; height: 32px; }
+.footer__mark-icon svg { width: 42px; height: 42px; }
 .footer__mark-text {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.14em;
   color: var(--ft-gold);
 }
 
 /* 3. Stay Connected */
-.footer__connect { max-width: 240px; }
+.footer__connect { max-width: 300px; }
 .footer__label {
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 17px;
   letter-spacing: 0.03em;
   color: var(--ft-gold);
-  margin: 0 0 6px;
+  margin: 0 0 9px;
 }
 .footer__connect-text {
   font-family: "Montserrat", sans-serif;
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
   color: var(--ft-muted);
-  margin: 0 0 9px;
+  margin: 0 0 14px;
 }
 .footer__subscribe { display: flex; align-items: stretch; }
 .footer__input {
@@ -929,9 +926,9 @@ ul { list-style: none; }
   border-right: none;
   color: var(--ft-muted);
   font-family: "Montserrat", sans-serif;
-  font-size: 10px;
-  padding: 0 10px;
-  height: 26px;
+  font-size: 13px;
+  padding: 0 13px;
+  height: 38px;
 }
 .footer__input::placeholder { color: rgba(199, 180, 147, 0.7); }
 .footer__input:focus { outline: none; border-color: var(--ft-gold); }
@@ -942,19 +939,19 @@ ul { list-style: none; }
   border: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 9.5px;
+  font-size: 12px;
   letter-spacing: 0.07em;
-  padding: 0 13px;
-  height: 26px;
+  padding: 0 18px;
+  height: 38px;
   cursor: pointer;
 }
 .footer__sub-btn:hover { filter: brightness(1.07); }
 
 /* 4. Follow Us */
-.footer__social { display: flex; gap: 7px; }
+.footer__social { display: flex; gap: 14px; }
 .footer__social-btn {
-  width: 27px;
-  height: 27px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--ft-ring);
   color: var(--ft-gold);
@@ -964,7 +961,7 @@ ul { list-style: none; }
   text-decoration: none;
   transition: background 0.18s, color 0.18s;
 }
-.footer__social-btn svg { width: 13px; height: 13px; }
+.footer__social-btn svg { width: 18px; height: 18px; }
 .footer__social-btn:hover {
   background: var(--ft-gold);
   color: var(--ft-navy);
@@ -976,29 +973,29 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 18px;
-  padding-top: 12px;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 26px;
   border-top: 1px solid var(--ft-line);
 }
 .footer__nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 12px;
 }
 .footer__nav a {
   font-family: "Montserrat", sans-serif;
-  font-size: 9.5px;
+  font-size: 13px;
   letter-spacing: 0.07em;
   color: var(--ft-muted);
   text-decoration: none;
 }
 .footer__nav a:hover { color: var(--ft-gold); }
-.footer__nav span { color: var(--ft-line); font-size: 9.5px; }
+.footer__nav span { color: var(--ft-line); font-size: 13px; }
 .footer__copy {
   font-family: "Montserrat", sans-serif;
-  font-size: 9.5px;
+  font-size: 13px;
   letter-spacing: 0.02em;
   color: var(--ft-muted);
 }

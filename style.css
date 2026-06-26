@@ -24,6 +24,15 @@
   --gold-line:     #C49A5E;  /* decorative heading lines        */
   --gold-ring:     #C8A06A;  /* headshot ring                   */
   --photo-neutral: #C9BBA8;  /* headshot placeholder fill       */
+
+  /* --- Section 3 (Jerusalem Unity Center) — extracted from mockup --- */
+  --s3-navy:       #14102E;  /* solid navy panel base           */
+  --s3-navy-edge:  #0C0820;  /* deepest left edge               */
+  --s3-gold:       #D49A4E;  /* serif heading gold              */
+  --s3-gold-soft:  #C3955E;  /* italic subheading gold          */
+  --s3-cream:      #D9D3E4;  /* paragraph cream/lavender        */
+  --s3-btn:        #C8A04A;  /* solid gold button fill          */
+  --s3-btn-dark:   #2A1606;  /* button dark text                */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -523,4 +532,109 @@ ul { list-style: none; }
   .pillar__desc { max-width: none; }
   .leadership__row { grid-template-columns: 1fr 1fr; row-gap: 36px; gap: 20px; }
   .leader__name { white-space: normal; }
+}
+
+/* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
+.center {
+  background-color: var(--s3-navy);
+  /* gradient overlay (top) blends solid navy left -> transparent right; building photo (bottom) sits on the right */
+  background-image:
+    linear-gradient(to right,
+      var(--s3-navy) 0%,
+      var(--s3-navy) 26%,
+      rgba(20,16,46,0.92) 38%,
+      rgba(20,16,46,0.45) 52%,
+      rgba(20,16,46,0) 66%),
+    url("assets/section3-bg.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, right center;
+  background-size: cover, cover;
+}
+
+.center__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 56px 44px;
+}
+
+.center__panel {
+  max-width: 480px;
+}
+
+.center__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid var(--s3-gold);
+  color: var(--s3-gold);
+  margin-bottom: 16px;
+}
+
+.center__badge svg { width: 26px; height: 26px; }
+
+.center__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--s3-gold);
+}
+
+.center__subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--s3-gold-soft);
+  margin-top: 4px;
+}
+
+.center__text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--s3-cream);
+  margin-top: 16px;
+  max-width: 430px;
+}
+
+.center__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 22px;
+  background: var(--s3-btn);
+  color: var(--s3-btn-dark);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.center__btn:hover { background: var(--s3-gold); transform: translateY(-1px); }
+
+.center__btn-arrow { font-size: 13px; line-height: 1; }
+
+/* ---- Section 3 responsive ---- */
+@media (max-width: 1100px) {
+  .center {
+    background-image:
+      linear-gradient(to right,
+        var(--s3-navy) 0%,
+        rgba(20,16,46,0.9) 50%,
+        rgba(20,16,46,0.55) 100%),
+      url("assets/section3-bg.png");
+  }
+  .center__inner { padding: 48px 32px 52px; }
+  .center__panel { max-width: 560px; }
 }

@@ -347,7 +347,7 @@ ul { list-style: none; }
   padding: 38px 56px 42px;
 }
 
-.pillars     { flex: 0 0 42%; }
+.pillars     { flex: 0 0 40%; }
 .leadership  { flex: 1 1 auto; }
 
 .parchment__divider {
@@ -375,8 +375,8 @@ ul { list-style: none; }
 .sec-head__text {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.07em;
+  font-size: 18px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--ink);
@@ -420,8 +420,8 @@ ul { list-style: none; }
 
 .pillar__badge {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--badge-navy);
   color: var(--gold-icon);
@@ -431,14 +431,14 @@ ul { list-style: none; }
   box-shadow: 0 2px 7px rgba(28, 11, 46, 0.22);
 }
 
-.pillar__badge svg { width: 20px; height: 20px; }
+.pillar__badge svg { width: 18px; height: 18px; }
 
 .pillar__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.2;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--ink);
   margin-top: 1px;
@@ -447,27 +447,27 @@ ul { list-style: none; }
 .pillar__desc {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 11.5px;
-  line-height: 1.55;
+  font-size: 10.5px;
+  line-height: 1.5;
   color: var(--body-mauve);
   margin-top: 6px;
-  max-width: 210px;
+  max-width: 195px;
 }
 
 /* ---- Founding Leadership row ---- */
 .leadership__row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .leader { text-align: center; }
 
 .leader__photo {
   display: block;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 10px;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 9px;
   border-radius: 50%;
   background: var(--photo-neutral);
   border: 2px solid var(--gold-ring);
@@ -486,8 +486,9 @@ ul { list-style: none; }
 .leader__name {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 15px;
-  line-height: 1.15;
+  font-size: 12.5px;
+  line-height: 1.1;
+  white-space: nowrap;
   color: var(--ink);
 }
 
@@ -495,7 +496,7 @@ ul { list-style: none; }
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: var(--ink);
   margin-top: 1px;
 }
@@ -503,7 +504,7 @@ ul { list-style: none; }
 .leader__bio {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 10.5px;
+  font-size: 10px;
   line-height: 1.5;
   color: var(--body-mauve);
   margin-top: 8px;
@@ -520,5 +521,6 @@ ul { list-style: none; }
 @media (max-width: 760px) {
   .pillars__grid { grid-template-columns: 1fr; row-gap: 28px; }
   .pillar__desc { max-width: none; }
-  .leadership__row { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+  .leadership__row { grid-template-columns: 1fr 1fr; row-gap: 36px; gap: 20px; }
+  .leader__name { white-space: normal; }
 }

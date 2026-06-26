@@ -42,6 +42,12 @@
   --s4-label:      #2B1233;  /* dark-navy item labels            */
   --s4-btn:        #3C1B42;  /* solid navy button fill           */
   --s4-btn-text:   #C9925A;  /* button gold/cream text           */
+
+  /* ---- Section 5 : A Shared Future banner ---- */
+  --s5-navy:       #14102E;  /* overlay navy/purple dimmer        */
+  --s5-navy-warm:  #2A1A3A;  /* warm sunset edge of overlay       */
+  --s5-heading:    #F4EFE6;  /* cream/white heading               */
+  --s5-text:       #D8D0C4;  /* cream paragraph text              */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -768,4 +774,54 @@ ul { list-style: none; }
 
 @media (max-width: 560px) {
   .involve__item { flex: 1 1 45%; }
+}
+
+/* ===================================================================
+   SECTION 5 : A SHARED FUTURE BANNER
+   =================================================================== */
+.future {
+  background-color: var(--s5-navy);
+  background-image:
+    linear-gradient(to right,
+      rgba(20, 16, 46, 0.86) 0%,
+      rgba(20, 16, 46, 0.80) 50%,
+      rgba(42, 26, 58, 0.82) 100%),
+    url("assets/section5-bg.png");
+  background-position: center, center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.future__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 46px 56px 50px;
+  text-align: center;
+}
+
+.future__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--s5-heading);
+  margin: 0;
+}
+
+.future__text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--s5-text);
+  margin: 18px 0 0;
+}
+
+@media (max-width: 760px) {
+  .future__inner { padding: 38px 28px 40px; }
+  .future__title { font-size: 28px; }
+  .future__text  { font-size: 12px; line-height: 1.8; }
+  .future__text br { display: none; }
 }

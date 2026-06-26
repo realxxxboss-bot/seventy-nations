@@ -33,6 +33,15 @@
   --s3-cream:      #D9D3E4;  /* paragraph cream/lavender        */
   --s3-btn:        #C8A04A;  /* solid gold button fill          */
   --s3-btn-dark:   #2A1606;  /* button dark text                */
+
+  /* --- Section 4 (Get Involved) — extracted from mockup --- */
+  --s4-cream:      #EFE3D6;  /* parchment strip background       */
+  --s4-gold:       #9A6E30;  /* heading + icons gold             */
+  --s4-gold-soft:  #A8743A;  /* italic subheading gold           */
+  --s4-line:       #C8A86E;  /* flanking + vertical dividers     */
+  --s4-label:      #2B1233;  /* dark-navy item labels            */
+  --s4-btn:        #3C1B42;  /* solid navy button fill           */
+  --s4-btn-text:   #C9925A;  /* button gold/cream text           */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -637,4 +646,126 @@ ul { list-style: none; }
   }
   .center__inner { padding: 48px 32px 52px; }
   .center__panel { max-width: 560px; }
+}
+
+/* ===================== SECTION 4 — GET INVOLVED ===================== */
+.involve {
+  background-color: var(--s4-cream);
+  background-image: url("assets/section4-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.involve__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 56px 20px;
+}
+
+.involve__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.involve__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--s4-gold);
+  white-space: nowrap;
+}
+
+.involve__line {
+  height: 1px;
+  width: 70px;
+  background: var(--s4-line);
+}
+
+.involve__sub {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--s4-gold-soft);
+  margin-top: 2px;
+}
+
+.involve__row {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.involve__items {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  flex: 1 1 auto;
+}
+
+.involve__item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 2px 10px;
+}
+
+.involve__item + .involve__item {
+  border-left: 1px solid rgba(200, 168, 110, 0.45);
+}
+
+.involve__icon { color: var(--s4-gold); line-height: 0; }
+.involve__icon svg { width: 27px; height: 27px; }
+
+.involve__label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: var(--s4-label);
+  text-align: center;
+}
+
+.involve__btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 36px;
+  padding: 11px 22px;
+  background: var(--s4-btn);
+  color: var(--s4-btn-text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.involve__btn:hover { background: #4d2455; transform: translateY(-1px); }
+.involve__btn-arrow { font-size: 13px; line-height: 1; }
+
+/* ---- Section 4 responsive ---- */
+@media (max-width: 1100px) {
+  .involve__inner { padding: 24px 28px 28px; }
+  .involve__row { flex-direction: column; gap: 22px; }
+  .involve__items { width: 100%; flex-wrap: wrap; }
+  .involve__item { flex: 1 1 30%; min-width: 110px; padding: 12px 8px; border-left: none !important; }
+  .involve__btn { margin-left: 0; }
+}
+
+@media (max-width: 560px) {
+  .involve__item { flex: 1 1 45%; }
 }

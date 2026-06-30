@@ -66,10 +66,13 @@ html { scroll-behavior: smooth; }
 
 /* offset anchor targets so the fixed header doesn't overlap headings */
 #home,
+#vision,
 #leadership,
+#pillars,
 #the-center,
 #get-involved,
-#vision { scroll-margin-top: 90px; }
+#meirah,
+#future { scroll-margin-top: 90px; }
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -213,7 +216,7 @@ ul { list-style: none; }
 /* ---- Isaiah quote (top-right) ---- */
 .hero__quote {
   position: absolute;
-  top: 130px;
+  top: 116px;
   right: 90px;
   z-index: 3;
   text-align: center;
@@ -227,7 +230,7 @@ ul { list-style: none; }
   font-size: 21px;
   line-height: 1.55;
   color: var(--quote-text);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 10px rgba(7, 5, 24, 0.9), 0 0 28px rgba(7, 5, 24, 0.7);
 }
 
 .hero__quote figcaption {
@@ -238,6 +241,7 @@ ul { list-style: none; }
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--gold);
+  text-shadow: 0 2px 10px rgba(7, 5, 24, 0.95), 0 0 22px rgba(7, 5, 24, 0.8);
 }
 
 /* ---- Left content ---- */
@@ -305,6 +309,8 @@ ul { list-style: none; }
   max-width: 440px;
 }
 
+.hero__lede + .hero__lede { margin-top: 14px; }
+
 /* ---- Buttons ---- */
 .hero__actions {
   display: flex;
@@ -362,7 +368,7 @@ ul { list-style: none; }
   .main-nav__list { display: none; }
   .hero__quote { position: static; margin: 0 auto; padding-top: 110px; text-align: center; }
   .hero__content { padding-top: 24px; min-height: auto; padding-bottom: 80px; }
-  .hero__title { font-size: 42px; }
+  .hero__title { font-size: 40px; white-space: normal; }
   .hero__actions { flex-wrap: wrap; }
 }
 

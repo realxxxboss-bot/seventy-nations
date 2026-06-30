@@ -15,15 +15,15 @@
   --nav-text:      #ECE7F4;  /* nav links                       */
   --quote-text:    #E7DEF1;  /* isaiah quote                    */
 
-  /* --- Section 2 (parchment) — extracted from mockup --- */
-  --cream:         #EFE6D6;  /* parchment background fallback   */
-  --ink:           #1C0B2E;  /* headings / titles / names       */
-  --body-mauve:    #5C4B54;  /* descriptions & bios             */
-  --badge-navy:    #1A0A38;  /* circular icon badge fill        */
-  --gold-icon:     #CDA063;  /* badge icon stroke               */
-  --gold-line:     #C49A5E;  /* decorative heading lines        */
-  --gold-ring:     #C8A06A;  /* headshot ring                   */
-  --photo-neutral: #C9BBA8;  /* headshot placeholder fill       */
+  /* --- Section 2 (Why / Visionaries parchment) — extracted from mockup --- */
+  --s2-cream:      #EFE6D6;  /* parchment background fallback   */
+  --s2-ink:        #1C0B2E;  /* serif column headings           */
+  --s2-body:       #2C2238;  /* dark-navy body paragraphs       */
+  --s2-emph:       #1C0B2E;  /* bold emphasized line            */
+  --s2-gold-icon:  #C8964A;  /* line-art globe / skyline stroke */
+  --s2-line:       #C49A5E;  /* thin vertical gold dividers     */
+  --s2-btn:        #2D0E45;  /* solid navy button fill          */
+  --s2-btn-text:   #F4D27A;  /* gold button text                */
 
   /* --- Section 3 (Jerusalem Unity Center) — extracted from mockup --- */
   --s3-navy:       #14102E;  /* solid navy panel base           */
@@ -63,6 +63,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+
+/* offset anchor targets so the fixed header doesn't overlap headings */
+#home,
+#leadership,
+#the-center,
+#get-involved,
+#vision { scroll-margin-top: 90px; }
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -360,208 +367,458 @@ ul { list-style: none; }
 }
 
 /* ===================================================================
-   SECTION 2 — Four Pillars + Founding Leadership (parchment)
+   SECTION 2 — Why The Seventy Nations / Why Jerusalem / Visionaries
+   (parchment, three columns with thin gold dividers)
    =================================================================== */
-.parchment {
-  background-color: var(--cream);
+.why {
+  background-color: var(--s2-cream);
   background-image: url("assets/section2-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--ink);
+  color: var(--s2-body);
 }
 
-.parchment__inner {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  max-width: 1400px;
+.why__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 56px;
+  max-width: 1340px;
   margin: 0 auto;
-  padding: 54px 56px 60px;
+  padding: 64px 56px 68px;
 }
 
-.pillars     { flex: 1 1 0; min-width: 0; }
-.leadership  { flex: 1 1 0; min-width: 0; }
+/* thin vertical gold dividers sitting in the gaps between columns */
+.why__col {
+  position: relative;
+  min-width: 0;
+}
 
-.parchment__divider {
-  flex: 0 0 1px;
-  align-self: stretch;
-  margin: 8px 0;
+.why__col + .why__col::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: -28px;
+  width: 1px;
   background: linear-gradient(
     180deg,
     rgba(196, 154, 94, 0) 0%,
-    rgba(196, 154, 94, 0.45) 18%,
-    rgba(196, 154, 94, 0.45) 82%,
+    rgba(196, 154, 94, 0.55) 14%,
+    rgba(196, 154, 94, 0.55) 86%,
     rgba(196, 154, 94, 0) 100%
   );
 }
 
-/* ---- Decorative section heading ---- */
-.sec-head {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 34px;
-}
-
-.sec-head__text {
+.why__title {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 24px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--ink);
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  color: var(--s2-ink);
+  margin: 0 0 20px;
 }
 
-.sec-head__line {
-  position: relative;
-  height: 1px;
-  width: 60px;
-  background: var(--gold-line);
+.why__body { font-size: 0; }   /* collapse whitespace around floated icon */
+
+/* line-art globe / skyline icon — floats so the first paragraph wraps beside it */
+.why__icon {
+  float: left;
+  width: 84px;
+  height: 84px;
+  margin: 4px 18px 6px 0;
+  color: var(--s2-gold-icon);
+  line-height: 0;
+}
+.why__icon svg { width: 100%; height: 100%; display: block; }
+.why__icon--wide { width: 104px; }
+
+.why__p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.72;
+  color: var(--s2-body);
+  margin: 0 0 16px;
 }
 
-/* small diamond + arrow head pointing toward the text */
-.sec-head__line::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 5px;
-  height: 5px;
-  background: var(--gold-line);
-  transform: translateY(-50%) rotate(45deg);
-}
-.sec-head__line--l { background: linear-gradient(90deg, rgba(196,154,94,0) 0%, var(--gold-line) 100%); }
-.sec-head__line--r { background: linear-gradient(90deg, var(--gold-line) 0%, rgba(196,154,94,0) 100%); }
-.sec-head__line--l::after { right: 0; }
-.sec-head__line--r::after { left: 0; }
-
-/* ---- Pillars : 4 in a single row ---- */
-.pillars__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 18px;
-  row-gap: 0;
+.why__emph {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--s2-emph);
+  margin: 0;
 }
 
-.pillar {
-  display: flex;
-  flex-direction: column;
+.why__btn {
+  display: inline-flex;
   align-items: center;
   gap: 9px;
-  text-align: center;
-}
-
-.pillar__head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.pillar__badge {
-  flex: 0 0 auto;
-  width: 78px;
-  height: 78px;
-  border-radius: 50%;
-  background: var(--badge-navy);
-  color: var(--gold-icon);
-  border: 2px solid var(--gold-ring);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 3px rgba(200, 160, 106, 0.18);
-}
-
-.pillar__badge svg { width: 36px; height: 36px; }
-
-.pillar__title {
+  margin-top: 8px;
+  padding: 13px 26px;
+  background: var(--s2-btn);
+  color: var(--s2-btn-text);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
-  line-height: 1.22;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--ink);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
-
-.pillar__desc {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--body-mauve);
-}
-
-/* ---- Founding Leadership row ---- */
-.leadership__row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.leader { text-align: center; }
-
-.leader__photo {
-  display: block;
-  width: 78px;
-  height: 78px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
-  background: var(--photo-neutral);
-  border: 2px solid var(--gold-ring);
-  box-shadow: 0 0 0 3px rgba(200, 160, 106, 0.18);
-  overflow: hidden;
-}
-
-.leader__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-}
-
-.leader__name {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.15;
-  color: var(--ink);
-}
-
-.leader__role {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 13.5px;
-  color: var(--ink);
-  margin-top: 2px;
-}
-
-.leader__bio {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--body-mauve);
-  margin-top: 9px;
-}
+.why__btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.why__btn-arrow { font-size: 15px; line-height: 1; }
 
 /* ---- Section 2 responsive ---- */
 @media (max-width: 1100px) {
-  .parchment__inner { flex-direction: column; gap: 56px; padding: 56px 32px 64px; }
-  .pillars, .leadership { flex: 1 1 auto; width: 100%; }
-  .parchment__divider { display: none; }
-  .leadership__row { gap: 20px; }
+  .why__inner { column-gap: 44px; padding: 56px 36px 60px; }
+  .why__title { font-size: 25px; }
+  .why__col + .why__col::before { left: -22px; }
 }
 
 @media (max-width: 760px) {
-  .pillars__grid { grid-template-columns: 1fr; row-gap: 28px; }
-  .pillar__desc { max-width: none; }
-  .leadership__row { grid-template-columns: 1fr 1fr; row-gap: 36px; gap: 20px; }
-  .leader__name { white-space: normal; }
+  .why__inner { grid-template-columns: 1fr; row-gap: 44px; padding: 48px 30px 52px; }
+  .why__col + .why__col::before { display: none; }
+  .why__col + .why__col {
+    padding-top: 44px;
+    border-top: 1px solid rgba(196, 154, 94, 0.45);
+  }
+  .why__title { font-size: 26px; }
+}
+
+/* ===================================================================
+   SECTION 2B — FOUNDING LEADERSHIP  (dark navy, four leader cards)
+   Colors sampled from assets/mockup-full-2.png
+   =================================================================== */
+:root {
+  --fl-navy-deep:  #07041C;  /* deepest navy edge                 */
+  --fl-navy:       #140A33;  /* base navy/purple                  */
+  --fl-navy-mid:   #1E1140;  /* lighter purple toward bottom      */
+  --fl-card-bg:    rgba(40, 24, 78, 0.42);  /* translucent card fill  */
+  --fl-border:     rgba(213, 167, 90, 0.42); /* thin translucent gold border */
+  --fl-gold:       #E1B45C;  /* heading + names serif gold        */
+  --fl-gold-soft:  #C9A05A;  /* italic role gold                  */
+  --fl-line:       #B98E45;  /* heading flank line + ring         */
+  --fl-bio:        #D6CFE6;  /* lavender-cream bio text           */
+  --fl-more:       #DCA94C;  /* READ MORE gold link               */
+}
+
+.leaders {
+  background-color: var(--fl-navy);             /* fallback while image loads */
+  background-image: url("assets/leadership-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint starfield, echoing the mockup's constellation feel */
+.leaders::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 6% 18%, rgba(227, 200, 150, 0.7), transparent 60%),
+    radial-gradient(1px 1px at 12% 64%, rgba(227, 200, 150, 0.45), transparent 60%),
+    radial-gradient(1.4px 1.4px at 22% 38%, rgba(227, 200, 150, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 47% 12%, rgba(227, 200, 150, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 68% 80%, rgba(227, 200, 150, 0.45), transparent 60%),
+    radial-gradient(1.4px 1.4px at 82% 30%, rgba(227, 200, 150, 0.6), transparent 60%),
+    radial-gradient(1px 1px at 92% 58%, rgba(227, 200, 150, 0.5), transparent 60%),
+    radial-gradient(1px 1px at 78% 14%, rgba(227, 200, 150, 0.4), transparent 60%);
+  pointer-events: none;
+}
+
+.leaders__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 60px 56px 66px;
+}
+
+/* ---- centered gold heading with flanking lines + inward arrows ---- */
+.leaders__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.leaders__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fl-gold);
+  white-space: nowrap;
+}
+
+.leaders__line {
+  height: 1px;
+  width: 86px;
+  background: linear-gradient(90deg, rgba(185, 142, 69, 0) 0%, var(--fl-line) 100%);
+}
+.leaders__head .leaders__line:last-child {
+  background: linear-gradient(90deg, var(--fl-line) 0%, rgba(185, 142, 69, 0) 100%);
+}
+
+.leaders__tip {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+.leaders__tip--r { border-left: 7px solid var(--fl-line); }   /* points inward (right) */
+.leaders__tip--l { border-right: 7px solid var(--fl-line); }  /* points inward (left)  */
+
+.leaders__star {
+  display: block;
+  text-align: center;
+  color: var(--fl-line);
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+/* ---- four cards in one row ---- */
+.leaders__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.leaders__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--fl-card-bg);
+  border: 1px solid var(--fl-border);
+  border-radius: 4px;
+  padding: 26px 22px 24px;
+}
+
+/* circular headshot with thin gold ring — identical size, centered */
+.leaders__photo {
+  display: block;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  padding: 3px;                       /* gap between ring and photo */
+  border: 1.5px solid var(--fl-line);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
+}
+.leaders__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.leaders__name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--fl-gold);
+  margin-top: 16px;
+}
+
+.leaders__role {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--fl-gold-soft);
+  margin-top: 4px;
+}
+
+.leaders__bio {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--fl-bio);
+  margin-top: 12px;
+}
+
+.leaders__more {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fl-more);
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.leaders__more:hover { color: var(--fl-gold); }
+.leaders__more span { margin-left: 4px; }
+
+/* ---- responsive: 2x2 on tablet, single column on phones ---- */
+@media (max-width: 1100px) {
+  .leaders__inner { padding: 56px 36px 60px; }
+  .leaders__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 560px) {
+  .leaders__inner { padding: 48px 26px 52px; }
+  .leaders__grid { grid-template-columns: 1fr; gap: 18px; }
+  .leaders__line { width: 48px; }
+  .leaders__title { font-size: 22px; letter-spacing: 0.1em; }
+}
+
+/* ===================================================================
+   SECTION 2C — OUR FOUR PILLARS  (light parchment, one row of four)
+   Colors sampled from assets/mockup-full-2.png
+   =================================================================== */
+:root {
+  --pl-cream:      #F2E5D3;  /* parchment background              */
+  --pl-badge:      #1F0A3C;  /* solid dark-navy icon badge fill   */
+  --pl-icon:       #D49A4E;  /* gold line-art icon stroke         */
+  --pl-heading:    #C5883A;  /* gold serif "OUR FOUR PILLARS"     */
+  --pl-line:       #C49A5E;  /* flank + vertical divider gold     */
+  --pl-title:      #1C0B2E;  /* bold dark-navy pillar title       */
+  --pl-desc:       #2C2238;  /* dark-navy description text         */
+}
+
+.pillars {
+  background-color: var(--pl-cream);            /* fallback while image loads */
+  background-image: url("assets/our-pillars-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pillars__inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 52px 56px 56px;
+}
+
+/* ---- centered gold heading with flanking lines + inward arrows ---- */
+.pillars__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pillars__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pl-heading);
+  white-space: nowrap;
+}
+
+.pillars__line {
+  height: 1px;
+  width: 86px;
+  background: linear-gradient(90deg, rgba(196, 154, 94, 0) 0%, var(--pl-line) 100%);
+}
+.pillars__head .pillars__line:last-child {
+  background: linear-gradient(90deg, var(--pl-line) 0%, rgba(196, 154, 94, 0) 100%);
+}
+
+.pillars__tip {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+.pillars__tip--r { border-left: 7px solid var(--pl-line); }   /* points inward (right) */
+.pillars__tip--l { border-right: 7px solid var(--pl-line); }  /* points inward (left)  */
+
+/* ---- four pillars in one row, thin gold dividers between ---- */
+.pillars__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 34px;
+}
+
+.pillars__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 6px 28px;
+}
+.pillars__item + .pillars__item {
+  border-left: 1px solid rgba(196, 154, 94, 0.45);
+}
+
+/* circular solid navy badge holding a gold line-art icon */
+.pillars__badge {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--pl-badge);
+  color: var(--pl-icon);
+}
+.pillars__badge svg {
+  width: 38px;
+  height: 38px;
+}
+
+.pillars__name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--pl-title);
+  margin: 2px 0 0;
+}
+
+.pillars__desc {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--pl-desc);
+  margin: 8px 0 0;
+}
+
+/* ---- responsive: 2x2 on tablet, single column on phones ---- */
+@media (max-width: 1100px) {
+  .pillars__inner { padding: 48px 36px 50px; }
+  .pillars__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 24px;
+    margin-top: 30px;
+  }
+  .pillars__item { padding: 0 12px; }
+  .pillars__item + .pillars__item { border-left: none; }
+  .pillars__item:nth-child(even) {
+    border-left: 1px solid rgba(196, 154, 94, 0.45);
+  }
+}
+
+@media (max-width: 560px) {
+  .pillars__inner { padding: 42px 26px 46px; }
+  .pillars__grid { grid-template-columns: 1fr; gap: 24px; }
+  .pillars__item,
+  .pillars__item:nth-child(even) { border-left: none; padding: 0; }
+  .pillars__line { width: 48px; }
+  .pillars__title { font-size: 22px; letter-spacing: 0.1em; }
 }
 
 /* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
@@ -797,6 +1054,137 @@ ul { list-style: none; }
 
 @media (max-width: 560px) {
   .involve__item { flex: 1 1 45%; }
+}
+
+/* ===================================================================
+   SECTION 4.5 : FOUNDER STRIP — MEIRAH
+   (compact full-width navy/starfield band between Get Involved
+    and the Shared Future banner)
+   =================================================================== */
+.founder {
+  /* exact navy/purple extracted from assets/mockup-full-2.png */
+  background:
+    radial-gradient(circle at 12% 40%, rgba(74, 48, 128, 0.35), transparent 45%),
+    radial-gradient(circle at 90% 60%, rgba(58, 34, 102, 0.32), transparent 48%),
+    linear-gradient(90deg, #150835 0%, #1B0A38 55%, #1A0C3A 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint starfield, echoing the mockup's constellation feel */
+.founder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 8% 28%, rgba(247, 216, 129, 0.6), transparent 60%),
+    radial-gradient(1px 1px at 18% 70%, rgba(247, 216, 129, 0.4), transparent 60%),
+    radial-gradient(1.3px 1.3px at 72% 24%, rgba(247, 216, 129, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 84% 66%, rgba(247, 216, 129, 0.45), transparent 60%),
+    radial-gradient(1px 1px at 60% 82%, rgba(247, 216, 129, 0.4), transparent 60%),
+    radial-gradient(1.3px 1.3px at 94% 38%, rgba(247, 216, 129, 0.5), transparent 60%);
+  pointer-events: none;
+}
+
+.founder__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.founder__main {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.founder__photo {
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  padding: 3px;
+  border: 1px solid #F7D881;      /* thin gold ring */
+  box-shadow: 0 0 0 1px rgba(247, 216, 129, 0.25);
+}
+
+.founder__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.founder__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: #F7D881;                 /* gold heading */
+  margin: 0 0 8px;
+}
+
+.founder__desc {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  color: #D8CFE4;                 /* light cream/lavender */
+  margin: 0;
+  max-width: 640px;
+}
+
+.founder__btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F7D881;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1px solid #F7D881;      /* gold outline button */
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.founder__btn:hover {
+  background-color: #F7D881;
+  color: #16093A;
+}
+
+.founder__btn-arrow { font-size: 14px; }
+
+@media (max-width: 760px) {
+  .founder__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 22px;
+    padding: 32px 26px;
+  }
+  .founder__main {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .founder__photo { width: 110px; height: 110px; }
+  .founder__title { font-size: 26px; }
+  .founder__desc { font-size: 13px; max-width: 520px; }
 }
 
 /* ===================================================================

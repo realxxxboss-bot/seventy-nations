@@ -183,9 +183,14 @@ ul { list-style: none; }
 .hero {
   position: relative;
   min-height: 600px;
+  background-color: var(--purple-deep);
   background-image: url("assets/hero-bg.png");
-  background-size: cover;
-  background-position: right center;
+  /* mockup scale: image spans ~83.5% of hero width, anchored top-right so the
+     dark pavement at the foot of the photo is cropped out; the uncovered left
+     strip is flat deep purple hidden under the opaque part of the overlay.
+     1200px floor keeps the photo tall enough to cover the hero vertically. */
+  background-size: max(83.5%, 1200px) auto;
+  background-position: right top;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -200,17 +205,17 @@ ul { list-style: none; }
       var(--purple-deep) 0%,
       var(--purple-deep) 22%,
       rgba(11, 5, 36, 0.92) 38%,
-      rgba(14, 7, 44, 0.62) 54%,
-      rgba(18, 9, 50, 0.3) 72%,
-      rgba(22, 11, 56, 0.1) 90%,
-      rgba(24, 12, 58, 0.05) 100%
+      rgba(14, 7, 44, 0.52) 54%,
+      rgba(18, 9, 50, 0.16) 72%,
+      rgba(22, 11, 56, 0.05) 90%,
+      rgba(24, 12, 58, 0.02) 100%
     ),
     linear-gradient(
       180deg,
       rgba(7, 5, 24, 0.55) 0%,
       rgba(7, 5, 24, 0) 22%,
-      rgba(7, 5, 24, 0) 70%,
-      rgba(7, 5, 24, 0.55) 100%
+      rgba(7, 5, 24, 0) 78%,
+      rgba(7, 5, 24, 0.25) 100%
     );
 }
 
@@ -355,6 +360,12 @@ ul { list-style: none; }
 }
 
 /* ===================== RESPONSIVE ===================== */
+@media (max-width: 1249px) {
+  /* below ~1250px the fixed-width photo can no longer cover the hero height;
+     fall back to cover, keeping the top anchor and centering on the dome */
+  .hero { background-size: cover; background-position: 68% top; }
+}
+
 @media (max-width: 1100px) {
   .site-header { padding: 18px 32px; }
   .main-nav { gap: 24px; }

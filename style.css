@@ -6,10 +6,11 @@
   --purple-deep:   #0A0522;  /* far-left hero background        */
   --purple-base:   #07051E;  /* darkest nav / emblem ground     */
   --purple-mid:    #1E1038;  /* gradient mid / nav right tone   */
-  --gold:          #E3BC82;  /* bright gold — subheading/accents*/
+  --gold:          #F2B83A;  /* bright gold — subheading/accents (mockup-sampled) */
   --gold-soft:     #D0A56B;  /* logo / muted gold               */
-  --gold-btn-1:    #D49C45;  /* button gradient top             */
-  --gold-btn-2:    #A56A23;  /* button gradient bottom          */
+  --gold-btn-1:    #B17731;  /* button gradient top (mockup-sampled) */
+  --gold-btn-2:    #8A5412;  /* button gradient bottom (mockup-sampled) */
+  --btn-text:      #F7F3E7;  /* warm white button text (mockup-sampled) */
   --white:         #F8F5FF;  /* heading white                   */
   --text-muted:    #CFC9DC;  /* paragraph lavender-grey         */
   --nav-text:      #ECE7F4;  /* nav links                       */
@@ -17,9 +18,9 @@
 
   /* --- Section 2 (Why / Visionaries parchment) — extracted from mockup --- */
   --s2-cream:      #EFE6D6;  /* parchment background fallback   */
-  --s2-ink:        #1C0B2E;  /* serif column headings           */
+  --s2-ink:        #170936;  /* serif column headings (mockup-sampled) */
   --s2-body:       #2C2238;  /* dark-navy body paragraphs       */
-  --s2-emph:       #1C0B2E;  /* bold emphasized line            */
+  --s2-emph:       #13062E;  /* bold emphasized line (mockup-sampled) */
   --s2-gold-icon:  #C8964A;  /* line-art globe / skyline stroke */
   --s2-line:       #C49A5E;  /* thin vertical gold dividers     */
   --s2-btn:        #2D0E45;  /* solid navy button fill          */
@@ -36,12 +37,14 @@
 
   /* --- Section 4 (Get Involved) — extracted from mockup --- */
   --s4-cream:      #EFE3D6;  /* parchment strip background       */
-  --s4-gold:       #9A6E30;  /* heading + icons gold             */
-  --s4-gold-soft:  #A8743A;  /* italic subheading gold           */
-  --s4-line:       #C8A86E;  /* flanking + vertical dividers     */
-  --s4-label:      #2B1233;  /* dark-navy item labels            */
-  --s4-btn:        #3C1B42;  /* solid navy button fill           */
-  --s4-btn-text:   #C9925A;  /* button gold/cream text           */
+  --s4-title:      #220E3F;  /* dark navy serif heading (mockup-sampled) */
+  --s4-gold:       #B2722B;  /* line-art icons gold (mockup-sampled) */
+  --s4-gold-soft:  #B47235;  /* italic subheading gold (mockup-sampled) */
+  --s4-line:       #D2A263;  /* flanking heading lines (mockup-sampled) */
+  --s4-divider:    rgba(167, 102, 32, 0.5); /* vertical item dividers (mockup-sampled) */
+  --s4-label:      #27103C;  /* dark-navy item labels (mockup-sampled) */
+  --s4-btn:        #361349;  /* solid deep-purple button fill (mockup-sampled) */
+  --s4-btn-text:   #EAB351;  /* button gold text (mockup-sampled) */
 
   /* ---- Section 5 : A Shared Future banner ---- */
   --s5-navy:       #14102E;  /* overlay navy/purple dimmer        */
@@ -150,26 +153,26 @@ ul { list-style: none; }
 }
 
 .main-nav__list a {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.09em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--nav-text);
+  color: #F3F4F7;
   transition: color 0.2s ease;
 }
 
 .main-nav__list a:hover { color: var(--gold); }
 
 .btn-donate {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.11em;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   white-space: nowrap;
-  color: var(--purple-base);
+  color: var(--btn-text);
   background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
   padding: 9px 22px;
   border-radius: 4px;
@@ -281,29 +284,33 @@ ul { list-style: none; }
   margin-top: 10px;
 }
 
+/* mockup ornament: thin gold line — sun/star burst — thin gold line,
+   spanning the width of the subtitle */
 .hero__rule {
   display: flex;
   align-items: center;
+  gap: 12px;
+  max-width: 355px;
   margin: 20px 0 22px;
 }
 
-.hero__rule span {
-  position: relative;
-  display: block;
-  width: 110px;
+.hero__rule::before,
+.hero__rule::after {
+  content: "";
+  flex: 1 1 0;
   height: 1px;
-  background: linear-gradient(90deg, var(--gold) 0%, rgba(227, 188, 130, 0) 100%);
+  background: rgba(229, 173, 60, 0.55);   /* sampled from mockup accent line */
+}
+
+.hero__rule span {
+  display: block;
+  line-height: 1;
+  font-size: 13px;
+  color: #E5AD3C;                         /* sampled from mockup star ornament */
 }
 
 .hero__rule span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  transform: translateY(-50%) rotate(45deg);
+  content: "\2739";                       /* twelve-pointed star burst */
 }
 
 .hero__lede {
@@ -341,7 +348,7 @@ ul { list-style: none; }
 .btn__arrow { font-size: 15px; line-height: 1; }
 
 .btn--solid {
-  color: var(--purple-base);
+  color: var(--btn-text);
   background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
@@ -561,11 +568,12 @@ ul { list-style: none; }
   --fl-navy-mid:   #1E1140;  /* lighter purple toward bottom      */
   --fl-card-bg:    rgba(40, 24, 78, 0.42);  /* translucent card fill  */
   --fl-border:     rgba(213, 167, 90, 0.42); /* thin translucent gold border */
-  --fl-gold:       #E1B45C;  /* heading + names serif gold        */
-  --fl-gold-soft:  #C9A05A;  /* italic role gold                  */
+  --fl-gold:       #EFC247;  /* heading serif gold (mockup-sampled) */
+  --fl-name:       #F2C84D;  /* leader names serif gold (mockup-sampled) */
+  --fl-gold-soft:  #D2CFD7;  /* italic role — cream/lavender (mockup-sampled) */
   --fl-line:       #B98E45;  /* heading flank line + ring         */
-  --fl-bio:        #D6CFE6;  /* lavender-cream bio text           */
-  --fl-more:       #DCA94C;  /* READ MORE gold link               */
+  --fl-bio:        #D1CED9;  /* lavender-cream bio text (mockup-sampled) */
+  --fl-more:       #D39E42;  /* READ MORE gold link (mockup-sampled) */
 }
 
 .leaders {
@@ -692,7 +700,7 @@ ul { list-style: none; }
   font-weight: 600;
   font-size: 21px;
   line-height: 1.2;
-  color: var(--fl-gold);
+  color: var(--fl-name);
   margin-top: 16px;
 }
 
@@ -749,7 +757,7 @@ ul { list-style: none; }
   --pl-cream:      #F2E5D3;  /* parchment background              */
   --pl-badge:      #1F0A3C;  /* solid dark-navy icon badge fill   */
   --pl-icon:       #D49A4E;  /* gold line-art icon stroke         */
-  --pl-heading:    #C5883A;  /* gold serif "OUR FOUR PILLARS"     */
+  --pl-heading:    #170839;  /* dark navy serif "OUR FOUR PILLARS" (mockup-sampled) */
   --pl-line:       #C49A5E;  /* flank + vertical divider gold     */
   --pl-title:      #1C0B2E;  /* bold dark-navy pillar title       */
   --pl-desc:       #2C2238;  /* dark-navy description text         */
@@ -903,7 +911,7 @@ ul { list-style: none; }
 .center__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 56px 56px 60px;
+  padding: 24px 56px 60px;
 }
 
 .center__panel {
@@ -914,9 +922,9 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
+  width: 170px;
+  height: 170px;
+  margin-bottom: 14px;
 }
 
 .center__badge img {
@@ -961,8 +969,9 @@ ul { list-style: none; }
   gap: 8px;
   margin-top: 26px;
   padding: 13px 28px;
-  background: var(--s3-btn);
-  color: var(--s3-btn-dark);
+  /* mockup-sampled: gold gradient with warm white text */
+  background: linear-gradient(180deg, #B47932 0%, #945A13 100%);
+  color: #F9F8F1;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -970,10 +979,10 @@ ul { list-style: none; }
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 2px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.center__btn:hover { background: var(--s3-gold); transform: translateY(-1px); }
+.center__btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
 .center__btn-arrow { font-size: 15px; line-height: 1; }
 
@@ -987,8 +996,12 @@ ul { list-style: none; }
         rgba(20,16,46,0.55) 100%),
       url("assets/section3-bg-high-res.png");
   }
-  .center__inner { padding: 48px 32px 52px; }
+  .center__inner { padding: 22px 32px 52px; }
   .center__panel { max-width: 560px; }
+}
+
+@media (max-width: 560px) {
+  .center__badge { width: 140px; height: 140px; }
 }
 
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
@@ -1019,7 +1032,7 @@ ul { list-style: none; }
   font-size: 25px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--s4-gold);
+  color: var(--s4-title);
   white-space: nowrap;
 }
 
@@ -1063,7 +1076,7 @@ ul { list-style: none; }
 }
 
 .involve__item + .involve__item {
-  border-left: 1px solid rgba(200, 168, 110, 0.45);
+  border-left: 1px solid var(--s4-divider);
 }
 
 .involve__icon { color: var(--s4-gold); line-height: 0; }
@@ -1093,11 +1106,11 @@ ul { list-style: none; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 8px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.involve__btn:hover { background: #4d2455; transform: translateY(-1px); }
+.involve__btn:hover { background: #4a2160; transform: translateY(-1px); }
 .involve__btn-arrow { font-size: 15px; line-height: 1; }
 
 /* ---- Section 4 responsive ---- */
@@ -1186,7 +1199,7 @@ ul { list-style: none; }
   font-size: 30px;
   line-height: 1.1;
   letter-spacing: 0.01em;
-  color: #F7D881;                 /* gold heading */
+  color: #EEB64A;                 /* gold heading (mockup-sampled) */
   margin: 0 0 8px;
 }
 
@@ -1211,17 +1224,17 @@ ul { list-style: none; }
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #F7D881;
+  color: #DDA542;                 /* gold text (mockup-sampled) */
   text-decoration: none;
   padding: 12px 24px;
-  border: 1px solid #F7D881;      /* gold outline button */
+  border: 1px solid #C9963F;      /* gold outline button (mockup-sampled) */
   border-radius: 2px;
   white-space: nowrap;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .founder__btn:hover {
-  background-color: #F7D881;
+  background-color: #DDA542;
   color: #16093A;
 }
 
@@ -1249,15 +1262,27 @@ ul { list-style: none; }
    =================================================================== */
 .future {
   background-color: var(--s5-navy);
+  /* mockup overlay: darker purple core behind the text, fading toward the
+     edges so the sunset panorama shows through; slight extra darkening at
+     the very bottom (band medians sampled from mockup: edges ~#301028 /
+     #3E1B2F, centre ~#2E103E, bottom ~#13072E) */
   background-image:
     linear-gradient(to right,
-      rgba(20, 16, 46, 0.86) 0%,
-      rgba(20, 16, 46, 0.80) 50%,
-      rgba(42, 26, 58, 0.82) 100%),
+      rgba(22, 8, 38, 0.28) 0%,
+      rgba(25, 10, 50, 0.62) 22%,
+      rgba(23, 9, 54, 0.87) 40%,
+      rgba(23, 9, 54, 0.87) 60%,
+      rgba(28, 12, 48, 0.62) 78%,
+      rgba(36, 15, 40, 0.28) 100%),
+    linear-gradient(to bottom,
+      rgba(10, 4, 28, 0.25) 0%,
+      rgba(10, 4, 28, 0) 30%,
+      rgba(8, 4, 26, 0) 62%,
+      rgba(8, 4, 26, 0.55) 100%),
     url("assets/section5-bg-high-res.png");
-  background-position: center, center;
-  background-size: cover, cover;
-  background-repeat: no-repeat, no-repeat;
+  background-position: center, center, center;
+  background-size: cover, cover, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat;
 }
 
 .future__inner {
@@ -1454,29 +1479,13 @@ ul { list-style: none; }
 .footer__bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
+  justify-content: center;
   margin-top: 40px;
   padding-top: 26px;
   border-top: 1px solid var(--ft-line);
 }
-.footer__nav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer__nav a {
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.07em;
-  color: var(--ft-muted);
-  text-decoration: none;
-}
-.footer__nav a:hover { color: var(--ft-gold); }
-.footer__nav span { color: var(--ft-line); font-size: 13px; }
 .footer__copy {
+  text-align: center;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   letter-spacing: 0.02em;
@@ -1490,6 +1499,5 @@ ul { list-style: none; }
 @media (max-width: 620px) {
   .footer__inner { padding: 32px 24px 22px; }
   .footer__top { flex-direction: column; gap: 24px; }
-  .footer__bottom { flex-direction: column; align-items: flex-start; }
   .footer__connect-text br { display: none; }
 }

@@ -1324,24 +1324,21 @@ ul { list-style: none; }
 .footer__brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
+/* Transparent logo PNGs carry ~19% built-in padding per side,
+   so the 76px box renders ~48px of visible artwork. */
 .footer__crest {
   flex: 0 0 auto;
   line-height: 0;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid var(--ft-gold);
-  box-shadow: 0 0 0 3px rgba(200, 160, 106, 0.18);
-  overflow: hidden;
+  width: 76px;
+  height: 76px;
 }
 .footer__crest img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  border-radius: 50%;
   display: block;
 }
 .footer__brand-text { display: flex; flex-direction: column; }
@@ -1363,23 +1360,18 @@ ul { list-style: none; }
 
 /* 2. Sub-brands */
 .footer__marks { display: flex; gap: 22px; }
-.footer__mark { display: flex; align-items: center; gap: 11px; }
+.footer__mark { display: flex; align-items: center; gap: 8px; }
 .footer__mark-icon {
   line-height: 0;
   flex: 0 0 auto;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid var(--ft-gold);
-  box-shadow: 0 0 0 3px rgba(200, 160, 106, 0.18);
-  overflow: hidden;
+  width: 76px;
+  height: 76px;
 }
 .footer__mark-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  border-radius: 50%;
   display: block;
 }
 .footer__mark-text {

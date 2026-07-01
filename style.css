@@ -184,7 +184,7 @@ ul { list-style: none; }
   position: relative;
   min-height: 600px;
   background-color: var(--purple-deep);
-  background-image: url("assets/hero-bg.png");
+  background-image: url("assets/hero-bg-high-res.png");
   /* mockup scale: image spans ~83.5% of hero width, anchored top-right so the
      dark pavement at the foot of the photo is cropped out; the uncovered left
      strip is flat deep purple hidden under the opaque part of the overlay.
@@ -390,7 +390,7 @@ ul { list-style: none; }
    =================================================================== */
 .why {
   background-color: var(--s2-cream);
-  background-image: url("assets/section2-bg.png");
+  background-image: url("assets/section2-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -570,7 +570,7 @@ ul { list-style: none; }
 
 .leaders {
   background-color: var(--fl-navy);             /* fallback while image loads */
-  background-image: url("assets/leadership-bg.png");
+  background-image: url("assets/leadership-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -757,7 +757,7 @@ ul { list-style: none; }
 
 .pillars {
   background-color: var(--pl-cream);            /* fallback while image loads */
-  background-image: url("assets/our-pillars-bg.png");
+  background-image: url("assets/our-pillars-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -894,7 +894,7 @@ ul { list-style: none; }
       rgba(20,16,46,0.92) 38%,
       rgba(20,16,46,0.45) 52%,
       rgba(20,16,46,0) 66%),
-    url("assets/section3-bg.png");
+    url("assets/section3-bg-high-res.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -985,7 +985,7 @@ ul { list-style: none; }
         var(--s3-navy) 0%,
         rgba(20,16,46,0.9) 50%,
         rgba(20,16,46,0.55) 100%),
-      url("assets/section3-bg.png");
+      url("assets/section3-bg-high-res.png");
   }
   .center__inner { padding: 48px 32px 52px; }
   .center__panel { max-width: 560px; }
@@ -994,7 +994,7 @@ ul { list-style: none; }
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
 .involve {
   background-color: var(--s4-cream);
-  background-image: url("assets/section4-bg.png");
+  background-image: url("assets/section4-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1120,7 +1120,7 @@ ul { list-style: none; }
    =================================================================== */
 .founder {
   background-color: #1A0C3A;                     /* navy fallback while image loads */
-  background-image: url("assets/leadership-bg.png");
+  background-image: url("assets/leadership-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1254,7 +1254,7 @@ ul { list-style: none; }
       rgba(20, 16, 46, 0.86) 0%,
       rgba(20, 16, 46, 0.80) 50%,
       rgba(42, 26, 58, 0.82) 100%),
-    url("assets/section5-bg.png");
+    url("assets/section5-bg-high-res.png");
   background-position: center, center;
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;

@@ -187,29 +187,32 @@ ul { list-style: none; }
   position: relative;
   min-height: 600px;
   background-color: var(--purple-deep);
-  background-image: url("assets/hero-bg-high-res.png");
-  /* mockup scale: image spans ~83.5% of hero width, anchored top-right so the
-     dark pavement at the foot of the photo is cropped out; the uncovered left
-     strip is flat deep purple hidden under the opaque part of the overlay.
-     1200px floor keeps the photo tall enough to cover the hero vertically. */
-  background-size: max(83.5%, 1200px) auto;
-  background-position: right top;
+  background-image: url("assets/new-hero-bg-high-res.png");
+  /* the new artwork is full-bleed: deep purple + constellation motif on the
+     left, Jerusalem cityscape lower-left, sun on the right at ~63% height.
+     cover + "center 70%" crops mostly empty purple sky off the top and keeps
+     the cityscape base and sun disc in frame on wide viewports. */
+  background-size: cover;
+  background-position: center 70%;
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
-/* dark purple gradient overlay: opaque left -> sunset reveal right */
+/* dark purple gradient overlay: dense left -> sunset reveal right.
+   the new artwork is already deep purple on the left, so the left band is
+   semi-opaque (not solid) — text keeps full contrast while the constellation
+   motif in the image still ghosts through */
 .hero__overlay {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(
       100deg,
-      var(--purple-deep) 0%,
-      var(--purple-deep) 22%,
-      rgba(11, 5, 36, 0.92) 38%,
-      rgba(14, 7, 44, 0.52) 54%,
-      rgba(18, 9, 50, 0.16) 72%,
+      rgba(10, 5, 34, 0.88) 0%,
+      rgba(10, 5, 34, 0.80) 22%,
+      rgba(11, 5, 36, 0.62) 38%,
+      rgba(14, 7, 44, 0.38) 54%,
+      rgba(18, 9, 50, 0.14) 72%,
       rgba(22, 11, 56, 0.05) 90%,
       rgba(24, 12, 58, 0.02) 100%
     ),
@@ -230,6 +233,21 @@ ul { list-style: none; }
   z-index: 3;
   text-align: center;
   max-width: 460px;
+}
+
+/* soft purple pool behind the quote: the light streams in the new artwork
+   pass right under the quote's last line, so give it a localized dim halo */
+.hero__quote::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -46px -70px -52px;
+  background: radial-gradient(
+    closest-side,
+    rgba(10, 5, 34, 0.45),
+    rgba(10, 5, 34, 0.24) 55%,
+    rgba(10, 5, 34, 0) 100%
+  );
 }
 
 .hero__quote blockquote {
@@ -368,9 +386,9 @@ ul { list-style: none; }
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 1249px) {
-  /* below ~1250px the fixed-width photo can no longer cover the hero height;
-     fall back to cover, keeping the top anchor and centering on the dome */
-  .hero { background-size: cover; background-position: 68% top; }
+  /* narrower viewports crop the image sides; 60% keeps the cityscape and the
+     light streams in frame with the sun's glow still entering from the right */
+  .hero { background-position: 60% 70%; }
 }
 
 @media (max-width: 1100px) {
@@ -400,10 +418,10 @@ ul { list-style: none; }
   .hero {
     background-size: cover;
     background-repeat: no-repeat;
-    /* dome centre sits at ~58% of the source width; 60% keeps the golden dome
-       (the sharpest part of the photo) framed on tall narrow screens instead of
-       the hazy sun-glow further right */
-    background-position: 60% top;
+    /* on tall narrow screens only ~25% of the image width fits; 42% centres
+       the window on the cityscape and the burst where the light streams rise,
+       with the sky's purple-to-gold gradient above */
+    background-position: 42% center;
   }
   /* portrait overlay: dark bands top & bottom so quote and content stay legible,
      lighter middle so the skyline still reads through */
@@ -424,6 +442,9 @@ ul { list-style: none; }
     padding: 104px 24px 0;
     text-align: center;
   }
+  /* mobile's full-width top gradient band already dims the sky behind the
+     quote; the desktop halo would mis-anchor on a static element anyway */
+  .hero__quote::before { display: none; }
   .hero__quote blockquote {
     font-size: 17px;
     line-height: 1.6;
@@ -733,6 +754,36 @@ ul { list-style: none; }
   margin-top: 6px;
 }
 
+/* ---- centered intro paragraph under the heading ---- */
+.leaders__intro {
+  max-width: 860px;
+  margin: 22px auto 0;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fl-bio);
+}
+
+.leaders__intro-emph {
+  display: block;
+  margin-top: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--fl-gold-soft);
+}
+
+/* lifetime years inside a leader's name — smaller, softer */
+.leaders__years {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fl-gold-soft);
+}
+
 /* ---- four cards in one row ---- */
 .leaders__grid {
   list-style: none;
@@ -826,6 +877,8 @@ ul { list-style: none; }
   .leaders__head { gap: 10px; }
   .leaders__line { width: 34px; }
   .leaders__title { font-size: 20px; letter-spacing: 0.08em; }
+  .leaders__intro { margin-top: 18px; font-size: 14px; line-height: 1.65; text-align: left; }
+  .leaders__intro-emph { font-size: 18px; }
   .leaders__grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1072,6 +1125,7 @@ ul { list-style: none; }
   margin-top: 20px;
   max-width: 500px;
 }
+.center__text + .center__text { margin-top: 14px; }
 
 .center__btn {
   display: inline-flex;

@@ -629,11 +629,12 @@ ul { list-style: none; }
     padding-top: 40px;
     border-top: 1px solid rgba(196, 154, 94, 0.4);
   }
-  /* left-aligned stacks read as more organized on narrow screens */
+  /* centered stacks for a tidy, symmetric read on narrow screens */
+  .why__col { text-align: center; }
   .why__title,
-  .why__title--centered { font-size: 23px; line-height: 1.2; text-align: left; margin-bottom: 18px; }
+  .why__title--centered { font-size: 23px; line-height: 1.2; text-align: center; margin-bottom: 18px; }
 
-  /* column 1: heading, globe on the left, then text — one clean left stack */
+  /* column 1: heading, globe centered, then text — one clean centered stack */
   .why__col--globe {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -642,17 +643,17 @@ ul { list-style: none; }
       "text";
     column-gap: 0;
   }
-  .why__icon--globe { width: 96px; margin: 0 0 18px; }
+  .why__icon--globe { width: 96px; margin: 0 auto 18px; }
 
-  /* column 2: skyline sits on the left above its paragraph */
-  .why__lede { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .why__icon--skyline { width: 130px; margin: 0; }
+  /* column 2: skyline sits centered above its paragraph */
+  .why__lede { flex-direction: column; align-items: center; gap: 16px; }
+  .why__icon--skyline { width: 130px; margin: 0 auto; }
 
   .why__p { font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
   .why__emph { font-size: 15px; line-height: 1.65; }
 
-  /* column 3: copy and call-to-action flush left */
-  .why__body { text-align: left; }
+  /* column 3: copy and call-to-action centered */
+  .why__body { text-align: center; }
   .why__btn { margin-top: 8px; padding: 14px 28px; }
 }
 
@@ -877,7 +878,7 @@ ul { list-style: none; }
   .leaders__head { gap: 10px; }
   .leaders__line { width: 34px; }
   .leaders__title { font-size: 20px; letter-spacing: 0.08em; }
-  .leaders__intro { margin-top: 18px; font-size: 14px; line-height: 1.65; text-align: left; }
+  .leaders__intro { margin-top: 18px; font-size: 14px; line-height: 1.65; text-align: center; }
   .leaders__intro-emph { font-size: 18px; }
   .leaders__grid {
     grid-template-columns: 1fr;
@@ -1038,20 +1039,20 @@ ul { list-style: none; }
     margin: 28px auto 0;
     max-width: 420px;
   }
-  /* each pillar: badge, then title, then text — one tidy left-aligned unit */
+  /* each pillar: badge centered on top, then title, then text — one tidy centered unit */
   .pillars__item,
   .pillars__item:nth-child(even) {
     border-left: none;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
     gap: 14px;
     padding: 0;
   }
-  .pillars__badge { width: 64px; height: 64px; }
+  .pillars__badge { width: 64px; height: 64px; margin: 0 auto; }
   .pillars__badge svg { width: 40px; height: 40px; }
   .pillars__name { font-size: 20px; margin: 0; }
-  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px 0 0; max-width: 320px; }
+  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px auto 0; max-width: 320px; }
 }
 
 /* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
@@ -1182,12 +1183,12 @@ ul { list-style: none; }
     background-repeat: no-repeat, no-repeat;
   }
   .center__inner { padding: 44px 22px 52px; }
-  /* left-aligned panel, matching the desktop composition */
-  .center__panel { max-width: 480px; margin: 0; text-align: left; }
-  .center__badge { width: 128px; height: 128px; margin: 0 0 12px; }
+  /* centered panel: logo, headings, copy, and button in one centered stack */
+  .center__panel { max-width: 480px; margin: 0 auto; text-align: center; }
+  .center__badge { width: 128px; height: 128px; margin: 0 auto 12px; }
   .center__title { font-size: 28px; line-height: 1.15; }
   .center__subtitle { font-size: 18px; margin-top: 6px; }
-  .center__text { font-size: 15px; line-height: 1.7; margin: 16px 0 0; text-align: left; }
+  .center__text { font-size: 15px; line-height: 1.7; margin: 16px auto 0; text-align: center; }
   .center__btn { margin-top: 24px; padding: 15px 30px; }
 }
 
@@ -1322,10 +1323,10 @@ ul { list-style: none; }
     grid-template-columns: repeat(2, 1fr);
     gap: 24px 12px;
   }
-  /* each item: icon over label, flush left, matching the page's left-aligned rhythm */
-  .involve__item { padding: 0; gap: 10px; min-width: 0; align-items: flex-start; }
+  /* each item: icon centered over its label */
+  .involve__item { padding: 0; gap: 10px; min-width: 0; align-items: center; }
   .involve__icon svg { width: 34px; height: 34px; }
-  .involve__label { font-size: 14px; line-height: 1.4; text-align: left; }
+  .involve__label { font-size: 14px; line-height: 1.4; text-align: center; }
   .involve__btn {
     width: 100%;
     max-width: 340px;
@@ -1452,15 +1453,16 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .founder__inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 22px;
     padding: 44px 22px 48px;
+    text-align: center;
   }
-  /* photo, heading, copy, and button in one left-aligned stack */
-  .founder__main { flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+  /* photo, heading, copy, and button in one centered stack */
+  .founder__main { flex-direction: column; align-items: center; gap: 18px; text-align: center; }
   .founder__photo { width: 112px; height: 112px; }
   .founder__title { font-size: 25px; line-height: 1.2; margin-bottom: 10px; }
-  .founder__desc { font-size: 14.5px; line-height: 1.7; max-width: 480px; text-align: left; }
+  .founder__desc { font-size: 14.5px; line-height: 1.7; max-width: 480px; text-align: center; margin: 0 auto; }
   .founder__btn { padding: 14px 30px; }
 }
 

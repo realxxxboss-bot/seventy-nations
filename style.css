@@ -399,7 +399,11 @@ ul { list-style: none; }
   /* ---- Hero ---- */
   .hero {
     background-size: cover;
-    background-position: 68% top;   /* keep the dome in frame on tall narrow screens */
+    background-repeat: no-repeat;
+    /* dome centre sits at ~58% of the source width; 60% keeps the golden dome
+       (the sharpest part of the photo) framed on tall narrow screens instead of
+       the hazy sun-glow further right */
+    background-position: 60% top;
   }
   /* portrait overlay: dark bands top & bottom so quote and content stay legible,
      lighter middle so the skyline still reads through */
@@ -604,9 +608,11 @@ ul { list-style: none; }
     padding-top: 40px;
     border-top: 1px solid rgba(196, 154, 94, 0.4);
   }
-  .why__title { font-size: 23px; line-height: 1.2; text-align: center; margin-bottom: 18px; }
+  /* left-aligned stacks read as more organized on narrow screens */
+  .why__title,
+  .why__title--centered { font-size: 23px; line-height: 1.2; text-align: left; margin-bottom: 18px; }
 
-  /* column 1: heading, centered globe, then text — one clean stack */
+  /* column 1: heading, globe on the left, then text — one clean left stack */
   .why__col--globe {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -615,18 +621,17 @@ ul { list-style: none; }
       "text";
     column-gap: 0;
   }
-  .why__icon--globe { width: 96px; margin: 0 auto 18px; }
+  .why__icon--globe { width: 96px; margin: 0 0 18px; }
 
-  /* column 2: centered skyline above its paragraph */
-  .why__lede { flex-direction: column; gap: 16px; }
-  .why__icon--skyline { width: 130px; margin: 0 auto; }
+  /* column 2: skyline sits on the left above its paragraph */
+  .why__lede { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .why__icon--skyline { width: 130px; margin: 0; }
 
   .why__p { font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
   .why__emph { font-size: 15px; line-height: 1.65; }
 
-  /* column 3: centered call-to-action under left-aligned copy */
-  .why__body { text-align: center; }
-  .why__body .why__p { text-align: left; }
+  /* column 3: copy and call-to-action flush left */
+  .why__body { text-align: left; }
   .why__btn { margin-top: 8px; padding: 14px 28px; }
 }
 
@@ -980,20 +985,20 @@ ul { list-style: none; }
     margin: 28px auto 0;
     max-width: 420px;
   }
-  /* each pillar: centered badge, then title, then text — one clean stack */
+  /* each pillar: badge, then title, then text — one tidy left-aligned unit */
   .pillars__item,
   .pillars__item:nth-child(even) {
     border-left: none;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 14px;
     padding: 0;
   }
   .pillars__badge { width: 64px; height: 64px; }
   .pillars__badge svg { width: 40px; height: 40px; }
   .pillars__name { font-size: 20px; margin: 0; }
-  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px auto 0; max-width: 320px; }
+  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px 0 0; max-width: 320px; }
 }
 
 /* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
@@ -1116,15 +1121,19 @@ ul { list-style: none; }
         rgba(20, 16, 46, 0.86) 40%,
         rgba(20, 16, 46, 0.66) 100%),
       url("assets/section3-bg-high-res.png");
-    background-position: center, 70% center;
+    /* building's glass dome centres at ~73% of the source width; frame it
+       so the lit facade fills the tall crop instead of the empty sky left of it */
+    background-position: center, 73% center;
     background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
   }
   .center__inner { padding: 44px 22px 52px; }
-  .center__panel { max-width: 480px; margin: 0 auto; text-align: center; }
-  .center__badge { width: 128px; height: 128px; margin: 0 auto 12px; }
+  /* left-aligned panel, matching the desktop composition */
+  .center__panel { max-width: 480px; margin: 0; text-align: left; }
+  .center__badge { width: 128px; height: 128px; margin: 0 0 12px; }
   .center__title { font-size: 28px; line-height: 1.15; }
   .center__subtitle { font-size: 18px; margin-top: 6px; }
-  .center__text { font-size: 15px; line-height: 1.7; margin: 16px auto 0; text-align: left; }
+  .center__text { font-size: 15px; line-height: 1.7; margin: 16px 0 0; text-align: left; }
   .center__btn { margin-top: 24px; padding: 15px 30px; }
 }
 
@@ -1259,9 +1268,10 @@ ul { list-style: none; }
     grid-template-columns: repeat(2, 1fr);
     gap: 24px 12px;
   }
-  .involve__item { padding: 0; gap: 10px; min-width: 0; }
+  /* each item: icon over label, flush left, matching the page's left-aligned rhythm */
+  .involve__item { padding: 0; gap: 10px; min-width: 0; align-items: flex-start; }
   .involve__icon svg { width: 34px; height: 34px; }
-  .involve__label { font-size: 14px; line-height: 1.4; }
+  .involve__label { font-size: 14px; line-height: 1.4; text-align: left; }
   .involve__btn {
     width: 100%;
     max-width: 340px;
@@ -1388,10 +1398,12 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .founder__inner {
     flex-direction: column;
+    align-items: flex-start;
     gap: 22px;
     padding: 44px 22px 48px;
   }
-  .founder__main { flex-direction: column; gap: 18px; text-align: center; }
+  /* photo, heading, copy, and button in one left-aligned stack */
+  .founder__main { flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
   .founder__photo { width: 112px; height: 112px; }
   .founder__title { font-size: 25px; line-height: 1.2; margin-bottom: 10px; }
   .founder__desc { font-size: 14.5px; line-height: 1.7; max-width: 480px; text-align: left; }
@@ -1653,31 +1665,35 @@ ul { list-style: none; }
 }
 /* ============ MOBILE — footer (max-width: 768px) ============ */
 @media (max-width: 768px) {
-  .footer { background-position: center bottom; }
+  .footer { background-position: center bottom; background-size: cover; background-repeat: no-repeat; }
   .footer__inner { padding: 44px 22px 24px; }
+  /* logos in a left-aligned 2-column grid: brand crest + Unity Center on the
+     first row, One Day JLM on the second; newsletter and social span full width */
   .footer__top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    text-align: left;
+    gap: 30px 16px;
   }
-  /* brand crest stacked and centered */
-  .footer__brand { flex-direction: column; gap: 6px; }
-  .footer__brand-text { align-items: center; }
+  .footer__marks { display: contents; }
+  /* each logo unit stacked, flush left */
+  .footer__brand { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .footer__brand-text { align-items: flex-start; }
   .footer__crest { width: 84px; height: 84px; }
-  /* sub-brand marks side by side, each stacked and centered */
-  .footer__marks { justify-content: center; gap: 30px; }
-  .footer__mark { flex-direction: column; gap: 4px; }
+  .footer__mark { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .footer__connect,
+  .footer__follow { grid-column: 1 / -1; }
   /* newsletter block */
   .footer__connect { max-width: 400px; width: 100%; }
   .footer__label { font-size: 20px; margin-bottom: 8px; }
   .footer__connect-text { font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
   .footer__connect-text br { display: none; }
-  .footer__subscribe { width: 100%; max-width: 400px; margin: 0 auto; }
+  .footer__subscribe { width: 100%; max-width: 400px; margin: 0; }
   .footer__input { height: 46px; font-size: 14px; padding: 0 14px; }
   .footer__sub-btn { height: 46px; padding: 0 20px; }
-  /* social icons */
-  .footer__social { justify-content: center; gap: 16px; }
+  /* social icons flush left */
+  .footer__social { justify-content: flex-start; gap: 16px; }
   .footer__social-btn { width: 44px; height: 44px; }
   /* bottom bar */
   .footer__bottom { margin-top: 34px; padding-top: 22px; }
@@ -1723,6 +1739,5 @@ ul { list-style: none; }
   .future__title { font-size: 24px; }
 
   .footer__inner { padding: 40px 20px 22px; }
-  .footer__marks { gap: 20px; }
   .footer__crest { width: 76px; height: 76px; }
 }

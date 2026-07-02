@@ -383,12 +383,70 @@ ul { list-style: none; }
   .hero__title { font-size: 54px; }
 }
 
-@media (max-width: 760px) {
+/* ============ MOBILE — header + hero (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+
+  /* ---- Header ---- */
+  .site-header { padding: 14px 20px; }
   .main-nav__list { display: none; }
-  .hero__quote { position: static; margin: 0 auto; padding-top: 110px; text-align: center; }
-  .hero__content { padding-top: 24px; min-height: auto; padding-bottom: 80px; }
-  .hero__title { font-size: 40px; white-space: normal; }
-  .hero__actions { flex-wrap: wrap; }
+  .brand { gap: 10px; }
+  .brand__emblem { height: 42px; }
+  .brand__title { font-size: 15px; }
+  .brand__sub { font-size: 10px; letter-spacing: 0.28em; }
+  .btn-donate { font-size: 12px; padding: 10px 18px; }
+
+  /* ---- Hero ---- */
+  .hero {
+    background-size: cover;
+    background-position: 68% top;   /* keep the dome in frame on tall narrow screens */
+  }
+  /* portrait overlay: dark bands top & bottom so quote and content stay legible,
+     lighter middle so the skyline still reads through */
+  .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 5, 24, 0.88) 0%,
+      rgba(9, 6, 30, 0.68) 28%,
+      rgba(10, 5, 34, 0.55) 52%,
+      rgba(10, 5, 34, 0.80) 80%,
+      rgba(7, 5, 24, 0.94) 100%
+    );
+  }
+  .hero__quote {
+    position: static;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 104px 24px 0;
+    text-align: center;
+  }
+  .hero__quote blockquote {
+    font-size: 17px;
+    line-height: 1.6;
+    text-shadow: 0 2px 12px rgba(7, 5, 24, 1), 0 0 30px rgba(7, 5, 24, 0.95), 0 0 56px rgba(7, 5, 24, 0.8);
+  }
+  .hero__quote blockquote br { display: none; }
+  .hero__quote figcaption { margin-top: 12px; font-size: 12px; }
+  .hero__content {
+    max-width: none;
+    align-items: center;
+    text-align: center;
+    padding: 30px 22px 56px;
+  }
+  .hero__title { font-size: 34px; line-height: 1.12; white-space: normal; }
+  .hero__subtitle { font-size: 21px; margin-top: 8px; }
+  .hero__rule { width: 100%; max-width: 250px; margin: 16px auto 18px; }
+  .hero__lede { font-size: 15px; line-height: 1.65; max-width: 480px; }
+  .hero__lede + .hero__lede { margin-top: 12px; }
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .btn { justify-content: center; padding: 15px 20px; font-size: 12.5px; }
 }
 
 /* ===================================================================
@@ -538,24 +596,38 @@ ul { list-style: none; }
   .why__col + .why__col::before { left: -22px; }
 }
 
-@media (max-width: 760px) {
-  .why__inner { grid-template-columns: 1fr; row-gap: 44px; padding: 48px 30px 52px; }
+/* ============ MOBILE — why / visionaries (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .why__inner { grid-template-columns: 1fr; row-gap: 40px; padding: 48px 22px 52px; }
   .why__col + .why__col::before { display: none; }
   .why__col + .why__col {
-    padding-top: 44px;
-    border-top: 1px solid rgba(196, 154, 94, 0.45);
+    padding-top: 40px;
+    border-top: 1px solid rgba(196, 154, 94, 0.4);
   }
-  .why__title { font-size: 26px; }
-  /* heading spans the full column; icon + text row beneath it */
+  .why__title { font-size: 23px; line-height: 1.2; text-align: center; margin-bottom: 18px; }
+
+  /* column 1: heading, centered globe, then text — one clean stack */
   .why__col--globe {
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "title title"
-      "icon  text";
-    column-gap: 18px;
+      "title"
+      "icon"
+      "text";
+    column-gap: 0;
   }
-  .why__icon--globe { width: 84px; margin-top: 2px; }
-  .why__icon--skyline { width: 96px; }
-  .why__lede { gap: 14px; }
+  .why__icon--globe { width: 96px; margin: 0 auto 18px; }
+
+  /* column 2: centered skyline above its paragraph */
+  .why__lede { flex-direction: column; gap: 16px; }
+  .why__icon--skyline { width: 130px; margin: 0 auto; }
+
+  .why__p { font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
+  .why__emph { font-size: 15px; line-height: 1.65; }
+
+  /* column 3: centered call-to-action under left-aligned copy */
+  .why__body { text-align: center; }
+  .why__body .why__p { text-align: left; }
+  .why__btn { margin-top: 8px; padding: 14px 28px; }
 }
 
 /* ===================================================================
@@ -742,11 +814,25 @@ ul { list-style: none; }
   .leaders__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
-@media (max-width: 560px) {
-  .leaders__inner { padding: 48px 26px 52px; }
-  .leaders__grid { grid-template-columns: 1fr; gap: 18px; }
-  .leaders__line { width: 48px; }
-  .leaders__title { font-size: 22px; letter-spacing: 0.1em; }
+/* ============ MOBILE — founding leadership (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .leaders { background-position: center top; }
+  .leaders__inner { padding: 48px 22px 52px; }
+  .leaders__head { gap: 10px; }
+  .leaders__line { width: 34px; }
+  .leaders__title { font-size: 20px; letter-spacing: 0.08em; }
+  .leaders__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 26px auto 0;
+    max-width: 420px;
+  }
+  .leaders__card { padding: 28px 24px 26px; }
+  .leaders__photo { width: 116px; height: 116px; }
+  .leaders__name { font-size: 21px; margin-top: 16px; }
+  .leaders__role { font-size: 16px; }
+  .leaders__bio { font-size: 14px; line-height: 1.6; max-width: 300px; }
+  .leaders__more { font-size: 12px; padding-top: 16px; }
 }
 
 /* ===================================================================
@@ -882,13 +968,32 @@ ul { list-style: none; }
   }
 }
 
-@media (max-width: 560px) {
-  .pillars__inner { padding: 42px 26px 46px; }
-  .pillars__grid { grid-template-columns: 1fr; gap: 24px; }
+/* ============ MOBILE — our four pillars (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .pillars__inner { padding: 46px 22px 50px; }
+  .pillars__head { gap: 10px; }
+  .pillars__line { width: 34px; }
+  .pillars__title { font-size: 20px; letter-spacing: 0.08em; }
+  .pillars__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 28px auto 0;
+    max-width: 420px;
+  }
+  /* each pillar: centered badge, then title, then text — one clean stack */
   .pillars__item,
-  .pillars__item:nth-child(even) { border-left: none; padding: 0; }
-  .pillars__line { width: 48px; }
-  .pillars__title { font-size: 22px; letter-spacing: 0.1em; }
+  .pillars__item:nth-child(even) {
+    border-left: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 0;
+  }
+  .pillars__badge { width: 64px; height: 64px; }
+  .pillars__badge svg { width: 40px; height: 40px; }
+  .pillars__name { font-size: 20px; margin: 0; }
+  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px auto 0; max-width: 320px; }
 }
 
 /* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
@@ -1000,8 +1105,27 @@ ul { list-style: none; }
   .center__panel { max-width: 560px; }
 }
 
-@media (max-width: 560px) {
-  .center__badge { width: 140px; height: 140px; }
+/* ============ MOBILE — jerusalem unity center (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  /* portrait overlay: navy veil strongest behind the text at the top,
+     easing toward the bottom so the building photo still shows through */
+  .center {
+    background-image:
+      linear-gradient(180deg,
+        rgba(20, 16, 46, 0.94) 0%,
+        rgba(20, 16, 46, 0.86) 40%,
+        rgba(20, 16, 46, 0.66) 100%),
+      url("assets/section3-bg-high-res.png");
+    background-position: center, 70% center;
+    background-size: cover, cover;
+  }
+  .center__inner { padding: 44px 22px 52px; }
+  .center__panel { max-width: 480px; margin: 0 auto; text-align: center; }
+  .center__badge { width: 128px; height: 128px; margin: 0 auto 12px; }
+  .center__title { font-size: 28px; line-height: 1.15; }
+  .center__subtitle { font-size: 18px; margin-top: 6px; }
+  .center__text { font-size: 15px; line-height: 1.7; margin: 16px auto 0; text-align: left; }
+  .center__btn { margin-top: 24px; padding: 15px 30px; }
 }
 
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
@@ -1122,8 +1246,28 @@ ul { list-style: none; }
   .involve__btn { margin-left: 0; }
 }
 
-@media (max-width: 560px) {
-  .involve__item { flex: 1 1 45%; }
+/* ============ MOBILE — get involved (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .involve__inner { padding: 44px 22px 50px; }
+  .involve__line { width: 34px; }
+  .involve__title { font-size: 20px; }
+  .involve__sub { font-size: 17px; margin-top: 6px; }
+  .involve__row { margin-top: 28px; gap: 28px; }
+  /* six items in a tidy 2-column grid */
+  .involve__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 12px;
+  }
+  .involve__item { padding: 0; gap: 10px; min-width: 0; }
+  .involve__icon svg { width: 34px; height: 34px; }
+  .involve__label { font-size: 14px; line-height: 1.4; }
+  .involve__btn {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+    padding: 15px 24px;
+  }
 }
 
 /* ===================================================================
@@ -1240,21 +1384,18 @@ ul { list-style: none; }
 
 .founder__btn-arrow { font-size: 14px; }
 
-@media (max-width: 760px) {
+/* ============ MOBILE — founder strip (max-width: 768px) ============ */
+@media (max-width: 768px) {
   .founder__inner {
     flex-direction: column;
-    text-align: center;
     gap: 22px;
-    padding: 32px 26px;
+    padding: 44px 22px 48px;
   }
-  .founder__main {
-    flex-direction: column;
-    text-align: center;
-    gap: 16px;
-  }
-  .founder__photo { width: 110px; height: 110px; }
-  .founder__title { font-size: 26px; }
-  .founder__desc { font-size: 13px; max-width: 520px; }
+  .founder__main { flex-direction: column; gap: 18px; text-align: center; }
+  .founder__photo { width: 112px; height: 112px; }
+  .founder__title { font-size: 25px; line-height: 1.2; margin-bottom: 10px; }
+  .founder__desc { font-size: 14.5px; line-height: 1.7; max-width: 480px; text-align: left; }
+  .founder__btn { padding: 14px 30px; }
 }
 
 /* ===================================================================
@@ -1312,10 +1453,24 @@ ul { list-style: none; }
   margin: 24px 0 0;
 }
 
-@media (max-width: 760px) {
-  .future__inner { padding: 38px 28px 40px; }
-  .future__title { font-size: 28px; }
-  .future__text  { font-size: 12px; line-height: 1.8; }
+/* ============ MOBILE — a shared future (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  /* portrait overlay: even vertical veil so the centered text stays legible
+     while the sunset panorama fills the tall crop */
+  .future {
+    background-image:
+      linear-gradient(180deg,
+        rgba(16, 6, 34, 0.68) 0%,
+        rgba(23, 9, 54, 0.80) 50%,
+        rgba(10, 4, 28, 0.86) 100%),
+      url("assets/section5-bg-high-res.png");
+    background-position: center, center;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+  }
+  .future__inner { padding: 52px 24px 56px; }
+  .future__title { font-size: 27px; line-height: 1.25; }
+  .future__text { font-size: 15px; line-height: 1.75; margin-top: 18px; }
   .future__text br { display: none; }
 }
 
@@ -1496,8 +1651,78 @@ ul { list-style: none; }
   .footer__top { gap: 26px; }
   .footer__connect, .footer__follow { flex: 1 1 100%; }
 }
-@media (max-width: 620px) {
-  .footer__inner { padding: 32px 24px 22px; }
-  .footer__top { flex-direction: column; gap: 24px; }
+/* ============ MOBILE — footer (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .footer { background-position: center bottom; }
+  .footer__inner { padding: 44px 22px 24px; }
+  .footer__top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+  }
+  /* brand crest stacked and centered */
+  .footer__brand { flex-direction: column; gap: 6px; }
+  .footer__brand-text { align-items: center; }
+  .footer__crest { width: 84px; height: 84px; }
+  /* sub-brand marks side by side, each stacked and centered */
+  .footer__marks { justify-content: center; gap: 30px; }
+  .footer__mark { flex-direction: column; gap: 4px; }
+  /* newsletter block */
+  .footer__connect { max-width: 400px; width: 100%; }
+  .footer__label { font-size: 20px; margin-bottom: 8px; }
+  .footer__connect-text { font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
   .footer__connect-text br { display: none; }
+  .footer__subscribe { width: 100%; max-width: 400px; margin: 0 auto; }
+  .footer__input { height: 46px; font-size: 14px; padding: 0 14px; }
+  .footer__sub-btn { height: 46px; padding: 0 20px; }
+  /* social icons */
+  .footer__social { justify-content: center; gap: 16px; }
+  .footer__social-btn { width: 44px; height: 44px; }
+  /* bottom bar */
+  .footer__bottom { margin-top: 34px; padding-top: 22px; }
+  .footer__copy { font-size: 12.5px; }
+}
+
+/* ===================================================================
+   SMALL PHONES (max-width: 480px) — tighter type + padding scale
+   =================================================================== */
+@media (max-width: 480px) {
+  .site-header { padding: 12px 16px; }
+  .brand__emblem { height: 38px; }
+  .brand__title { font-size: 14px; }
+  .brand__sub { font-size: 9.5px; }
+  .btn-donate { font-size: 11.5px; padding: 9px 15px; }
+
+  .hero__quote { padding: 94px 20px 0; }
+  .hero__quote blockquote { font-size: 16px; }
+  .hero__content { padding: 26px 20px 48px; }
+  .hero__title { font-size: 30px; }
+  .hero__subtitle { font-size: 19px; }
+
+  .why__inner { padding: 44px 20px 48px; }
+  .why__title { font-size: 22px; }
+
+  .leaders__inner { padding: 44px 20px 48px; }
+  .leaders__title { font-size: 18px; }
+
+  .pillars__inner { padding: 42px 20px 46px; }
+  .pillars__title { font-size: 18px; }
+
+  .center__inner { padding: 40px 20px 48px; }
+  .center__badge { width: 112px; height: 112px; }
+  .center__title { font-size: 25px; }
+
+  .involve__inner { padding: 40px 20px 46px; }
+  .involve__title { font-size: 18px; }
+
+  .founder__inner { padding: 40px 20px 44px; }
+  .founder__title { font-size: 23px; }
+
+  .future__inner { padding: 46px 20px 50px; }
+  .future__title { font-size: 24px; }
+
+  .footer__inner { padding: 40px 20px 22px; }
+  .footer__marks { gap: 20px; }
+  .footer__crest { width: 76px; height: 76px; }
 }

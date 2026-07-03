@@ -632,7 +632,7 @@ ul { list-style: none; }
   /* centered stacks for a tidy, symmetric read on narrow screens */
   .why__col { text-align: center; }
   .why__title,
-  .why__title--centered { font-size: 23px; line-height: 1.2; text-align: center; margin-bottom: 18px; }
+  .why__title--centered { font-size: 22px; line-height: 1.2; text-align: center; margin-bottom: 18px; }
 
   /* column 1: heading, globe centered, then text — one clean centered stack */
   .why__col--globe {
@@ -888,7 +888,9 @@ ul { list-style: none; }
   }
   .leaders__card { padding: 28px 24px 26px; }
   .leaders__photo { width: 116px; height: 116px; }
-  .leaders__name { font-size: 21px; margin-top: 16px; }
+  /* one fixed size for all founder names — long names wrap, never shrink;
+     roles and bios likewise share one size each across all four cards */
+  .leaders__name { font-size: 21px; line-height: 1.25; margin-top: 16px; overflow-wrap: break-word; }
   .leaders__role { font-size: 16px; }
   .leaders__bio { font-size: 14px; line-height: 1.6; max-width: 300px; }
   .leaders__more { font-size: 12px; padding-top: 16px; }
@@ -1052,7 +1054,7 @@ ul { list-style: none; }
   .pillars__badge { width: 64px; height: 64px; margin: 0 auto; }
   .pillars__badge svg { width: 40px; height: 40px; }
   .pillars__name { font-size: 20px; margin: 0; }
-  .pillars__desc { font-size: 14.5px; line-height: 1.65; margin: 6px auto 0; max-width: 320px; }
+  .pillars__desc { font-size: 15px; line-height: 1.65; margin: 6px auto 0; max-width: 320px; }
 }
 
 /* ===================== SECTION 3 — JERUSALEM UNITY CENTER ===================== */
@@ -1186,7 +1188,7 @@ ul { list-style: none; }
   /* centered panel: logo, headings, copy, and button in one centered stack */
   .center__panel { max-width: 480px; margin: 0 auto; text-align: center; }
   .center__badge { width: 128px; height: 128px; margin: 0 auto 12px; }
-  .center__title { font-size: 28px; line-height: 1.15; }
+  .center__title { font-size: 26px; line-height: 1.15; }
   .center__subtitle { font-size: 18px; margin-top: 6px; }
   .center__text { font-size: 15px; line-height: 1.7; margin: 16px auto 0; text-align: center; }
   .center__btn { margin-top: 24px; padding: 15px 30px; }
@@ -1315,7 +1317,7 @@ ul { list-style: none; }
   .involve__inner { padding: 44px 22px 50px; }
   .involve__line { width: 34px; }
   .involve__title { font-size: 20px; }
-  .involve__sub { font-size: 17px; margin-top: 6px; }
+  .involve__sub { font-size: 18px; margin-top: 6px; }
   .involve__row { margin-top: 28px; gap: 28px; }
   /* six items in a tidy 2-column grid */
   .involve__items {
@@ -1461,8 +1463,8 @@ ul { list-style: none; }
   /* photo, heading, copy, and button in one centered stack */
   .founder__main { flex-direction: column; align-items: center; gap: 18px; text-align: center; }
   .founder__photo { width: 112px; height: 112px; }
-  .founder__title { font-size: 25px; line-height: 1.2; margin-bottom: 10px; }
-  .founder__desc { font-size: 14.5px; line-height: 1.7; max-width: 480px; text-align: center; margin: 0 auto; }
+  .founder__title { font-size: 26px; line-height: 1.2; margin-bottom: 10px; }
+  .founder__desc { font-size: 15px; line-height: 1.7; max-width: 480px; text-align: center; margin: 0 auto; }
   .founder__btn { padding: 14px 30px; }
 }
 
@@ -1537,7 +1539,7 @@ ul { list-style: none; }
     background-repeat: no-repeat, no-repeat;
   }
   .future__inner { padding: 52px 24px 56px; }
-  .future__title { font-size: 27px; line-height: 1.25; }
+  .future__title { font-size: 26px; line-height: 1.25; }
   .future__text { font-size: 15px; line-height: 1.75; margin-top: 18px; }
   .future__text br { display: none; }
 }
@@ -1723,8 +1725,9 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .footer { background-position: center bottom; background-size: cover; background-repeat: no-repeat; }
   .footer__inner { padding: 44px 22px 24px; }
-  /* logos in a left-aligned 2-column grid: brand crest + Unity Center on the
-     first row, One Day JLM on the second; newsletter and social span full width */
+  /* logos keep the 2-column grid — brand crest + Unity Center on the first
+     row, One Day JLM alone on the second — but each row is centered;
+     newsletter and social span full width and keep their alignment */
   .footer__top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1733,11 +1736,16 @@ ul { list-style: none; }
     gap: 30px 16px;
   }
   .footer__marks { display: contents; }
-  /* each logo unit stacked, flush left */
-  .footer__brand { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .footer__brand-text { align-items: flex-start; }
+  /* each logo unit stacked and centered in its cell; the row-two logo spans
+     both columns so it centers under the row-one pair */
+  .footer__brand { flex-direction: column; align-items: center; gap: 6px; justify-self: center; text-align: center; }
+  .footer__brand-text { align-items: center; }
   .footer__crest { width: 84px; height: 84px; }
-  .footer__mark { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .footer__mark { flex-direction: column; align-items: center; gap: 4px; justify-self: center; text-align: center; }
+  .footer__mark:last-of-type { grid-column: 1 / -1; }
+  /* all three footer wordmarks share one size so the row reads balanced */
+  .footer__brand-name,
+  .footer__mark-text { font-size: 15px; line-height: 1.2; letter-spacing: 0.12em; }
   .footer__connect,
   .footer__follow { grid-column: 1 / -1; }
   /* newsletter block */
@@ -1783,13 +1791,13 @@ ul { list-style: none; }
 
   .center__inner { padding: 40px 20px 48px; }
   .center__badge { width: 112px; height: 112px; }
-  .center__title { font-size: 25px; }
+  .center__title { font-size: 24px; }
 
   .involve__inner { padding: 40px 20px 46px; }
   .involve__title { font-size: 18px; }
 
   .founder__inner { padding: 40px 20px 44px; }
-  .founder__title { font-size: 23px; }
+  .founder__title { font-size: 24px; }
 
   .future__inner { padding: 46px 20px 50px; }
   .future__title { font-size: 24px; }

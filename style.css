@@ -416,23 +416,27 @@ ul { list-style: none; }
 
   /* ---- Hero ---- */
   .hero {
-    background-size: cover;
+    /* dedicated portrait artwork (mirrored: city left, sun right) — its dark
+       purple sky sits behind the quote and title while the city, light-burst
+       and sun stay in the clear. "auto 128%" + bottom anchor crops the empty
+       sky off the TOP, pulling the cityscape and the streaming light up into
+       view instead of leaving them buried at the bottom of a tall screen */
+    background-image: url("assets/hero-bg-high-res-mobile-flip.png");
+    background-size: auto 128%;
     background-repeat: no-repeat;
-    /* on tall narrow screens only ~25% of the image width fits; 42% centres
-       the window on the cityscape and the burst where the light streams rise,
-       with the sky's purple-to-gold gradient above */
-    background-position: 42% center;
+    background-position: 30% 100%;
   }
-  /* portrait overlay: dark bands top & bottom so quote and content stay legible,
-     lighter middle so the skyline still reads through */
+  /* portrait overlay: just enough darkening where the text sits (top band for
+     the quote, soft bottom band for title/buttons); middle stays light so the
+     city and the light streams read clearly through */
   .hero__overlay {
     background: linear-gradient(
       180deg,
-      rgba(7, 5, 24, 0.88) 0%,
-      rgba(9, 6, 30, 0.68) 28%,
-      rgba(10, 5, 34, 0.55) 52%,
-      rgba(10, 5, 34, 0.80) 80%,
-      rgba(7, 5, 24, 0.94) 100%
+      rgba(7, 5, 24, 0.80) 0%,
+      rgba(9, 6, 30, 0.52) 26%,
+      rgba(10, 5, 34, 0.28) 50%,
+      rgba(10, 5, 34, 0.44) 74%,
+      rgba(7, 5, 24, 0.72) 100%
     );
   }
   .hero__quote {

@@ -109,8 +109,10 @@ ul { list-style: none; }
 .brand__emblem {
   /* Sized to match assets/mockup-full.png, where the crest reads ~92px tall in
      the 1536px-wide comp — a large, prominent header mark on par with the
-     Jerusalem Unity Center site. The PNG's artwork fills its box (no
-     transparent padding), so height alone controls the visible mark. */
+     Jerusalem Unity Center site. Uses logo-emblem-full.png, a tight crop of the
+     transparent master logo whose artwork fills its box (no transparent
+     padding and, unlike the old logo-emblem.png, not clipped at the bottom),
+     so height alone controls the visible mark. */
   height: 90px;
   width: auto;
   display: block;

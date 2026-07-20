@@ -1706,6 +1706,36 @@ ul { list-style: none; }
   color: var(--ft-navy);
 }
 
+/* ---- Nonprofit / tax-deductibility statement ---- */
+.footer__legal {
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid var(--ft-line);
+  text-align: center;
+}
+/* text measure stays readable while the rule spans the footer like the one below */
+.footer__legal-text,
+.footer__legal-note { max-width: 860px; margin-inline: auto; }
+.footer__legal-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  color: var(--ft-muted);
+}
+.footer__legal-org {
+  font-weight: 600;
+  color: var(--ft-gold-soft);
+}
+.footer__legal-note {
+  margin-top: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ft-gold);
+}
+
 /* ---- Bottom bar ---- */
 .footer__bottom {
   display: flex;
@@ -1715,6 +1745,8 @@ ul { list-style: none; }
   padding-top: 26px;
   border-top: 1px solid var(--ft-line);
 }
+/* the legal band already carries a divider, so the copyright rule sits closer */
+.footer__legal + .footer__bottom { margin-top: 26px; padding-top: 22px; }
 .footer__copy {
   text-align: center;
   font-family: "Montserrat", sans-serif;
@@ -1765,8 +1797,13 @@ ul { list-style: none; }
   /* social icons flush left */
   .footer__social { justify-content: flex-start; gap: 16px; }
   .footer__social-btn { width: 44px; height: 44px; }
+  /* nonprofit statement */
+  .footer__legal { margin-top: 34px; padding-top: 22px; text-align: left; }
+  .footer__legal-text { font-size: 12.5px; line-height: 1.75; }
+  .footer__legal-note { font-size: 16px; margin-top: 12px; }
   /* bottom bar */
   .footer__bottom { margin-top: 34px; padding-top: 22px; }
+  .footer__legal + .footer__bottom { margin-top: 24px; padding-top: 20px; }
   .footer__copy { font-size: 12.5px; }
 }
 

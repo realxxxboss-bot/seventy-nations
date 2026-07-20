@@ -97,7 +97,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px 60px;
+  padding: 8px 60px;
 }
 
 .brand {
@@ -109,11 +109,11 @@ ul { list-style: none; }
 .brand__emblem {
   /* Sized to match assets/mockup-full.png, where the crest reads ~92px tall in
      the 1536px-wide comp — a large, prominent header mark on par with the
-     Jerusalem Unity Center site. Uses logo-emblem-full.png, a tight crop of the
-     transparent master logo whose artwork fills its box (no transparent
-     padding and, unlike the old logo-emblem.png, not clipped at the bottom),
-     so height alone controls the visible mark. */
-  height: 90px;
+     Jerusalem Unity Center site. Uses the-seventy-nations-transparent-logo.png
+     (the same master logo as the footer crest); its artwork occupies only ~62%
+     of the 1024x1024 canvas, so the height is scaled up by ~1.61x versus a tight
+     crop to keep the visible mark at the intended ~90px. */
+  height: 145px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
@@ -398,7 +398,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 1100px) {
-  .site-header { padding: 18px 32px; }
+  .site-header { padding: 6px 32px; }
   .main-nav { gap: 24px; }
   .main-nav__list { gap: 22px; }
   .hero__quote { top: 110px; right: 32px; max-width: 360px; }
@@ -412,10 +412,10 @@ ul { list-style: none; }
   html, body { overflow-x: hidden; }
 
   /* ---- Header ---- */
-  .site-header { padding: 14px 20px; }
+  .site-header { padding: 6px 20px; }
   .main-nav__list { display: none; }
   .brand { gap: 12px; }
-  .brand__emblem { height: 72px; }
+  .brand__emblem { height: 116px; }
   .brand__title { font-size: 20px; }
   .brand__sub { font-size: 12px; letter-spacing: 0.28em; }
   .btn-donate { font-size: 12px; padding: 10px 18px; }
@@ -1309,6 +1309,40 @@ ul { list-style: none; }
 .involve__btn:hover { background: #4a2160; transform: translateY(-1px); }
 .involve__btn-arrow { font-size: 15px; line-height: 1; }
 
+/* Donate CTA paired above "Join the Movement" — the section's first item
+   is "Support the Vision", so a gold primary donate button belongs here */
+.involve__actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 40px;
+}
+.involve__actions .involve__btn { margin-left: 0; }
+
+.involve__donate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 28px;
+  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
+  color: var(--btn-text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.involve__donate:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+/* small line-art heart shared by the donate buttons */
+.donate-heart { width: 15px; height: 15px; flex: 0 0 auto; }
+
 /* ---- Section 4 responsive ---- */
 @media (max-width: 1100px) {
   .involve__inner { padding: 24px 28px 28px; }
@@ -1316,6 +1350,7 @@ ul { list-style: none; }
   .involve__items { width: 100%; flex-wrap: wrap; }
   .involve__item { flex: 1 1 30%; min-width: 110px; padding: 12px 8px; border-left: none !important; }
   .involve__btn { margin-left: 0; }
+  .involve__actions { margin-left: 0; width: 100%; max-width: 340px; align-items: stretch; }
 }
 
 /* ============ MOBILE — get involved (max-width: 768px) ============ */
@@ -1735,6 +1770,27 @@ ul { list-style: none; }
   line-height: 1.65;
   color: var(--ft-gold);
 }
+/* donate CTA closing the nonprofit statement — inline-flex centers under the
+   text-align:center legal block */
+.footer__donate {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 13px 30px;
+  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
+  color: var(--btn-text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.footer__donate:hover { filter: brightness(1.08); transform: translateY(-1px); }
 
 /* ---- Bottom bar ---- */
 .footer__bottom {
@@ -1811,8 +1867,8 @@ ul { list-style: none; }
    SMALL PHONES (max-width: 480px) — tighter type + padding scale
    =================================================================== */
 @media (max-width: 480px) {
-  .site-header { padding: 12px 16px; }
-  .brand__emblem { height: 64px; }
+  .site-header { padding: 4px 16px; }
+  .brand__emblem { height: 103px; }
   .brand__title { font-size: 18px; }
   .brand__sub { font-size: 11px; }
   .btn-donate { font-size: 11.5px; padding: 9px 15px; }

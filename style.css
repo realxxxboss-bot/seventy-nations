@@ -1369,24 +1369,9 @@ ul { list-style: none; }
   background-position: center;
   background-repeat: no-repeat;
 }
-.events__tile--dialogue {
-  background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
-    url("assets/new-hero-bg-high-res.png");
-  background-position: center, 20% center;
-}
-.events__tile--jerusalem {
-  background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
-    url("assets/section3-bg-high-res.png");
-  background-position: center, 74% center;
-}
-.events__tile--youth {
-  background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
-    url("assets/section5-bg-high-res.png");
-  background-position: center, center 40%;
-}
+.events__tile--dialogue { background-image: url("assets/unity-in-diversity.jpeg"); }
+.events__tile--jerusalem { background-image: url("assets/a-light-among-nations.jpeg"); }
+.events__tile--youth { background-image: url("assets/youth-leadership-for-tommorow.jpeg"); }
 
 .events__body {
   flex: 1 1 auto;

@@ -191,7 +191,7 @@ ul { list-style: none; }
   position: relative;
   min-height: 600px;
   background-color: var(--purple-deep);
-  background-image: url("assets/new-hero-bg-high-res.png");
+  background-image: url("assets/new-hero-bg-high-res.jpg");
   /* the new artwork is full-bleed: deep purple + constellation motif on the
      left, Jerusalem cityscape lower-left, sun on the right at ~63% height.
      cover + "center 70%" crops mostly empty purple sky off the top and keeps
@@ -503,7 +503,7 @@ ul { list-style: none; }
    =================================================================== */
 .why {
   background-color: var(--s2-cream);
-  background-image: url("assets/section2-bg-high-res.png");
+  background-image: url("assets/section2-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -697,7 +697,7 @@ ul { list-style: none; }
 
 .pillars {
   background-color: var(--pl-cream);            /* fallback while image loads */
-  background-image: url("assets/our-pillars-bg-high-res.png");
+  background-image: url("assets/our-pillars-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -853,7 +853,7 @@ ul { list-style: none; }
       rgba(20,16,46,0.92) 38%,
       rgba(20,16,46,0.45) 52%,
       rgba(20,16,46,0) 66%),
-    url("assets/section3-bg-high-res.png");
+    url("assets/section3-bg-high-res.jpg");
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -946,7 +946,7 @@ ul { list-style: none; }
         var(--s3-navy) 0%,
         rgba(20,16,46,0.9) 50%,
         rgba(20,16,46,0.55) 100%),
-      url("assets/section3-bg-high-res.png");
+      url("assets/section3-bg-high-res.jpg");
   }
   .center__inner { padding: 22px 32px 52px; }
   .center__panel { max-width: 560px; }
@@ -962,7 +962,7 @@ ul { list-style: none; }
         rgba(20, 16, 46, 0.94) 0%,
         rgba(20, 16, 46, 0.86) 40%,
         rgba(20, 16, 46, 0.66) 100%),
-      url("assets/section3-bg-high-res.png");
+      url("assets/section3-bg-high-res.jpg");
     /* building's glass dome centres at ~73% of the source width; frame it
        so the lit facade fills the tall crop instead of the empty sky left of it */
     background-position: center, 73% center;
@@ -982,7 +982,7 @@ ul { list-style: none; }
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
 .involve {
   background-color: var(--s4-cream);
-  background-image: url("assets/section4-bg-high-res.png");
+  background-image: url("assets/section4-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1164,7 +1164,7 @@ ul { list-style: none; }
    =================================================================== */
 .founder {
   background-color: #1A0C3A;                     /* navy fallback while image loads */
-  background-image: url("assets/leadership-bg-high-res.png");
+  background-image: url("assets/leadership-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1306,7 +1306,7 @@ ul { list-style: none; }
 
 .events {
   background-color: #150A33;                 /* navy fallback while image loads */
-  background-image: url("assets/events-bg-high-res.png");
+  background-image: url("assets/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1595,7 +1595,7 @@ ul { list-style: none; }
       rgba(10, 4, 28, 0) 30%,
       rgba(8, 4, 26, 0) 62%,
       rgba(8, 4, 26, 0.55) 100%),
-    url("assets/section5-bg-high-res.png");
+    url("assets/section5-bg-high-res.jpg");
   background-position: center, center, center;
   background-size: cover, cover, cover;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -1638,7 +1638,7 @@ ul { list-style: none; }
         rgba(16, 6, 34, 0.68) 0%,
         rgba(23, 9, 54, 0.80) 50%,
         rgba(10, 4, 28, 0.86) 100%),
-      url("assets/section5-bg-high-res.png");
+      url("assets/section5-bg-high-res.jpg");
     background-position: center, center;
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
@@ -2002,7 +2002,7 @@ ul { list-style: none; }
   background-color: #140A31;
   background-image:
     linear-gradient(180deg, rgba(15, 7, 40, 0.88), rgba(13, 6, 34, 0.94)),
-    url("assets/events-bg-high-res.png");
+    url("assets/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(212, 154, 78, 0.5);
@@ -2217,7 +2217,7 @@ ul { list-style: none; }
 .legal-hero {
   position: relative;
   background-color: var(--purple-deep);
-  background-image: url("assets/events-bg-high-res.png");
+  background-image: url("assets/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2286,7 +2286,7 @@ ul { list-style: none; }
 /* ---- parchment body ---- */
 .legal {
   background-color: var(--s2-cream);
-  background-image: url("assets/section2-bg-high-res.png");
+  background-image: url("assets/section2-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1310,8 +1310,9 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* very thin gold frame around the band, per the client's mockup */
-  border: 1px solid rgba(212, 154, 78, 0.45);
+  /* thin gold frame on the top and bottom edges only (no left/right) */
+  border-top: 1px solid rgba(212, 154, 78, 0.45);
+  border-bottom: 1px solid rgba(212, 154, 78, 0.45);
   /* hairline gap so the band doesn't feel fused to the founder strip above */
   margin-top: 2px;
 }

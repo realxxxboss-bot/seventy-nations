@@ -107,7 +107,7 @@ ul { list-style: none; }
 }
 
 .brand__emblem {
-  /* Uses assets/logo-emblem.png — a tight-cropped emblem whose artwork fills
+  /* Uses https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyPAs63kChKPzbp4rucjnHb0P3nU_APvXYujZojK78ymrYOqbU94Ih5mOrrVzqNGN9LTvcSUBo77qHLnR5t9pgSNRSNyXSNXBFway03KQBu0rWY74-oFxRLQ_dgklGAYv2kDEjNMApoaBi3ujinHvybzQIDiGehKYDiPCarh7TzMOf38hFHCAbdOsk7MY/s1600/logo-emblem.png — a tight-cropped emblem whose artwork fills
      its box (no transparent padding), so height alone controls the visible
      mark (~90px, matching the mockup). Lighter than the 1024x1024 master, so
      it loads reliably on mobile. */
@@ -191,7 +191,7 @@ ul { list-style: none; }
   position: relative;
   min-height: 600px;
   background-color: var(--purple-deep);
-  background-image: url("assets/new-hero-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifWhLXWgjTmrzTojw_7PL1ZoAk9762Zjpiz0gljCHjmEhUg41ohWdqnA1M96SLqW_SOQzwA7W3lKeBTbNHV1PpqQLlkVbc7u61tmPIXGYvcv3lrsXVlaKBXN__Pvzp_WsVXpKbLZuQOnCPKECGbBEkzyOH5xWCu5uzR7cx1HFie2vPNmHaS3Mh6x9i_NQ/s1600/hero-bg-high-res.png");
   /* the new artwork is full-bleed: deep purple + constellation motif on the
      left, Jerusalem cityscape lower-left, sun on the right at ~63% height.
      cover + "center 70%" crops mostly empty purple sky off the top and keeps
@@ -503,7 +503,7 @@ ul { list-style: none; }
    =================================================================== */
 .why {
   background-color: var(--s2-cream);
-  background-image: url("assets/section2-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVQSFfJWQjKfNdLqjY4jBzTmjv9z85SE3Wq9aO4raljhTOYsupOnaYR1A7ghSGFXxLGt3QPcCvAxt1zwXV364uXHsroZbvTYgLmDFB7EP9HOkR5up2EE8oNmxyPdhSnNSchU6A_I5efChdfhI0Xb8WYsMH8yyGgAaT4FXYJclQGX2fMm-AwkVqVyfQgFY/s1600/section2-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -697,7 +697,7 @@ ul { list-style: none; }
 
 .pillars {
   background-color: var(--pl-cream);            /* fallback while image loads */
-  background-image: url("assets/our-pillars-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHDKkNrL61SDz6EGZGOHq8v01nk7aCG62MxX3qGiLZtbx4L2A8D8XWSqYpSjvt3Gx68ryOLFXSnWUtbwESgyjdOVg0qtD6N5SlLsdELfN3XG_lMpM1qTNZVCi1MDf7jFsqqF8_YoOg7kgHJaL9-B_03fsu-4HxgTaFLEUtscQBpMJ3lOIew2Q-WkdHOJw/s1600/our-pillars-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -853,7 +853,7 @@ ul { list-style: none; }
       rgba(20,16,46,0.92) 38%,
       rgba(20,16,46,0.45) 52%,
       rgba(20,16,46,0) 66%),
-    url("assets/section3-bg-high-res.jpg");
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWS0AIVvgfO-WBbsnJlBEKz-fs5h2e7RKlmapDIz0-9l1ePYNb-tPfJsXJ0ugmS53tVmkOrjCGcBjyCoF4nqOM4BgBWz-2BZ0v3dV93n1EW2vrmcNu0y0H7AOheXVk5Fjj1hXFoPtFRELFsJIfXchujVWG4hoNJdomoqFZawENW0LVUMsx7FXmjkdu7hM/s1600/section3-bg-high-res.jpg");
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -946,7 +946,7 @@ ul { list-style: none; }
         var(--s3-navy) 0%,
         rgba(20,16,46,0.9) 50%,
         rgba(20,16,46,0.55) 100%),
-      url("assets/section3-bg-high-res.jpg");
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWS0AIVvgfO-WBbsnJlBEKz-fs5h2e7RKlmapDIz0-9l1ePYNb-tPfJsXJ0ugmS53tVmkOrjCGcBjyCoF4nqOM4BgBWz-2BZ0v3dV93n1EW2vrmcNu0y0H7AOheXVk5Fjj1hXFoPtFRELFsJIfXchujVWG4hoNJdomoqFZawENW0LVUMsx7FXmjkdu7hM/s1600/section3-bg-high-res.jpg");
   }
   .center__inner { padding: 22px 32px 52px; }
   .center__panel { max-width: 560px; }
@@ -962,7 +962,7 @@ ul { list-style: none; }
         rgba(20, 16, 46, 0.94) 0%,
         rgba(20, 16, 46, 0.86) 40%,
         rgba(20, 16, 46, 0.66) 100%),
-      url("assets/section3-bg-high-res.jpg");
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWS0AIVvgfO-WBbsnJlBEKz-fs5h2e7RKlmapDIz0-9l1ePYNb-tPfJsXJ0ugmS53tVmkOrjCGcBjyCoF4nqOM4BgBWz-2BZ0v3dV93n1EW2vrmcNu0y0H7AOheXVk5Fjj1hXFoPtFRELFsJIfXchujVWG4hoNJdomoqFZawENW0LVUMsx7FXmjkdu7hM/s1600/section3-bg-high-res.jpg");
     /* building's glass dome centres at ~73% of the source width; frame it
        so the lit facade fills the tall crop instead of the empty sky left of it */
     background-position: center, 73% center;
@@ -982,7 +982,7 @@ ul { list-style: none; }
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
 .involve {
   background-color: var(--s4-cream);
-  background-image: url("assets/section4-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3c0mGlns-gD84hcFS6qMF95u8Ig3eI1Gtu9uzl8jn3OFMsZDQchKgGAkfuTEH_-Vb24GEyLa--QXDdXvPviHL8zKGFoaqqLwmXsZXpHxGCs3_6es9QEip8ns8TbQ1AvAa24AurEMSyaTulTOo4PPA9b5YQ7K5GJwoAnLZ52jek8QyO8ic4oiVGwDgM5w/s1600/section4-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1164,7 +1164,7 @@ ul { list-style: none; }
    =================================================================== */
 .founder {
   background-color: #1A0C3A;                     /* navy fallback while image loads */
-  background-image: url("assets/leadership-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYhtiyE4f-QOUetaI0bzxfS8SA9vsaqE2izGlsV0tSDHW7_x-60sJJFIxMvp5oAjku6hXH2KSkN3tgN6KF-wdCrmq6GUnaB093qsWyIUXrNdsIoXjtE0CrjtjbrLk0IQ5_TM8Edd68UeAZmlnE1SNU6XuPWuws8Wd1_4P3NWUnPq3PDY7MEaCv2aJBrWg/s1600/leadership-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1306,7 +1306,7 @@ ul { list-style: none; }
 
 .events {
   background-color: #150A33;                 /* navy fallback while image loads */
-  background-image: url("assets/events-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirnPfcwOyKawYx76BBgeoOj4rStebXQaRy37vNAmFBbcB4B-SO2kd35WAIipNPTs9OXGtrF3ReXz6s_4KAKlUR6buarHwnNPMWFkzn4KR356llzN4QMPlnaBW4HmPEf6j_rrYT1b4bqvSA6rIXE28fJ_AwqiHj_BkEOmuqPLvZQ5Yg8btcgVEhbsp7o2E/s1600/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1387,9 +1387,9 @@ ul { list-style: none; }
   background-position: center;
   background-repeat: no-repeat;
 }
-.events__tile--dialogue { background-image: url("assets/unity-in-diversity.jpeg"); }
-.events__tile--jerusalem { background-image: url("assets/a-light-among-nations.jpeg"); }
-.events__tile--youth { background-image: url("assets/youth-leadership-for-tommorow.jpeg"); }
+.events__tile--dialogue { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrStZ83H1lsBWMojlUMGdn3uR2rcUwlN3EXaHLR9GHBZbMT-BahSspmB8y9wArg-9PuqnKQu6vXCheKyCsEW8h_hov9X6PDc4Dnq7KwgAvW8rp5uJRQj3F9fAnlL-ExIkjX21JlvN7MNJwQLQegA9TUkPkUW141JG4u-kS5VKI-5kv97kJVUeuWNXrxQ8/s1600/unity-in-diversity.jpeg"); }
+.events__tile--jerusalem { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyouWPcgjnrFlXzPYQ62o1ZMHwvhEqafzdTXED2YuY_zRrDmOCCAqqm9vNhYty8PjaMcRLuVt1o1kTQzElO9OfkOnQxP0pWGdG_yvsy5lQubRyENYCht278UgJVf_WXfvrVQ68nb_p9O6mg17KeUJniXy4iYnVKPLS0j8i3RlooGZ5WfymC6u0Jdup73I/s1600/a-light-among-nations.jpeg"); }
+.events__tile--youth { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxaDdX5zoL4Nfkixrlh46lfOTZ-1-UwLfJtAxy_fYBTshFfADzrQACjs9Ix5P4qzaPuBA6av9BrXRCzmWqQH6CP9yZreSX26MK1zbNS9w80uwBdU0bGTYiMb9cv-bYXYKTjv0t64oCISnFLQnC0ZLMnL8VS_OLJRzN3P4nzp4Lj3uVwz7LXLvGZ1Ckq4g/s1600/youth-leadership-for-tommorow.jpeg"); }
 
 .events__body {
   flex: 1 1 auto;
@@ -1596,7 +1596,7 @@ ul { list-style: none; }
       rgba(10, 4, 28, 0) 30%,
       rgba(8, 4, 26, 0) 62%,
       rgba(8, 4, 26, 0.55) 100%),
-    url("assets/section5-bg-high-res.jpg");
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ_1knuViIXVleyJRCizEaxSPBrKyMF94AewHQJKF2nfwc4NFL4ZSJeixk1YkfjsB-xVKSCQwggvBEnlud7GtYAWcqcKIWERkyIgnFryAivqaqcPDG-Hj63ZH4VJ1lW4N0DSS_3BmR-6nvpa1YJj-NmNppdOr_RMrPyPyk2GoxAdJUleA5xSPfwJ3iLOg/s1600/section5-bg-high-res.jpg");
   background-position: center, center, center;
   background-size: cover, cover, cover;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -1639,7 +1639,7 @@ ul { list-style: none; }
         rgba(16, 6, 34, 0.68) 0%,
         rgba(23, 9, 54, 0.80) 50%,
         rgba(10, 4, 28, 0.86) 100%),
-      url("assets/section5-bg-high-res.jpg");
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ_1knuViIXVleyJRCizEaxSPBrKyMF94AewHQJKF2nfwc4NFL4ZSJeixk1YkfjsB-xVKSCQwggvBEnlud7GtYAWcqcKIWERkyIgnFryAivqaqcPDG-Hj63ZH4VJ1lW4N0DSS_3BmR-6nvpa1YJj-NmNppdOr_RMrPyPyk2GoxAdJUleA5xSPfwJ3iLOg/s1600/section5-bg-high-res.jpg");
     background-position: center, center;
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
@@ -1655,7 +1655,7 @@ ul { list-style: none; }
    =================================================================== */
 .footer {
   background-color: var(--ft-navy);
-  background-image: url("assets/footer-bg.png");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIifchFtvChHwbmmv6IOzYHCFCtvDfUrHCa65ZXy2ykBirMjobsQJc-U-mHV4y0vwVSLcKJdIeTQ7rKK7gK7hOlyOWYfoCToTXhHBc_gp1EQKGSaylb6NZ9eQn1lJbTpSdeyw3XF4PWq3OtK5Ubu49CNgZKCgf-RZKFc00Ap74IQ3_wPBtzPOVv3EjHAs/s1600/footer-bg.png");
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2003,7 +2003,7 @@ ul { list-style: none; }
   background-color: #140A31;
   background-image:
     linear-gradient(180deg, rgba(15, 7, 40, 0.88), rgba(13, 6, 34, 0.94)),
-    url("assets/events-bg-high-res.jpg");
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirnPfcwOyKawYx76BBgeoOj4rStebXQaRy37vNAmFBbcB4B-SO2kd35WAIipNPTs9OXGtrF3ReXz6s_4KAKlUR6buarHwnNPMWFkzn4KR356llzN4QMPlnaBW4HmPEf6j_rrYT1b4bqvSA6rIXE28fJ_AwqiHj_BkEOmuqPLvZQ5Yg8btcgVEhbsp7o2E/s1600/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(212, 154, 78, 0.5);
@@ -2218,7 +2218,7 @@ ul { list-style: none; }
 .legal-hero {
   position: relative;
   background-color: var(--purple-deep);
-  background-image: url("assets/events-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirnPfcwOyKawYx76BBgeoOj4rStebXQaRy37vNAmFBbcB4B-SO2kd35WAIipNPTs9OXGtrF3ReXz6s_4KAKlUR6buarHwnNPMWFkzn4KR356llzN4QMPlnaBW4HmPEf6j_rrYT1b4bqvSA6rIXE28fJ_AwqiHj_BkEOmuqPLvZQ5Yg8btcgVEhbsp7o2E/s1600/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2287,7 +2287,7 @@ ul { list-style: none; }
 /* ---- parchment body ---- */
 .legal {
   background-color: var(--s2-cream);
-  background-image: url("assets/section2-bg-high-res.jpg");
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhVQSFfJWQjKfNdLqjY4jBzTmjv9z85SE3Wq9aO4raljhTOYsupOnaYR1A7ghSGFXxLGt3QPcCvAxt1zwXV364uXHsroZbvTYgLmDFB7EP9HOkR5up2EE8oNmxyPdhSnNSchU6A_I5efChdfhI0Xb8WYsMH8yyGgAaT4FXYJclQGX2fMm-AwkVqVyfQgFY/s1600/section2-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

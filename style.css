@@ -1282,14 +1282,9 @@ ul { list-style: none; }
   --ev-line:       rgba(212, 154, 78, 0.85); /* head flanking lines          */
   --ev-border:     rgba(212, 154, 78, 0.5);  /* card / bar gold borders      */
   --ev-card:       rgba(58, 36, 104, 0.34);  /* card fill over the navy bg   */
-  --ev-tile:       #12082C;  /* date tile dark ground                        */
-  --ev-date:       #F5EFE2;  /* big day number                               */
-  --ev-month:      #E7D0A0;  /* small month label                            */
+  --ev-tile:       #12082C;  /* image tile dark ground                       */
   --ev-meta:       #CFC9DC;  /* meta rows (site lavender-grey)               */
   --ev-desc:       #BEB3D6;  /* card description                             */
-  --ev-cta-1:      #DFA83F;  /* gold CTA gradient top (mockup-sampled)       */
-  --ev-cta-2:      #B67F1F;  /* gold CTA gradient bottom                     */
-  --ev-cta-text:   #2A1606;  /* dark text on gold CTA                        */
 }
 
 .events {
@@ -1298,6 +1293,8 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* very thin gold frame around the band, per the client's mockup */
+  border: 1px solid rgba(212, 154, 78, 0.45);
 }
 
 .events__inner {
@@ -1320,7 +1317,7 @@ ul { list-style: none; }
   font-size: 24px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ev-gold);
+  color: var(--s3-gold);            /* same gold as "The Jerusalem Unity Center" */
   white-space: nowrap;
 }
 .events__line {
@@ -1350,6 +1347,7 @@ ul { list-style: none; }
 }
 .events__card {
   display: flex;
+  align-items: flex-start;
   gap: 18px;
   padding: 18px;
   background: var(--ev-card);
@@ -1357,50 +1355,34 @@ ul { list-style: none; }
   border-radius: 10px;
 }
 
-/* date tile: month + day over a dark top, on-brand imagery filling the rest */
+/* short on-brand image thumbnail on the left (dates removed per client) */
 .events__tile {
-  flex: 0 0 92px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 12px;
+  flex: 0 0 96px;
+  height: 104px;
   border-radius: 8px;
   border: 1px solid rgba(212, 154, 78, 0.35);
   background-color: var(--ev-tile);
   background-size: cover;
-  background-position: center bottom;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .events__tile--dialogue {
   background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
     url("assets/new-hero-bg-high-res.png");
+  background-position: center, 20% center;
 }
 .events__tile--jerusalem {
   background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
     url("assets/section3-bg-high-res.png");
-  background-position: center bottom, 74% bottom;
+  background-position: center, 74% center;
 }
 .events__tile--youth {
   background-image:
-    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    linear-gradient(180deg, rgba(18, 8, 44, 0.30), rgba(18, 8, 44, 0.30)),
     url("assets/section5-bg-high-res.png");
-}
-.events__month {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ev-month);
-}
-.events__day {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1.05;
-  color: var(--ev-date);
+  background-position: center, center 40%;
 }
 
 .events__body {
@@ -1415,7 +1397,7 @@ ul { list-style: none; }
   font-weight: 600;
   font-size: 21px;
   line-height: 1.22;
-  color: var(--ev-gold);
+  color: var(--s3-gold);            /* same gold as the Jerusalem Unity Center heading */
   margin: 0 0 10px;
 }
 .events__meta {
@@ -1455,8 +1437,10 @@ ul { list-style: none; }
   align-items: center;
   gap: 7px;
   padding: 9px 16px;
-  background: linear-gradient(180deg, var(--ev-cta-1) 0%, var(--ev-cta-2) 100%);
-  color: var(--ev-cta-text);
+  /* same gold gradient + warm-white text as the site Donate buttons */
+  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
+  color: var(--btn-text);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 11px;

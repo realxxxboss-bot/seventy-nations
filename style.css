@@ -1287,7 +1287,7 @@ ul { list-style: none; }
 .events__inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 52px 56px 56px;
+  padding: 46px 56px 50px;
 }
 
 /* ---- heading with flanking gold lines (matches Get Involved) ---- */
@@ -1312,61 +1312,70 @@ ul { list-style: none; }
   background: var(--s4-line);
 }
 
-/* ---- empty state: content sits directly on the parchment (no card),
-   matching Our Four Pillars / Get Involved ---- */
-.events__empty {
-  max-width: 600px;
-  margin: 28px auto 0;
-  text-align: center;
+/* ---- empty state: horizontal strip like Get Involved —
+   badge + text on the left, Join the Movement CTA on the right ---- */
+.events__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 30px auto 0;
+}
+.events__main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  text-align: left;
 }
 .events__badge {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 16px;
+  width: 66px;
+  height: 66px;
   border-radius: 50%;
   background: var(--s4-btn);
   color: var(--s4-btn-text);
 }
-.events__badge svg { width: 32px; height: 32px; }
+.events__badge svg { width: 36px; height: 36px; }
 
 .events__empty-title {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 21px;
   line-height: 1.15;
   letter-spacing: 0.01em;
   color: var(--s4-title);
-  margin: 0;
+  margin: 0 0 8px;
 }
 .events__empty-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.72;
+  font-size: 13.5px;
+  line-height: 1.65;
   color: #2C2238;
-  max-width: 520px;
-  margin: 14px auto 0;
+  max-width: 640px;
+  margin: 0;
 }
 .events__empty-note {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.5;
   color: var(--s4-gold-soft);
-  margin: 12px auto 0;
+  margin: 8px 0 0;
 }
 
 /* ---- Join the Movement button (matches Get Involved button) ---- */
 .events__btn {
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 22px;
-  padding: 13px 30px;
+  padding: 13px 28px;
   background: var(--s4-btn);
   color: var(--s4-btn-text);
   font-family: "Montserrat", sans-serif;
@@ -1475,20 +1484,24 @@ ul { list-style: none; }
 
 /* ---- Section 4.75 responsive ---- */
 @media (max-width: 1100px) {
-  .events__inner { padding: 40px 28px 44px; }
+  .events__inner { padding: 24px 28px 28px; }
+  .events__row { flex-direction: column; gap: 22px; }
+  .events__main { text-align: left; }
   .events__card { gap: 20px; padding: 20px 22px; }
 }
 
 /* ============ MOBILE — events (max-width: 768px) ============ */
 @media (max-width: 768px) {
-  .events__inner { padding: 46px 22px 50px; }
+  .events__inner { padding: 44px 22px 50px; }
   .events__line { width: 34px; }
   .events__title { font-size: 20px; }
-  .events__empty { margin-top: 24px; }
-  .events__badge { width: 56px; height: 56px; }
-  .events__badge svg { width: 30px; height: 30px; }
-  .events__empty-title { font-size: 22px; }
-  .events__empty-text { font-size: 14.5px; }
+  .events__row { margin-top: 24px; gap: 24px; }
+  /* badge, heading, and copy in one centered stack, like the founder strip */
+  .events__main { flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+  .events__badge { width: 60px; height: 60px; }
+  .events__badge svg { width: 32px; height: 32px; }
+  .events__empty-title { font-size: 22px; margin-bottom: 8px; }
+  .events__empty-text { font-size: 14.5px; max-width: 480px; }
   .events__empty-note { font-size: 15.5px; }
   .events__btn { width: 100%; max-width: 320px; justify-content: center; padding: 15px 24px; }
   /* cards stack: date on top, content, then button full width */

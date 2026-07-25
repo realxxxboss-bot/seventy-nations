@@ -382,23 +382,28 @@
       </ul>
       -->
 
-      <!-- Empty state — shown while no events are scheduled -->
-      <div class="events__empty">
-        <span class="events__badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3.5" y="5" width="17" height="15" rx="1.8"/>
-            <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
-            <line x1="8" y1="3" x2="8" y2="7"/>
-            <line x1="16" y1="3" x2="16" y2="7"/>
-            <path d="M9.4 14.3 11 15.9l3.6-3.6"/>
-          </svg>
-        </span>
-        <h3 class="events__empty-title">Upcoming Events</h3>
-        <p class="events__empty-text">
-          New gatherings, educational programs, international dialogues, and
-          special events will be announced soon.
-        </p>
-        <p class="events__empty-note">Stay connected to receive future event announcements.</p>
+      <!-- Empty state — shown while no events are scheduled.
+           Horizontal strip like Get Involved: text left, CTA right -->
+      <div class="events__row">
+        <div class="events__main">
+          <span class="events__badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.5" y="5" width="17" height="15" rx="1.8"/>
+              <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
+              <line x1="8" y1="3" x2="8" y2="7"/>
+              <line x1="16" y1="3" x2="16" y2="7"/>
+              <path d="M9.4 14.3 11 15.9l3.6-3.6"/>
+            </svg>
+          </span>
+          <div class="events__text">
+            <h3 class="events__empty-title">Upcoming Events</h3>
+            <p class="events__empty-text">
+              New gatherings, educational programs, international dialogues, and
+              special events will be announced soon.
+            </p>
+            <p class="events__empty-note">Stay connected to receive future event announcements.</p>
+          </div>
+        </div>
         <a class="events__btn js-join-movement" href="#footer">
           Join the Movement <span class="events__btn-arrow">&rarr;</span>
         </a>

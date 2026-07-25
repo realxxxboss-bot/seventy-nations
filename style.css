@@ -74,6 +74,7 @@ html { scroll-behavior: smooth; }
 #the-center,
 #get-involved,
 #meirah,
+#events,
 #future,
 #footer { scroll-margin-top: 90px; }
 
@@ -1271,6 +1272,250 @@ ul { list-style: none; }
 }
 
 /* ===================================================================
+   SECTION 4.75 : EVENTS
+   (parchment strip — same family as Get Involved; sits between the
+    Founder strip and the Shared Future banner)
+   =================================================================== */
+.events {
+  background-color: var(--s4-cream);
+  background-image: url("assets/section4-bg-high-res.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.events__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 54px 56px 58px;
+}
+
+/* ---- heading with flanking gold lines (matches Get Involved) ---- */
+.events__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.events__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--s4-title);
+  white-space: nowrap;
+}
+.events__line {
+  height: 1px;
+  width: 90px;
+  background: var(--s4-line);
+}
+.events__sub {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--s4-gold-soft);
+  margin-top: 4px;
+}
+
+/* ---- empty state panel ---- */
+.events__panel {
+  max-width: 760px;
+  margin: 34px auto 0;
+  padding: 42px 48px 44px;
+  text-align: center;
+  background: rgba(255, 252, 245, 0.42);
+  border: 1px solid var(--s4-line);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(38, 16, 60, 0.10);
+}
+.events__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--s4-btn);
+  color: var(--s4-btn-text);
+}
+.events__badge svg { width: 36px; height: 36px; }
+
+.events__empty-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--s4-title);
+  margin: 0;
+}
+.events__empty-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #2C2238;
+  max-width: 540px;
+  margin: 16px auto 0;
+}
+.events__empty-note {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--s4-gold-soft);
+  margin: 14px auto 0;
+}
+
+/* ---- Join the Movement button (matches Get Involved button) ---- */
+.events__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  padding: 13px 30px;
+  background: var(--s4-btn);
+  color: var(--s4-btn-text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.events__btn:hover { background: #4a2160; transform: translateY(-1px); }
+.events__btn-arrow { font-size: 15px; line-height: 1; }
+
+/* ---- upcoming event cards (used when events are scheduled) ---- */
+.events__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  max-width: 920px;
+  margin: 34px auto 0;
+}
+.events__card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 26px;
+  padding: 22px 26px;
+  text-align: left;
+  background: rgba(255, 252, 245, 0.5);
+  border: 1px solid var(--s4-line);
+  border-radius: 10px;
+}
+.events__cal {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 10px;
+  background: var(--s4-btn);
+  color: var(--s4-btn-text);
+}
+.events__cal-month {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.events__cal-day {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+}
+.events__name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.15;
+  color: var(--s4-title);
+  margin: 0;
+}
+.events__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--s4-gold-soft);
+}
+.events__desc {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #2C2238;
+  margin: 10px 0 0;
+}
+.events__card-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: transparent;
+  border: 1px solid var(--s4-btn);
+  color: var(--s4-btn);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.events__card-btn:hover { background: var(--s4-btn); color: var(--s4-btn-text); }
+
+/* ---- Section 4.75 responsive ---- */
+@media (max-width: 1100px) {
+  .events__inner { padding: 40px 28px 44px; }
+  .events__card { gap: 20px; padding: 20px 22px; }
+}
+
+/* ============ MOBILE — events (max-width: 768px) ============ */
+@media (max-width: 768px) {
+  .events__inner { padding: 44px 22px 50px; }
+  .events__line { width: 34px; }
+  .events__title { font-size: 20px; }
+  .events__sub { font-size: 18px; margin-top: 6px; }
+  .events__panel { padding: 34px 24px 36px; margin-top: 28px; }
+  .events__badge { width: 66px; height: 66px; }
+  .events__empty-title { font-size: 24px; }
+  .events__empty-text { font-size: 15px; }
+  .events__empty-note { font-size: 16px; }
+  .events__btn { width: 100%; max-width: 320px; justify-content: center; padding: 15px 24px; }
+  /* cards stack: date on top, content, then button full width */
+  .events__card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 22px 20px;
+  }
+  .events__meta { justify-content: center; }
+  .events__card-btn { width: 100%; max-width: 280px; justify-content: center; }
+}
+
+/* ===================================================================
    SECTION 5 : A SHARED FUTURE BANNER
    =================================================================== */
 .future {
@@ -1655,6 +1900,10 @@ ul { list-style: none; }
 
   .founder__inner { padding: 40px 20px 44px; }
   .founder__title { font-size: 24px; }
+
+  .events__inner { padding: 40px 20px 46px; }
+  .events__title { font-size: 18px; }
+  .events__panel { padding: 32px 20px 34px; }
 
   .future__inner { padding: 46px 20px 50px; }
   .future__title { font-size: 24px; }

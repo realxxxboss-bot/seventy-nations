@@ -26,8 +26,8 @@
         <li><a href="#vision">Our Vision</a></li>
         <li><a href="#the-center">The Center</a></li>
         <li><a href="#get-involved">Get Involved</a></li>
-        <!-- TODO: client to confirm Events/News/Contact sections/pages -->
-        <li><a href="#">Events</a></li>
+        <!-- Events links to the on-page section below; News still to be confirmed -->
+        <li><a href="#events">Events</a></li>
         <li><a href="#">News</a></li>
       </ul>
       <a class="btn-donate" href="https://theseventynations.org/donate-now/">Donate</a>
@@ -342,6 +342,69 @@
         </div>
       </div>
       <a class="founder__btn" href="https://meirah.org/" target="_blank" rel="noopener noreferrer">MEET MEIRAH <span class="founder__btn-arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4.75 : EVENTS ============ -->
+  <section class="events" id="events">
+    <div class="events__inner">
+
+      <div class="events__head">
+        <span class="events__line events__line--l"></span>
+        <h2 class="events__title">Events</h2>
+        <span class="events__line events__line--r"></span>
+      </div>
+      <p class="events__sub">Gatherings, Programs &amp; International Dialogues</p>
+
+      <!--
+        ==============================================================
+        UPCOMING EVENTS — card template
+        When events are scheduled, uncomment this list and add one
+        <li class="events__card"> per event (remove the empty-state
+        panel below). Each card holds: date, title, time, location,
+        short description, and a Register / Learn More button.
+        ==============================================================
+      <ul class="events__list">
+        <li class="events__card">
+          <div class="events__cal" aria-hidden="true">
+            <span class="events__cal-month">SEP</span>
+            <span class="events__cal-day">12</span>
+          </div>
+          <div class="events__info">
+            <h3 class="events__name">Event Title Goes Here</h3>
+            <p class="events__meta">
+              <span>7:00 PM &middot; Jerusalem Time</span>
+              <span>Online &middot; Zoom</span>
+            </p>
+            <p class="events__desc">A short description of the gathering, program, or dialogue goes here.</p>
+          </div>
+          <a class="events__card-btn" href="#">Learn More <span class="events__btn-arrow">&rarr;</span></a>
+        </li>
+      </ul>
+      -->
+
+      <!-- Empty state — shown while no events are scheduled -->
+      <div class="events__panel">
+        <span class="events__badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.5" y="5" width="17" height="15" rx="1.8"/>
+            <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
+            <line x1="8" y1="3" x2="8" y2="7"/>
+            <line x1="16" y1="3" x2="16" y2="7"/>
+            <path d="M9.4 14.3 11 15.9l3.6-3.6"/>
+          </svg>
+        </span>
+        <h3 class="events__empty-title">Upcoming Events</h3>
+        <p class="events__empty-text">
+          New gatherings, educational programs, international dialogues, and
+          special events will be announced soon.
+        </p>
+        <p class="events__empty-note">Stay connected to receive future event announcements.</p>
+        <a class="events__btn js-join-movement" href="#footer">
+          Join the Movement <span class="events__btn-arrow">&rarr;</span>
+        </a>
+      </div>
+
     </div>
   </section>
 

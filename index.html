@@ -64,7 +64,7 @@
       </p>
       <div class="hero__actions">
         <a class="btn btn--solid" href="#vision">Our Vision <span class="btn__arrow">&rarr;</span></a>
-        <a class="btn btn--ghost" href="#footer">Join the Movement <span class="btn__arrow">&rarr;</span></a>
+        <a class="btn btn--ghost js-join-movement" href="#footer">Join the Movement <span class="btn__arrow">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -322,7 +322,7 @@
             <svg class="donate-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20.3l-1.4-1.3C6 14.9 3.2 12.3 3.2 9.1 3.2 6.5 5.2 4.5 7.8 4.5c1.5 0 2.9.7 3.8 1.8.9-1.1 2.3-1.8 3.8-1.8 2.6 0 4.6 2 4.6 4.6 0 3.2-2.8 5.8-7.4 9.9L12 20.3Z"/></svg>
             Donate Now
           </a>
-          <a class="involve__btn" href="#footer">Join the Movement <span class="involve__btn-arrow">&rarr;</span></a>
+          <a class="involve__btn js-join-movement" href="#footer">Join the Movement <span class="involve__btn-arrow">&rarr;</span></a>
         </div>
       </div>
 
@@ -539,5 +539,164 @@
 
     </div>
   </footer>
+
+  <!-- ===================== JOIN THE MOVEMENT — POPUP ===================== -->
+  <div class="jm-modal" id="join-modal" aria-hidden="true">
+    <div class="jm-modal__overlay" data-jm-close></div>
+
+    <div class="jm-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="jm-title">
+      <button class="jm-modal__close" type="button" aria-label="Close" data-jm-close>&times;</button>
+
+      <!-- ---- Form view ---- -->
+      <div class="jm-modal__view" data-jm-view="form">
+        <div class="jm-modal__head">
+          <span class="jm-modal__eyebrow">The Seventy Nations &middot; Jerusalem</span>
+          <h2 class="jm-modal__title" id="jm-title">Join the Movement</h2>
+          <p class="jm-modal__intro">
+            Become part of a growing global community dedicated to unity, ethical leadership,
+            human dignity, and cooperation among the nations. Complete the form below to receive
+            updates, learn about upcoming programs and events, explore partnership opportunities,
+            or share how you would like to become involved.
+          </p>
+        </div>
+
+        <form class="jm-form" id="jm-form">
+          <div class="jm-form__grid">
+            <div class="jm-field">
+              <label for="jm-first">First Name <span class="jm-req">*</span></label>
+              <input id="jm-first" name="first_name" type="text" required autocomplete="given-name" />
+            </div>
+            <div class="jm-field">
+              <label for="jm-last">Last Name <span class="jm-req">*</span></label>
+              <input id="jm-last" name="last_name" type="text" required autocomplete="family-name" />
+            </div>
+            <div class="jm-field">
+              <label for="jm-email">Email Address <span class="jm-req">*</span></label>
+              <input id="jm-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="jm-field">
+              <label for="jm-phone">Phone Number <span class="jm-opt">(optional)</span></label>
+              <input id="jm-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="jm-field">
+              <label for="jm-country">Country <span class="jm-req">*</span></label>
+              <input id="jm-country" name="country" type="text" required autocomplete="country-name" />
+            </div>
+            <div class="jm-field">
+              <label for="jm-org">Organization <span class="jm-opt">(optional)</span></label>
+              <input id="jm-org" name="organization" type="text" autocomplete="organization" />
+            </div>
+            <div class="jm-field jm-field--full">
+              <label for="jm-interest">Area of Interest <span class="jm-req">*</span></label>
+              <select id="jm-interest" name="area_of_interest" required>
+                <option value="" disabled selected>Please select&hellip;</option>
+                <option>Attend an Event</option>
+                <option>Volunteer</option>
+                <option>Educational Programs</option>
+                <option>Partnership or Collaboration</option>
+                <option>Sponsorship or Donation</option>
+                <option>Media or Speaking Inquiry</option>
+                <option>General Information</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="jm-field jm-field--full">
+              <label for="jm-message">How would you like to become involved?</label>
+              <textarea id="jm-message" name="message" rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- honeypot spam trap — hidden from real visitors -->
+          <div class="jm-hp" aria-hidden="true">
+            <label>Leave this field empty
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <label class="jm-consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to be contacted by The Seventy Nations Jerusalem Foundation regarding programs, events, and opportunities. <span class="jm-req">*</span></span>
+          </label>
+
+          <!-- BACKEND (final step): reCAPTCHA widget goes here + POST submission
+               to the foundation email / secure storage before showing the thanks view. -->
+
+          <button class="jm-submit" type="submit">Submit Inquiry <span class="jm-submit__arrow">&rarr;</span></button>
+        </form>
+      </div>
+
+      <!-- ---- Thank-you view ---- -->
+      <div class="jm-modal__view jm-modal__view--thanks" data-jm-view="thanks" hidden>
+        <span class="jm-thanks__mark" aria-hidden="true">&#10022;</span>
+        <h2 class="jm-modal__title">Thank you for joining the movement.</h2>
+        <p class="jm-modal__intro">Your inquiry has been received. A member of our team will contact you as soon as possible.</p>
+        <button class="jm-submit jm-submit--ghost" type="button" data-jm-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('join-modal');
+      if (!modal) return;
+      var dialog = modal.querySelector('.jm-modal__dialog');
+      var form = document.getElementById('jm-form');
+      var formView = modal.querySelector('[data-jm-view="form"]');
+      var thanksView = modal.querySelector('[data-jm-view="thanks"]');
+      var lastFocused = null;
+
+      function open(e) {
+        if (e) e.preventDefault();
+        lastFocused = document.activeElement;
+        formView.hidden = false;
+        thanksView.hidden = true;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        dialog.scrollTop = 0;
+        document.addEventListener('keydown', onKey);
+        setTimeout(function () { var f = document.getElementById('jm-first'); if (f) f.focus(); }, 40);
+      }
+      function close() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+      function onKey(e) {
+        if (e.key === 'Escape') { close(); return; }
+        if (e.key !== 'Tab') return;
+        var items = dialog.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled])');
+        items = Array.prototype.filter.call(items, function (el) { return el.offsetParent !== null; });
+        if (!items.length) return;
+        var first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+
+      document.querySelectorAll('.js-join-movement').forEach(function (btn) {
+        btn.addEventListener('click', open);
+      });
+      modal.querySelectorAll('[data-jm-close]').forEach(function (el) {
+        el.addEventListener('click', close);
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // honeypot: a real user never fills this — silently drop if present
+        var hp = form.querySelector('input[name="website"]');
+        if (hp && hp.value) { close(); return; }
+        // NOTE (final step): send the form data to the foundation email / secure
+        // storage and verify reCAPTCHA here before showing the thank-you view.
+        formView.hidden = true;
+        thanksView.hidden = false;
+        dialog.scrollTop = 0;
+        form.reset();
+        var cb = thanksView.querySelector('[data-jm-close]');
+        if (cb) cb.focus();
+      });
+    })();
+  </script>
 </body>
 </html>

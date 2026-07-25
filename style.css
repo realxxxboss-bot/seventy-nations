@@ -439,12 +439,11 @@ ul { list-style: none; }
 
   /* ---- Hero ---- */
   .hero {
+    /* dedicated portrait hero image for mobile (Blogger-hosted) */
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-D6vkF-QtPQBS9PPBN4foF_q2hVCd1gcTlBkb0Dztcc-wVvM8EN22MDaX0goE76bdbpFgFnJ4wKayedxv5-sS_V0RvUvXo8zxMUl7TtTsE3PrK5tn39NTJml-9rjIVFSTqxmhFVzUkXuAOBZ30D3McHj8oaMcRmrkmUHisaEMMcnK3y9tCa4M8MGXn_I/s1600/163937.png");
     background-size: cover;
     background-repeat: no-repeat;
-    /* on tall narrow screens only ~25% of the image width fits; 42% centres
-       the window on the cityscape and the burst where the light streams rise,
-       with the sky's purple-to-gold gradient above */
-    background-position: 42% center;
+    background-position: center center;
   }
   /* portrait overlay: dark bands top & bottom so quote and content stay legible,
      lighter middle so the skyline still reads through */

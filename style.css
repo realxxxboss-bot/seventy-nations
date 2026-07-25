@@ -1273,244 +1273,255 @@ ul { list-style: none; }
 
 /* ===================================================================
    SECTION 4.75 : EVENTS
-   (parchment strip — same family as Get Involved; sits between the
-    Founder strip and the Shared Future banner)
+   (deep navy constellation band, built to assets/even-section-mockup.jpeg;
+    background image shared with the Founder strip family)
    =================================================================== */
+:root {
+  --ev-gold:       #E8B64C;  /* serif heading / card titles (mockup-sampled) */
+  --ev-icon:       #D49A4E;  /* line-art meta icons + head ornaments         */
+  --ev-line:       rgba(212, 154, 78, 0.85); /* head flanking lines          */
+  --ev-border:     rgba(212, 154, 78, 0.5);  /* card / bar gold borders      */
+  --ev-card:       rgba(58, 36, 104, 0.34);  /* card fill over the navy bg   */
+  --ev-tile:       #12082C;  /* date tile dark ground                        */
+  --ev-date:       #F5EFE2;  /* big day number                               */
+  --ev-month:      #E7D0A0;  /* small month label                            */
+  --ev-meta:       #CFC9DC;  /* meta rows (site lavender-grey)               */
+  --ev-desc:       #BEB3D6;  /* card description                             */
+  --ev-cta-1:      #DFA83F;  /* gold CTA gradient top (mockup-sampled)       */
+  --ev-cta-2:      #B67F1F;  /* gold CTA gradient bottom                     */
+  --ev-cta-text:   #2A1606;  /* dark text on gold CTA                        */
+}
+
 .events {
-  background-color: var(--s4-cream);
-  background-image: url("assets/section4-bg-high-res.png");
+  background-color: #150A33;                 /* navy fallback while image loads */
+  background-image: url("assets/events-bg-high-res.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .events__inner {
-  max-width: 1400px;
+  max-width: 1340px;
   margin: 0 auto;
-  padding: 46px 56px 50px;
+  padding: 50px 56px 56px;
 }
 
-/* ---- heading with flanking gold lines (matches Get Involved) ---- */
+/* ---- centered gold heading, flanking lines + inward tips
+   (same ornament pattern as the Our Four Pillars head) ---- */
 .events__head {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
 }
 .events__title {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 25px;
-  letter-spacing: 0.05em;
+  font-size: 24px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--s4-title);
+  color: var(--ev-gold);
   white-space: nowrap;
 }
 .events__line {
   height: 1px;
-  width: 90px;
-  background: var(--s4-line);
+  width: 86px;
+  background: linear-gradient(90deg, rgba(212, 154, 78, 0) 0%, var(--ev-line) 100%);
 }
+.events__head .events__line:last-child {
+  background: linear-gradient(90deg, var(--ev-line) 0%, rgba(212, 154, 78, 0) 100%);
+}
+.events__tip {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+.events__tip--r { border-left: 7px solid var(--ev-icon); }
+.events__tip--l { border-right: 7px solid var(--ev-icon); }
 
-/* ---- empty state: horizontal strip like Get Involved —
-   badge + text on the left, Join the Movement CTA on the right ---- */
-.events__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 30px auto 0;
-}
-.events__main {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  text-align: left;
-}
-/* gold line-art icon straight on the parchment, same as the involve icons */
-.events__badge {
-  flex: 0 0 auto;
-  color: var(--s4-gold);
-  line-height: 0;
-}
-.events__badge svg { width: 36px; height: 36px; }
-
-/* serif sub-heading at the involve__sub scale, in the section title navy */
-.events__empty-title {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  color: var(--s4-title);
-  margin: 0 0 6px;
-}
-/* body copy at the involve__label size and navy */
-.events__empty-text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--s4-label);
-  max-width: 640px;
-  margin: 0;
-}
-/* italic gold accent, same voice as "Become Part of the Story" */
-.events__empty-note {
-  font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.4;
-  color: var(--s4-gold-soft);
-  margin: 8px 0 0;
-}
-
-/* ---- Join the Movement button (matches Get Involved button) ---- */
-.events__btn {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 28px;
-  background: var(--s4-btn);
-  color: var(--s4-btn-text);
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.events__btn:hover { background: #4a2160; transform: translateY(-1px); }
-.events__btn-arrow { font-size: 15px; line-height: 1; }
-
-/* ---- upcoming event cards (used when events are scheduled) ---- */
-.events__list {
+/* ---- three event cards ---- */
+.events__grid {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-  max-width: 920px;
-  margin: 34px auto 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 30px;
 }
 .events__card {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 26px;
-  padding: 22px 26px;
-  text-align: left;
-  background: rgba(255, 252, 245, 0.5);
-  border: 1px solid var(--s4-line);
+  display: flex;
+  gap: 18px;
+  padding: 18px;
+  background: var(--ev-card);
+  border: 1px solid var(--ev-border);
   border-radius: 10px;
 }
-.events__cal {
-  flex: 0 0 auto;
+
+/* date tile: month + day over a dark top, on-brand imagery filling the rest */
+.events__tile {
+  flex: 0 0 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 68px;
-  height: 68px;
-  border-radius: 10px;
-  background: var(--s4-btn);
-  color: var(--s4-btn-text);
+  padding-top: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 154, 78, 0.35);
+  background-color: var(--ev-tile);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
-.events__cal-month {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.12em;
+.events__tile--dialogue {
+  background-image:
+    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    url("assets/new-hero-bg-high-res.png");
+}
+.events__tile--jerusalem {
+  background-image:
+    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    url("assets/section3-bg-high-res.png");
+  background-position: center bottom, 74% bottom;
+}
+.events__tile--youth {
+  background-image:
+    linear-gradient(180deg, rgba(18, 8, 44, 0.96) 0%, rgba(18, 8, 44, 0.85) 38%, rgba(18, 8, 44, 0.2) 68%, rgba(18, 8, 44, 0.05) 100%),
+    url("assets/section5-bg-high-res.png");
+}
+.events__month {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--ev-month);
 }
-.events__cal-day {
+.events__day {
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
-  font-size: 26px;
-  line-height: 1;
+  font-size: 30px;
+  line-height: 1.05;
+  color: var(--ev-date);
+}
+
+.events__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .events__name {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 21px;
-  line-height: 1.15;
-  color: var(--s4-title);
-  margin: 0;
+  line-height: 1.22;
+  color: var(--ev-gold);
+  margin: 0 0 10px;
 }
 .events__meta {
+  list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  margin: 8px 0 0;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+.events__meta li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: "Montserrat", sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--s4-gold-soft);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: var(--ev-meta);
+}
+.events__meta svg {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  color: var(--ev-icon);
 }
 .events__desc {
   font-family: "Montserrat", sans-serif;
-  font-size: 13.5px;
+  font-weight: 400;
+  font-size: 12.5px;
   line-height: 1.65;
-  color: #2C2238;
-  margin: 10px 0 0;
+  color: var(--ev-desc);
+  margin: 10px 0 14px;
 }
-.events__card-btn {
-  flex: 0 0 auto;
+.events__cta {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 22px;
-  background: transparent;
-  border: 1px solid var(--s4-btn);
-  color: var(--s4-btn);
+  gap: 7px;
+  padding: 9px 16px;
+  background: linear-gradient(180deg, var(--ev-cta-1) 0%, var(--ev-cta-2) 100%);
+  color: var(--ev-cta-text);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 12.5px;
-  letter-spacing: 0.06em;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 8px;
-  white-space: nowrap;
-  transition: background 0.2s ease, color 0.2s ease;
+  border-radius: 4px;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
-.events__card-btn:hover { background: var(--s4-btn); color: var(--s4-btn-text); }
+.events__cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.events__cta-arrow { font-size: 13px; line-height: 1; }
+
+/* ---- "No Events Scheduled" bar ---- */
+.events__none {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 26px;
+  padding: 18px 26px;
+  background: var(--ev-card);
+  border: 1px solid var(--ev-border);
+  border-radius: 10px;
+}
+.events__none-icon { color: var(--ev-icon); line-height: 0; }
+.events__none-icon svg { width: 34px; height: 34px; }
+.events__none-text { text-align: left; }
+.events__none-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--ev-gold);
+  margin: 0;
+}
+.events__none-sub {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ev-meta);
+  margin: 4px 0 0;
+}
 
 /* ---- Section 4.75 responsive ---- */
 @media (max-width: 1100px) {
-  .events__inner { padding: 24px 28px 28px; }
-  .events__row { flex-direction: column; gap: 22px; }
-  .events__main { text-align: left; }
-  .events__card { gap: 20px; padding: 20px 22px; }
+  .events__inner { padding: 44px 32px 48px; }
+  .events__grid { grid-template-columns: 1fr; max-width: 620px; margin: 28px auto 0; gap: 20px; }
+  .events__none { max-width: 620px; margin-left: auto; margin-right: auto; }
 }
 
 /* ============ MOBILE — events (max-width: 768px) ============ */
 @media (max-width: 768px) {
   .events__inner { padding: 44px 22px 50px; }
   .events__line { width: 34px; }
-  .events__title { font-size: 20px; }
-  .events__row { margin-top: 24px; gap: 24px; }
-  /* icon, heading, and copy in one centered stack, like the involve items */
-  .events__main { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
-  .events__badge svg { width: 34px; height: 34px; }
-  .events__empty-title { font-size: 18px; margin-bottom: 6px; }
-  .events__empty-text { font-size: 14px; line-height: 1.4; max-width: 480px; }
-  .events__empty-note { font-size: 18px; }
-  .events__btn { width: 100%; max-width: 340px; justify-content: center; padding: 15px 24px; }
-  /* cards stack: date on top, content, then button full width */
-  .events__card {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    gap: 14px;
-    padding: 22px 20px;
-  }
-  .events__meta { justify-content: center; }
-  .events__card-btn { width: 100%; max-width: 280px; justify-content: center; }
+  .events__title { font-size: 20px; letter-spacing: 0.12em; }
+  .events__grid { max-width: 480px; gap: 18px; margin-top: 26px; }
+  .events__card { padding: 16px; gap: 14px; }
+  .events__tile { flex-basis: 84px; }
+  .events__name { font-size: 20px; }
+  .events__meta li { font-size: 12.5px; }
+  .events__desc { font-size: 13px; }
+  .events__cta { padding: 11px 18px; font-size: 11.5px; }
+  .events__none { max-width: 480px; padding: 16px 20px; gap: 14px; }
+  .events__none-icon svg { width: 30px; height: 30px; }
 }
 
 /* ===================================================================

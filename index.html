@@ -350,63 +350,114 @@
     <div class="events__inner">
 
       <div class="events__head">
-        <span class="events__line events__line--l"></span>
-        <h2 class="events__title">Events</h2>
-        <span class="events__line events__line--r"></span>
+        <span class="events__line"></span>
+        <span class="events__tip events__tip--r" aria-hidden="true"></span>
+        <h2 class="events__title">Upcoming Events</h2>
+        <span class="events__tip events__tip--l" aria-hidden="true"></span>
+        <span class="events__line"></span>
       </div>
 
-      <!--
-        ==============================================================
-        UPCOMING EVENTS — card template
-        When events are scheduled, uncomment this list and add one
-        <li class="events__card"> per event (remove the empty-state
-        panel below). Each card holds: date, title, time, location,
-        short description, and a Register / Learn More button.
-        ==============================================================
-      <ul class="events__list">
-        <li class="events__card">
-          <div class="events__cal" aria-hidden="true">
-            <span class="events__cal-month">SEP</span>
-            <span class="events__cal-day">12</span>
-          </div>
-          <div class="events__info">
-            <h3 class="events__name">Event Title Goes Here</h3>
-            <p class="events__meta">
-              <span>7:00 PM &middot; Jerusalem Time</span>
-              <span>Online &middot; Zoom</span>
-            </p>
-            <p class="events__desc">A short description of the gathering, program, or dialogue goes here.</p>
-          </div>
-          <a class="events__card-btn" href="#">Learn More <span class="events__btn-arrow">&rarr;</span></a>
-        </li>
-      </ul>
-      -->
+      <!-- Event cards (per assets/even-section-mockup.jpeg) -->
+      <ul class="events__grid">
 
-      <!-- Empty state — shown while no events are scheduled.
-           Horizontal strip like Get Involved: text left, CTA right -->
-      <div class="events__row">
-        <div class="events__main">
-          <span class="events__badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3.5" y="5" width="17" height="15" rx="1.8"/>
-              <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
-              <line x1="8" y1="3" x2="8" y2="7"/>
-              <line x1="16" y1="3" x2="16" y2="7"/>
-              <path d="M9.4 14.3 11 15.9l3.6-3.6"/>
-            </svg>
-          </span>
-          <div class="events__text">
-            <h3 class="events__empty-title">Upcoming Events</h3>
-            <p class="events__empty-text">
-              New gatherings, educational programs, international dialogues, and
-              special events will be announced soon.
-            </p>
-            <p class="events__empty-note">Stay connected to receive future event announcements.</p>
+        <li class="events__card">
+          <div class="events__tile events__tile--dialogue" aria-hidden="true">
+            <span class="events__month">May</span>
+            <span class="events__day">24</span>
           </div>
+          <div class="events__body">
+            <h3 class="events__name">Global Dialogue:<br>Unity in Diversity</h3>
+            <ul class="events__meta">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.6"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+                Saturday, May 24, 2025
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                10:00 AM &ndash; 12:30 PM EST
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="1.6"/><line x1="9" y1="20.5" x2="15" y2="20.5"/><line x1="12" y1="17" x2="12" y2="20.5"/></svg>
+                Online (Zoom)
+              </li>
+            </ul>
+            <p class="events__desc">A global conversation on how we can embrace our differences and build a more united future together.</p>
+            <a class="events__cta" href="#footer">Register <span class="events__cta-arrow">&rarr;</span></a>
+          </div>
+        </li>
+
+        <li class="events__card">
+          <div class="events__tile events__tile--jerusalem" aria-hidden="true">
+            <span class="events__month">Jun</span>
+            <span class="events__day">07</span>
+          </div>
+          <div class="events__body">
+            <h3 class="events__name">Jerusalem: A Light<br>Among Nations</h3>
+            <ul class="events__meta">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.6"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+                Saturday, June 7, 2025
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                2:00 PM &ndash; 4:30 PM IDT
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-10.2A6.5 6.5 0 0 1 12 4.3a6.5 6.5 0 0 1 6.5 6.5C18.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10.6" r="2.3"/></svg>
+                Jerusalem Unity Center
+              </li>
+            </ul>
+            <p class="events__desc">An in-person gathering exploring Jerusalem&rsquo;s timeless role as a place of peace, wisdom, and unity.</p>
+            <a class="events__cta" href="#footer">Learn More <span class="events__cta-arrow">&rarr;</span></a>
+          </div>
+        </li>
+
+        <li class="events__card">
+          <div class="events__tile events__tile--youth" aria-hidden="true">
+            <span class="events__month">Jun</span>
+            <span class="events__day">21</span>
+          </div>
+          <div class="events__body">
+            <h3 class="events__name">Youth Leadership<br>for Tomorrow</h3>
+            <ul class="events__meta">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.6"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+                Saturday, June 21, 2025
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                11:00 AM &ndash; 1:00 PM EST
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="1.6"/><line x1="9" y1="20.5" x2="15" y2="20.5"/><line x1="12" y1="17" x2="12" y2="20.5"/></svg>
+                Online (Zoom)
+              </li>
+            </ul>
+            <p class="events__desc">Empowering the next generation to lead with purpose, integrity, and compassion.</p>
+            <a class="events__cta" href="#footer">Register <span class="events__cta-arrow">&rarr;</span></a>
+          </div>
+        </li>
+
+      </ul>
+
+      <!-- No-events bar (per mockup; shown alone when nothing is scheduled) -->
+      <div class="events__none">
+        <span class="events__none-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.5" y="5" width="17" height="15" rx="1.8"/>
+            <line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/>
+            <line x1="8" y1="3" x2="8" y2="7"/>
+            <line x1="16" y1="3" x2="16" y2="7"/>
+            <g fill="currentColor" stroke="none">
+              <circle cx="8" cy="12.5" r="0.9"/><circle cx="12" cy="12.5" r="0.9"/><circle cx="16" cy="12.5" r="0.9"/>
+              <circle cx="8" cy="16" r="0.9"/><circle cx="12" cy="16" r="0.9"/><circle cx="16" cy="16" r="0.9"/>
+            </g>
+          </svg>
+        </span>
+        <div class="events__none-text">
+          <h3 class="events__none-title">No Events Scheduled</h3>
+          <p class="events__none-sub">Check back soon for upcoming events and opportunities to connect.</p>
         </div>
-        <a class="events__btn js-join-movement" href="#footer">
-          Join the Movement <span class="events__btn-arrow">&rarr;</span>
-        </a>
       </div>
 
     </div>

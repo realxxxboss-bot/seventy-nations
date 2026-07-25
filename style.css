@@ -1438,22 +1438,22 @@ ul { list-style: none; }
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 16px;
-  /* same gold gradient + warm-white text as the site Donate buttons */
-  background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
-  color: var(--btn-text);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+  gap: 9px;
+  padding: 11px 22px;
+  /* gold-outline button — same style/color as the founder "MEET MEIRAH" button */
+  background: transparent;
+  color: #DDA542;
+  border: 1px solid #C9963F;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 4px;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-.events__cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.events__cta:hover { background-color: #DDA542; color: #16093A; }
 .events__cta-arrow { font-size: 13px; line-height: 1; }
 
 /* ---- "No Events Scheduled" bar: info on the left, CTA on the right ---- */
@@ -1464,7 +1464,18 @@ ul { list-style: none; }
   gap: 24px;
   margin-top: 26px;
   padding: 20px 30px;
-  background: var(--ev-card);
+  /* translucent purple fill + a soft gold glow behind the icon and a faint
+     constellation of stars, echoing the founder strip / section backdrop */
+  background-color: rgba(58, 36, 104, 0.34);
+  background-image:
+    radial-gradient(180px 110px at 7% 50%, rgba(220, 174, 94, 0.14), rgba(220, 174, 94, 0) 72%),
+    radial-gradient(1.5px 1.5px at 22% 32%, rgba(247, 216, 129, 0.42), transparent 60%),
+    radial-gradient(1.1px 1.1px at 46% 66%, rgba(247, 216, 129, 0.26), transparent 60%),
+    radial-gradient(1.6px 1.6px at 67% 38%, rgba(247, 216, 129, 0.34), transparent 60%),
+    radial-gradient(1.1px 1.1px at 84% 62%, rgba(247, 216, 129, 0.24), transparent 60%),
+    radial-gradient(1.2px 1.2px at 57% 24%, rgba(247, 216, 129, 0.22), transparent 60%),
+    radial-gradient(1.2px 1.2px at 37% 46%, rgba(247, 216, 129, 0.20), transparent 60%);
+  background-repeat: no-repeat;
   border: 1px solid var(--ev-border);
   border-radius: 10px;
 }
@@ -1512,7 +1523,7 @@ ul { list-style: none; }
   gap: 8px;
   padding: 12px 26px;
   background: linear-gradient(180deg, var(--gold-btn-1) 0%, var(--gold-btn-2) 100%);
-  color: var(--btn-text);
+  color: #EFE6D6;                 /* softer warm ivory, easier on the eyes than bright white */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
   font-family: "Montserrat", sans-serif;
   font-weight: 700;

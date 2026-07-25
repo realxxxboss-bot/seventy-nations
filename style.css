@@ -97,7 +97,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 60px;
+  padding: 26px 60px;
 }
 
 .brand {
@@ -107,13 +107,11 @@ ul { list-style: none; }
 }
 
 .brand__emblem {
-  /* Sized to match assets/mockup-full.png, where the crest reads ~92px tall in
-     the 1536px-wide comp — a large, prominent header mark on par with the
-     Jerusalem Unity Center site. Uses the-seventy-nations-transparent-logo.png
-     (the same master logo as the footer crest); its artwork occupies only ~62%
-     of the 1024x1024 canvas, so the height is scaled up by ~1.61x versus a tight
-     crop to keep the visible mark at the intended ~90px. */
-  height: 145px;
+  /* Uses assets/logo-emblem.png — a tight-cropped emblem whose artwork fills
+     its box (no transparent padding), so height alone controls the visible
+     mark (~90px, matching the mockup). Lighter than the 1024x1024 master, so
+     it loads reliably on mobile. */
+  height: 90px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
@@ -398,7 +396,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 1100px) {
-  .site-header { padding: 6px 32px; }
+  .site-header { padding: 18px 32px; }
   .main-nav { gap: 24px; }
   .main-nav__list { gap: 22px; }
   .hero__quote { top: 110px; right: 32px; max-width: 360px; }
@@ -411,9 +409,9 @@ ul { list-style: none; }
    Desktop (>1200px) is untouched. Nav hides below 900px (logo + Donate),
    consistent with the mobile pattern. */
 @media (max-width: 1200px) {
-  .site-header { padding: 8px 28px; }
-  .brand { gap: 11px; }
-  .brand__emblem { height: 108px; }
+  .site-header { padding: 16px 28px; }
+  .brand { gap: 12px; }
+  .brand__emblem { height: 80px; }
   .brand__title { font-size: 20px; }
   .brand__sub { font-size: 11.5px; letter-spacing: 0.26em; }
   .main-nav { gap: 16px; }
@@ -431,10 +429,10 @@ ul { list-style: none; }
   html, body { overflow-x: hidden; }
 
   /* ---- Header ---- */
-  .site-header { padding: 6px 20px; }
+  .site-header { padding: 14px 20px; }
   .main-nav__list { display: none; }
   .brand { gap: 12px; }
-  .brand__emblem { height: 116px; }
+  .brand__emblem { height: 72px; }
   .brand__title { font-size: 20px; }
   .brand__sub { font-size: 12px; letter-spacing: 0.28em; }
   .btn-donate { font-size: 12px; padding: 10px 18px; }
@@ -1933,8 +1931,8 @@ ul { list-style: none; }
    SMALL PHONES (max-width: 480px) — tighter type + padding scale
    =================================================================== */
 @media (max-width: 480px) {
-  .site-header { padding: 4px 16px; }
-  .brand__emblem { height: 103px; }
+  .site-header { padding: 12px 16px; }
+  .brand__emblem { height: 64px; }
   .brand__title { font-size: 18px; }
   .brand__sub { font-size: 11px; }
   .btn-donate { font-size: 11.5px; padding: 9px 15px; }

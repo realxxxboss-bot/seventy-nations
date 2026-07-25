@@ -1325,46 +1325,44 @@ ul { list-style: none; }
 .events__main {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   text-align: left;
 }
+/* gold line-art icon straight on the parchment, same as the involve icons */
 .events__badge {
   flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  background: var(--s4-btn);
-  color: var(--s4-btn-text);
+  color: var(--s4-gold);
+  line-height: 0;
 }
 .events__badge svg { width: 36px; height: 36px; }
 
+/* serif sub-heading at the involve__sub scale, in the section title navy */
 .events__empty-title {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 700;
-  font-size: 21px;
-  line-height: 1.15;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
   letter-spacing: 0.01em;
   color: var(--s4-title);
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
+/* body copy at the involve__label size and navy */
 .events__empty-text {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 13.5px;
   line-height: 1.65;
-  color: #2C2238;
+  color: var(--s4-label);
   max-width: 640px;
   margin: 0;
 }
+/* italic gold accent, same voice as "Become Part of the Story" */
 .events__empty-note {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.4;
   color: var(--s4-gold-soft);
   margin: 8px 0 0;
 }
@@ -1496,14 +1494,13 @@ ul { list-style: none; }
   .events__line { width: 34px; }
   .events__title { font-size: 20px; }
   .events__row { margin-top: 24px; gap: 24px; }
-  /* badge, heading, and copy in one centered stack, like the founder strip */
-  .events__main { flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-  .events__badge { width: 60px; height: 60px; }
-  .events__badge svg { width: 32px; height: 32px; }
-  .events__empty-title { font-size: 22px; margin-bottom: 8px; }
-  .events__empty-text { font-size: 14.5px; max-width: 480px; }
-  .events__empty-note { font-size: 15.5px; }
-  .events__btn { width: 100%; max-width: 320px; justify-content: center; padding: 15px 24px; }
+  /* icon, heading, and copy in one centered stack, like the involve items */
+  .events__main { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .events__badge svg { width: 34px; height: 34px; }
+  .events__empty-title { font-size: 18px; margin-bottom: 6px; }
+  .events__empty-text { font-size: 14px; line-height: 1.4; max-width: 480px; }
+  .events__empty-note { font-size: 18px; }
+  .events__btn { width: 100%; max-width: 340px; justify-content: center; padding: 15px 24px; }
   /* cards stack: date on top, content, then button full width */
   .events__card {
     grid-template-columns: 1fr;

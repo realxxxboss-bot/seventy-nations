@@ -184,7 +184,7 @@ ul { list-style: none; }
 /* ===================== HERO ===================== */
 .hero {
   position: relative;
-  min-height: 600px;
+  min-height: 660px;
   background-color: var(--purple-deep);
   background-image: url("assets/img/hero-bg.jpg");
   background-image: image-set(url("assets/img/hero-bg.webp") type("image/webp"), url("assets/img/hero-bg.jpg") type("image/jpeg"));
@@ -193,6 +193,17 @@ ul { list-style: none; }
   background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  /* two real columns instead of one absolutely-positioned quote floating in
+     the corner: headline block left, scripture block right, both sharing one
+     vertical centre line so the composition reads balanced */
+  display: grid;
+  grid-template-columns: minmax(0, 580px) minmax(0, 560px);
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 60px;
+  /* top padding clears the absolutely-positioned header (26px pad + 140px logo) */
+  padding: 206px clamp(40px, 5vw, 90px) 88px;
 }
 
 /* dark purple gradient overlay: dense left -> sunset reveal right.
@@ -205,10 +216,10 @@ ul { list-style: none; }
   background:
     linear-gradient(
       100deg,
-      rgba(10, 5, 34, 0.88) 0%,
-      rgba(10, 5, 34, 0.80) 22%,
-      rgba(11, 5, 36, 0.62) 38%,
-      rgba(14, 7, 44, 0.38) 54%,
+      rgba(10, 5, 34, 0.90) 0%,
+      rgba(10, 5, 34, 0.84) 22%,
+      rgba(11, 5, 36, 0.68) 38%,
+      rgba(14, 7, 44, 0.44) 54%,
       rgba(18, 9, 50, 0.14) 72%,
       rgba(22, 11, 56, 0.05) 90%,
       rgba(24, 12, 58, 0.02) 100%
@@ -222,43 +233,64 @@ ul { list-style: none; }
     );
 }
 
-/* ---- Isaiah quote (top-right) ---- */
+/* ---- Isaiah quote (right column) ---- */
 .hero__quote {
-  position: absolute;
-  top: 116px;
-  right: 90px;
+  position: relative;
   z-index: 3;
+  /* the quote sits first in the DOM so mobile stacks it above the headline;
+     on desktop it is pinned to the second column */
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  max-width: 560px;
   text-align: center;
-  max-width: 460px;
-}
-
-/* soft purple pool behind the quote: the light streams in the new artwork
-   pass right under the quote's last line, so give it a localized dim halo */
-.hero__quote::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -46px -70px -52px;
+  padding: 46px 34px 46px;
+  /* soft-edged purple plate: the sunset burns brightest right here, so the
+     scripture needs a localized dim to hold contrast without hiding the art.
+     closest-side keeps the falloff inside the box — a larger extent would clip
+     against the edges and read as a grey rectangle */
   background: radial-gradient(
     closest-side,
-    rgba(10, 5, 34, 0.45),
-    rgba(10, 5, 34, 0.24) 55%,
+    rgba(10, 5, 34, 0.60) 0%,
+    rgba(10, 5, 34, 0.44) 42%,
+    rgba(10, 5, 34, 0.16) 72%,
     rgba(10, 5, 34, 0) 100%
   );
 }
+
+/* thin gold hairlines top and bottom — same ornament language as .hero__rule,
+   so the scripture reads as a deliberate plate rather than floating text */
+.hero__quote::before,
+.hero__quote::after {
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 173, 60, 0) 0%,
+    rgba(229, 173, 60, 0.75) 50%,
+    rgba(229, 173, 60, 0) 100%
+  );
+  box-shadow: 0 1px 4px rgba(7, 5, 24, 0.85);
+}
+
+.hero__quote::before { top: 20px; }
+.hero__quote::after  { bottom: 20px; }
 
 .hero__quote blockquote {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 21px;
-  line-height: 1.55;
+  font-size: 20px;
+  line-height: 1.62;
   color: var(--quote-text);
-  text-shadow: 0 2px 10px rgba(7, 5, 24, 0.9), 0 0 28px rgba(7, 5, 24, 0.7);
+  text-shadow: 0 2px 10px rgba(7, 5, 24, 0.95), 0 0 26px rgba(7, 5, 24, 0.85), 0 0 52px rgba(7, 5, 24, 0.6);
 }
 
 .hero__quote figcaption {
-  margin-top: 14px;
+  margin-top: 16px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
   font-size: 13px;
@@ -272,12 +304,11 @@ ul { list-style: none; }
 .hero__content {
   position: relative;
   z-index: 3;
-  max-width: 620px;
-  /* top padding clears the absolutely-positioned header (26px pad + 140px logo) */
-  padding: 202px 60px 64px;
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 }
 
 .hero__title {
@@ -306,6 +337,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
   max-width: 355px;
   margin: 20px 0 22px;
 }
@@ -356,6 +388,7 @@ ul { list-style: none; }
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
   padding: 14px 28px;
   border-radius: 4px;
   transition: all 0.22s ease;
@@ -390,10 +423,13 @@ ul { list-style: none; }
   .site-header { padding: 18px 32px; }
   .main-nav { gap: 24px; }
   .main-nav__list { gap: 22px; }
-  .hero__quote { top: 110px; right: 32px; max-width: 360px; }
-  .hero__quote blockquote { font-size: 18px; }
-  .hero__content { padding-left: 32px; padding-right: 32px; }
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); column-gap: 36px; padding: 200px 32px 72px; }
+  .hero__quote { max-width: 340px; padding: 38px 18px 38px; }
+  /* too narrow to honour the hand-set line breaks — let it wrap evenly */
+  .hero__quote blockquote { font-size: 17px; text-wrap: balance; }
+  .hero__quote blockquote br { display: none; }
   .hero__title { font-size: 54px; }
+  .hero__lede { max-width: 640px; }
 }
 
 /* Compact header for laptops/tablets so the full nav never overflows.
@@ -415,6 +451,48 @@ ul { list-style: none; }
   html, body { overflow-x: hidden; }
 }
 
+/* ==== TABLET / SMALL LAPTOP (max-width: 980px) — hero stacks ====
+   Two columns get too cramped to hold the headline and the scripture side by
+   side, so the hero collapses to one centred column (still on the landscape
+   artwork; the portrait swap happens at 768px). */
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 30px;
+    padding: 198px 32px 74px;
+  }
+  /* single column, so DOM order rules: scripture first, headline block below */
+  .hero__quote {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 540px;
+    padding: 34px 30px 36px;
+  }
+  .hero__quote blockquote { font-size: 19px; }
+  .hero__quote blockquote br { display: revert; }
+  .hero__content {
+    grid-column: 1;
+    grid-row: 2;
+    align-items: center;
+    text-align: center;
+  }
+  .hero__rule { margin-left: auto; margin-right: auto; }
+  .hero__lede { max-width: 580px; }
+  .hero__actions { justify-content: center; }
+
+  /* the left-to-right gradient assumes a left-aligned column; stacked and
+     centred, the copy needs an even scrim top-to-bottom instead */
+  .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 5, 24, 0.86) 0%,
+      rgba(9, 6, 30, 0.64) 30%,
+      rgba(10, 5, 34, 0.60) 62%,
+      rgba(7, 5, 24, 0.88) 100%
+    );
+  }
+}
 
 /* ============ MOBILE — header + hero (max-width: 768px) ============ */
 @media (max-width: 768px) {
@@ -431,6 +509,10 @@ ul { list-style: none; }
 
   /* ---- Hero ---- */
   .hero {
+    /* drop the desktop two-column grid: portrait stacks quote over content */
+    display: block;
+    padding: 0;
+    min-height: 0;
     /* dedicated portrait hero image for mobile (Blogger-hosted) */
     background-image: url("assets/img/hero-bg-mobile.jpg");
     background-image: image-set(url("assets/img/hero-bg-mobile.webp") type("image/webp"), url("assets/img/hero-bg-mobile.jpg") type("image/jpeg"));
@@ -457,9 +539,10 @@ ul { list-style: none; }
     padding: 134px 24px 0;
     text-align: center;
   }
-  /* mobile's full-width top gradient band already dims the sky behind the
-     quote; the desktop halo would mis-anchor on a static element anyway */
-  .hero__quote::before { display: none; }
+  /* the desktop gold hairlines need a positioned box to anchor to, and the
+     portrait crop reads cleaner without them */
+  .hero__quote::before,
+  .hero__quote::after { display: none; }
   .hero__quote blockquote {
     font-size: 17px;
     line-height: 1.6;

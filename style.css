@@ -107,7 +107,7 @@ ul { list-style: none; }
 }
 
 .brand__emblem {
-  height: 140px;
+  height: 96px;
   width: auto;
   display: block;
 }
@@ -184,26 +184,35 @@ ul { list-style: none; }
 /* ===================== HERO ===================== */
 .hero {
   position: relative;
-  min-height: 660px;
+  /* the frame follows the artwork's own 2560x1393 proportion once the viewport
+     grows past a laptop. it used to be a flat 765px tall at every width, so a
+     desktop monitor scaled the picture up and sliced the sky off the top and the
+     hills off the bottom — the exact two bands the text has to sit in. below
+     ~1406px this never binds, so laptops render as before */
+  min-height: clamp(600px, 54.4vw, 1050px);
   background-color: var(--purple-deep);
-  background-image: url("assets/img/hero-bg.jpg");
-  background-image: image-set(url("assets/img/hero-bg.webp") type("image/webp"), url("assets/img/hero-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4NL5I6z4Fsqjk9rOCJm0djrOQAMzy40NzS8wkbIdkRNKZnsY7QqfdKvYnTonJQbKLfzsp5kefvJM5Okx48xs7QXwoocVxa5qgfTHYvI22n-U4d_lOocvNRO_q1N51jFpRMs3h9b6Nrf6HPSqzwm3_qiJ44S8NHMmNj-7c7CbjyrgLEtnBqooa5QmGypw/s3400/new-hero-bg-high-res.png");
   /* desktop artwork: full-bleed, centre-cropped and filled edge to edge */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
 
-  /* two real columns instead of one absolutely-positioned quote floating in
-     the corner: headline block left, scripture block right, both sharing one
-     vertical centre line so the composition reads balanced */
+  /* the light fan leaves exactly two clear zones: the deep purple sky above and
+     left of it, and the dark hill band along the bottom. the headline takes the
+     first, the scripture takes the second, and the beams sweep diagonally
+     between them without a word laid over the light */
   display: grid;
-  grid-template-columns: minmax(0, 580px) minmax(0, 560px);
+  grid-template-columns: minmax(0, 580px) minmax(0, 600px);
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   column-gap: 60px;
-  /* top padding clears the absolutely-positioned header (26px pad + 140px logo) */
-  padding: 206px clamp(40px, 5vw, 90px) 88px;
+  /* 202px top clearance and a 60px gutter matching the header — but past 1440px
+     the surplus width becomes side gutters instead of being handed to
+     space-between. that was the desktop failure: the headline and the scripture
+     drifted to opposite edges of a wide monitor and the middle of the
+     composition fell out, while a laptop never got wide enough to show it */
+  padding: 202px max(60px, calc((100% - 1440px) / 2)) 64px;
 }
 
 /* dark purple gradient overlay: dense left -> sunset reveal right.
@@ -216,10 +225,10 @@ ul { list-style: none; }
   background:
     linear-gradient(
       100deg,
-      rgba(10, 5, 34, 0.90) 0%,
-      rgba(10, 5, 34, 0.84) 22%,
-      rgba(11, 5, 36, 0.68) 38%,
-      rgba(14, 7, 44, 0.44) 54%,
+      rgba(10, 5, 34, 0.88) 0%,
+      rgba(10, 5, 34, 0.80) 22%,
+      rgba(11, 5, 36, 0.62) 38%,
+      rgba(14, 7, 44, 0.38) 54%,
       rgba(18, 9, 50, 0.14) 72%,
       rgba(22, 11, 56, 0.05) 90%,
       rgba(24, 12, 58, 0.02) 100%
@@ -228,56 +237,49 @@ ul { list-style: none; }
       180deg,
       rgba(7, 5, 24, 0.55) 0%,
       rgba(7, 5, 24, 0) 22%,
-      rgba(7, 5, 24, 0) 78%,
-      rgba(7, 5, 24, 0.25) 100%
+      rgba(7, 5, 24, 0) 62%,
+      rgba(7, 5, 24, 0.30) 82%,
+      rgba(7, 5, 24, 0.52) 100%
     );
 }
 
-/* ---- Isaiah quote (right column) ---- */
+/* ---- Isaiah quote (bottom-right, under the light streams) ---- */
 .hero__quote {
   position: relative;
   z-index: 3;
   /* the quote sits first in the DOM so mobile stacks it above the headline;
-     on desktop it is pinned to the second column */
+     on desktop it is pinned to the second column and dropped to the foot of the
+     row, which lands it on the dark hills *below* the light fan */
   grid-column: 2;
   grid-row: 1;
+  align-self: end;
   justify-self: center;
-  max-width: 560px;
+  max-width: 600px;
   text-align: center;
-  padding: 46px 34px 46px;
-  /* soft-edged purple plate: the sunset burns brightest right here, so the
-     scripture needs a localized dim to hold contrast without hiding the art.
-     closest-side keeps the falloff inside the box — a larger extent would clip
-     against the edges and read as a grey rectangle */
-  background: radial-gradient(
-    closest-side,
-    rgba(10, 5, 34, 0.60) 0%,
-    rgba(10, 5, 34, 0.44) 42%,
-    rgba(10, 5, 34, 0.16) 72%,
-    rgba(10, 5, 34, 0) 100%
-  );
+  padding: 0 10px;
+  /* no plate and no scrim: down here the artwork is already deep and dark, so
+     the scripture reads on its own. the box that used to dim the sunset was what
+     made this look bolted on */
 }
 
-/* thin gold hairlines top and bottom — same ornament language as .hero__rule,
-   so the scripture reads as a deliberate plate rather than floating text */
-.hero__quote::before,
-.hero__quote::after {
+/* single gold hairline under the scripture — the same ornament language as
+   .hero__rule. it sits below the caption, on the dark hills: above the text it
+   ran parallel to the hazy ridge line and read as a second horizon */
+.hero__quote::before {
   content: "";
   position: absolute;
-  left: 22%;
-  right: 22%;
+  bottom: -24px;
+  left: 32%;
+  right: 32%;
   height: 1px;
   background: linear-gradient(
     90deg,
     rgba(229, 173, 60, 0) 0%,
-    rgba(229, 173, 60, 0.75) 50%,
+    rgba(229, 173, 60, 0.7) 50%,
     rgba(229, 173, 60, 0) 100%
   );
   box-shadow: 0 1px 4px rgba(7, 5, 24, 0.85);
 }
-
-.hero__quote::before { top: 20px; }
-.hero__quote::after  { bottom: 20px; }
 
 .hero__quote blockquote {
   font-family: "Playfair Display", serif;
@@ -423,11 +425,12 @@ ul { list-style: none; }
   .site-header { padding: 18px 32px; }
   .main-nav { gap: 24px; }
   .main-nav__list { gap: 22px; }
-  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); column-gap: 36px; padding: 200px 32px 72px; }
-  .hero__quote { max-width: 340px; padding: 38px 18px 38px; }
-  /* too narrow to honour the hand-set line breaks — let it wrap evenly */
-  .hero__quote blockquote { font-size: 17px; text-wrap: balance; }
-  .hero__quote blockquote br { display: none; }
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); column-gap: 36px; padding: 200px 32px 72px; }
+  /* a wider track still honours the three hand-set lines. that keeps the block
+     short, so bottom-aligning it can't grow the text back up into the beams —
+     and it rides a little lower to stay on the dark hills */
+  .hero__quote { max-width: 400px; margin-bottom: -28px; }
+  .hero__quote blockquote { font-size: 17px; }
   .hero__title { font-size: 54px; }
   .hero__lede { max-width: 640px; }
 }
@@ -438,7 +441,7 @@ ul { list-style: none; }
 @media (max-width: 1200px) {
   .site-header { padding: 16px 28px; }
   .brand { gap: 12px; }
-  .brand__emblem { height: 124px; }
+  .brand__emblem { height: 84px; }
   .brand__title { font-size: 20px; }
   .brand__sub { font-size: 11.5px; letter-spacing: 0.26em; }
   .main-nav { gap: 16px; }
@@ -460,7 +463,11 @@ ul { list-style: none; }
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
     row-gap: 30px;
-    padding: 198px 32px 74px;
+    padding: 176px 32px 74px;
+    /* stacked, the hero is tall and narrow, so cover centre-crops the wide
+       artwork down to empty sky — bias downward to keep the cityscape,
+       light streams and sun in frame */
+    background-position: 50% 64%;
   }
   /* single column, so DOM order rules: scripture first, headline block below */
   .hero__quote {
@@ -468,9 +475,10 @@ ul { list-style: none; }
     grid-row: 1;
     max-width: 540px;
     padding: 34px 30px 36px;
+    /* stacked: no fan to duck under, so drop the drop-down nudge */
+    margin-bottom: 0;
   }
   .hero__quote blockquote { font-size: 19px; }
-  .hero__quote blockquote br { display: revert; }
   .hero__content {
     grid-column: 1;
     grid-row: 2;
@@ -486,10 +494,10 @@ ul { list-style: none; }
   .hero__overlay {
     background: linear-gradient(
       180deg,
-      rgba(7, 5, 24, 0.86) 0%,
-      rgba(9, 6, 30, 0.64) 30%,
-      rgba(10, 5, 34, 0.60) 62%,
-      rgba(7, 5, 24, 0.88) 100%
+      rgba(7, 5, 24, 0.82) 0%,
+      rgba(9, 6, 30, 0.52) 30%,
+      rgba(10, 5, 34, 0.48) 62%,
+      rgba(7, 5, 24, 0.82) 100%
     );
   }
 }
@@ -502,7 +510,7 @@ ul { list-style: none; }
   .site-header { padding: 14px 20px; }
   .main-nav__list { display: none; }
   .brand { gap: 12px; }
-  .brand__emblem { height: 110px; }
+  .brand__emblem { height: 76px; }
   .brand__title { font-size: 20px; }
   .brand__sub { font-size: 12px; letter-spacing: 0.28em; }
   .btn-donate { font-size: 12px; padding: 10px 18px; }
@@ -514,8 +522,7 @@ ul { list-style: none; }
     padding: 0;
     min-height: 0;
     /* dedicated portrait hero image for mobile (Blogger-hosted) */
-    background-image: url("assets/img/hero-bg-mobile.jpg");
-    background-image: image-set(url("assets/img/hero-bg-mobile.webp") type("image/webp"), url("assets/img/hero-bg-mobile.jpg") type("image/jpeg"));
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-D6vkF-QtPQBS9PPBN4foF_q2hVCd1gcTlBkb0Dztcc-wVvM8EN22MDaX0goE76bdbpFgFnJ4wKayedxv5-sS_V0RvUvXo8zxMUl7TtTsE3PrK5tn39NTJml-9rjIVFSTqxmhFVzUkXuAOBZ30D3McHj8oaMcRmrkmUHisaEMMcnK3y9tCa4M8MGXn_I/s1600/163937.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -578,8 +585,7 @@ ul { list-style: none; }
    =================================================================== */
 .why {
   background-color: var(--s2-cream);
-  background-image: url("assets/img/section-2-bg.jpg");
-  background-image: image-set(url("assets/img/section-2-bg.webp") type("image/webp"), url("assets/img/section-2-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1LHtQC4E_SnVtRTOgN7QDzzv9Kumhd3_F9W_SwOtO0kIj0i9fObipxiHm5nFpg3s6EOD8PE0PThUWUCU2wPEIkK4wINwZ9UzpY3Dpn0RjczalmcxQV4hbTJgBfne0yuzoAlm2hDzluIEQmsCAUTBVP2Ecbg-duQHD2_I2GiCt-zSHTq2mJBkBGt75o6w/s3200/section-2-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -773,8 +779,7 @@ ul { list-style: none; }
 
 .pillars {
   background-color: var(--pl-cream);            /* fallback while image loads */
-  background-image: url("assets/img/section-3-bg.jpg");
-  background-image: image-set(url("assets/img/section-3-bg.webp") type("image/webp"), url("assets/img/section-3-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk-TBZ-FDo7P4cRRoeENEI_0sEIfzJ1zZCCvH31x2jbxpOg6x10TtYfQ_GDQOQkCnp4j6Y9oNpuTwjW9Ubtn0_zXXqnuPMjvue-m2QicKuXf_Y_57cfLfk76v8ZfK2PRbeo1FLq87JTG_sZ0LMl23WotH7zVRIEHPB884Y1asOL7Q6N4C2taz3AlyyBCk/s3200/section-3-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -930,15 +935,7 @@ ul { list-style: none; }
       rgba(20,16,46,0.92) 38%,
       rgba(20,16,46,0.45) 52%,
       rgba(20,16,46,0) 66%),
-    url("assets/img/section-4-bg.jpg");
-  background-image:
-    linear-gradient(to right,
-      var(--s3-navy) 0%,
-      var(--s3-navy) 26%,
-      rgba(20,16,46,0.92) 38%,
-      rgba(20,16,46,0.45) 52%,
-      rgba(20,16,46,0) 66%),
-    image-set(url("assets/img/section-4-bg.webp") type("image/webp"), url("assets/img/section-4-bg.jpg") type("image/jpeg"));
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiMxuN3UaURP5X2hJS028hD2Abb87xIdOyC5E6DxS0NL6jk_2XWWG3fh3Sims-SGJS3W9dkJjbh8GsD3Ci6KoenR2st0EgavvYPo1ibVswJzsfdYhtEb9HpbGSQmNI9AIHzXBk372HbIBuXFl-RRKQgExruR2QOfOdvqzeWHPM9_Rd-hd0ujTKcYhQeuk/s3200/section-4-bg.png");
   background-repeat: no-repeat, no-repeat;
   background-position: center, right center;
   background-size: cover, cover;
@@ -1031,13 +1028,7 @@ ul { list-style: none; }
         var(--s3-navy) 0%,
         rgba(20,16,46,0.9) 50%,
         rgba(20,16,46,0.55) 100%),
-      url("assets/img/section-4-bg.jpg");
-    background-image:
-      linear-gradient(to right,
-        var(--s3-navy) 0%,
-        rgba(20,16,46,0.9) 50%,
-        rgba(20,16,46,0.55) 100%),
-      image-set(url("assets/img/section-4-bg.webp") type("image/webp"), url("assets/img/section-4-bg.jpg") type("image/jpeg"));
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiMxuN3UaURP5X2hJS028hD2Abb87xIdOyC5E6DxS0NL6jk_2XWWG3fh3Sims-SGJS3W9dkJjbh8GsD3Ci6KoenR2st0EgavvYPo1ibVswJzsfdYhtEb9HpbGSQmNI9AIHzXBk372HbIBuXFl-RRKQgExruR2QOfOdvqzeWHPM9_Rd-hd0ujTKcYhQeuk/s3200/section-4-bg.png");
   }
   .center__inner { padding: 22px 32px 52px; }
   .center__panel { max-width: 560px; }
@@ -1053,13 +1044,7 @@ ul { list-style: none; }
         rgba(20, 16, 46, 0.94) 0%,
         rgba(20, 16, 46, 0.86) 40%,
         rgba(20, 16, 46, 0.66) 100%),
-      url("assets/img/section-4-bg.jpg");
-    background-image:
-      linear-gradient(180deg,
-        rgba(20, 16, 46, 0.94) 0%,
-        rgba(20, 16, 46, 0.86) 40%,
-        rgba(20, 16, 46, 0.66) 100%),
-      image-set(url("assets/img/section-4-bg.webp") type("image/webp"), url("assets/img/section-4-bg.jpg") type("image/jpeg"));
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiMxuN3UaURP5X2hJS028hD2Abb87xIdOyC5E6DxS0NL6jk_2XWWG3fh3Sims-SGJS3W9dkJjbh8GsD3Ci6KoenR2st0EgavvYPo1ibVswJzsfdYhtEb9HpbGSQmNI9AIHzXBk372HbIBuXFl-RRKQgExruR2QOfOdvqzeWHPM9_Rd-hd0ujTKcYhQeuk/s3200/section-4-bg.png");
     /* building's glass dome centres at ~73% of the source width; frame it
        so the lit facade fills the tall crop instead of the empty sky left of it */
     background-position: center, 73% center;
@@ -1079,8 +1064,7 @@ ul { list-style: none; }
 /* ===================== SECTION 4 — GET INVOLVED ===================== */
 .involve {
   background-color: var(--s4-cream);
-  background-image: url("assets/img/section-5-bg.jpg");
-  background-image: image-set(url("assets/img/section-5-bg.webp") type("image/webp"), url("assets/img/section-5-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3c0mGlns-gD84hcFS6qMF95u8Ig3eI1Gtu9uzl8jn3OFMsZDQchKgGAkfuTEH_-Vb24GEyLa--QXDdXvPviHL8zKGFoaqqLwmXsZXpHxGCs3_6es9QEip8ns8TbQ1AvAa24AurEMSyaTulTOo4PPA9b5YQ7K5GJwoAnLZ52jek8QyO8ic4oiVGwDgM5w/s1600/section4-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1262,8 +1246,7 @@ ul { list-style: none; }
    =================================================================== */
 .founder {
   background-color: #1A0C3A;                     /* navy fallback while image loads */
-  background-image: url("assets/img/events-bg.jpg");
-  background-image: image-set(url("assets/img/events-bg.webp") type("image/webp"), url("assets/img/events-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_OA2FRx_u7fRa9Ts4jV_RyKtV5EzwcXqu-ob2fOsJkmIcijiBINyabIqSS5nkmG4HAnc2yp3SqxU1DRNnEUAfVqagT8LDnP6kac91CWIsYcJaNODhK5PWOBCzZ2Zhn3Qtux2RrQ3hYuq3xMr9gw6o-79HNWoS_9dm5dOKoPLQ5LsPBPD9chzNZ-S-Lc0/s3636/events-section-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1407,8 +1390,7 @@ ul { list-style: none; }
 
 .events {
   background-color: #150A33;                 /* navy fallback while image loads */
-  background-image: url("assets/img/events-bg.jpg");
-  background-image: image-set(url("assets/img/events-bg.webp") type("image/webp"), url("assets/img/events-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_OA2FRx_u7fRa9Ts4jV_RyKtV5EzwcXqu-ob2fOsJkmIcijiBINyabIqSS5nkmG4HAnc2yp3SqxU1DRNnEUAfVqagT8LDnP6kac91CWIsYcJaNODhK5PWOBCzZ2Zhn3Qtux2RrQ3hYuq3xMr9gw6o-79HNWoS_9dm5dOKoPLQ5LsPBPD9chzNZ-S-Lc0/s3636/events-section-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1489,12 +1471,9 @@ ul { list-style: none; }
   background-position: center;
   background-repeat: no-repeat;
 }
-.events__tile--dialogue { background-image: url("assets/img/event-unity-in-diversity.jpg");
- background-image: image-set(url("assets/img/event-unity-in-diversity.webp") type("image/webp"), url("assets/img/event-unity-in-diversity.jpg") type("image/jpeg")); }
-.events__tile--jerusalem { background-image: url("assets/img/event-a-light-among-nations.jpg");
- background-image: image-set(url("assets/img/event-a-light-among-nations.webp") type("image/webp"), url("assets/img/event-a-light-among-nations.jpg") type("image/jpeg")); }
-.events__tile--youth { background-image: url("assets/img/event-youth-leadership.jpg");
- background-image: image-set(url("assets/img/event-youth-leadership.webp") type("image/webp"), url("assets/img/event-youth-leadership.jpg") type("image/jpeg")); }
+.events__tile--dialogue { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrStZ83H1lsBWMojlUMGdn3uR2rcUwlN3EXaHLR9GHBZbMT-BahSspmB8y9wArg-9PuqnKQu6vXCheKyCsEW8h_hov9X6PDc4Dnq7KwgAvW8rp5uJRQj3F9fAnlL-ExIkjX21JlvN7MNJwQLQegA9TUkPkUW141JG4u-kS5VKI-5kv97kJVUeuWNXrxQ8/s1600/unity-in-diversity.jpeg"); }
+.events__tile--jerusalem { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyouWPcgjnrFlXzPYQ62o1ZMHwvhEqafzdTXED2YuY_zRrDmOCCAqqm9vNhYty8PjaMcRLuVt1o1kTQzElO9OfkOnQxP0pWGdG_yvsy5lQubRyENYCht278UgJVf_WXfvrVQ68nb_p9O6mg17KeUJniXy4iYnVKPLS0j8i3RlooGZ5WfymC6u0Jdup73I/s1600/a-light-among-nations.jpeg"); }
+.events__tile--youth { background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxaDdX5zoL4Nfkixrlh46lfOTZ-1-UwLfJtAxy_fYBTshFfADzrQACjs9Ix5P4qzaPuBA6av9BrXRCzmWqQH6CP9yZreSX26MK1zbNS9w80uwBdU0bGTYiMb9cv-bYXYKTjv0t64oCISnFLQnC0ZLMnL8VS_OLJRzN3P4nzp4Lj3uVwz7LXLvGZ1Ckq4g/s1600/youth-leadership-for-tommorow.jpeg"); }
 
 .events__body {
   flex: 1 1 auto;
@@ -1701,21 +1680,7 @@ ul { list-style: none; }
       rgba(10, 4, 28, 0) 30%,
       rgba(8, 4, 26, 0) 62%,
       rgba(8, 4, 26, 0.55) 100%),
-    url("assets/img/last-section-bg.jpg");
-  background-image:
-    linear-gradient(to right,
-      rgba(22, 8, 38, 0.28) 0%,
-      rgba(25, 10, 50, 0.62) 22%,
-      rgba(23, 9, 54, 0.87) 40%,
-      rgba(23, 9, 54, 0.87) 60%,
-      rgba(28, 12, 48, 0.62) 78%,
-      rgba(36, 15, 40, 0.28) 100%),
-    linear-gradient(to bottom,
-      rgba(10, 4, 28, 0.25) 0%,
-      rgba(10, 4, 28, 0) 30%,
-      rgba(8, 4, 26, 0) 62%,
-      rgba(8, 4, 26, 0.55) 100%),
-    image-set(url("assets/img/last-section-bg.webp") type("image/webp"), url("assets/img/last-section-bg.jpg") type("image/jpeg"));
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoR5nIg8ogRXwC5jTgizFBdva82-zZYgGyh-vUB3fjOAGp0IYcIBeBFZo4MH0cYGiXr9hVMNotZxr1j_GZZWSeshgH44IXCMhzZ4UJpMfTDqPGslgl6CXb0s0q2qYQqpZxtzQevQDOl8Y1HpYcrVrkrd16DDdqiUoDAWwHV-neqMh_nZAxEhQ8uta1JEw/s3200/last-section-bg.png");
   background-position: center, center, center;
   background-size: cover, cover, cover;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -1758,13 +1723,7 @@ ul { list-style: none; }
         rgba(16, 6, 34, 0.68) 0%,
         rgba(23, 9, 54, 0.80) 50%,
         rgba(10, 4, 28, 0.86) 100%),
-      url("assets/img/last-section-bg.jpg");
-    background-image:
-      linear-gradient(180deg,
-        rgba(16, 6, 34, 0.68) 0%,
-        rgba(23, 9, 54, 0.80) 50%,
-        rgba(10, 4, 28, 0.86) 100%),
-      image-set(url("assets/img/last-section-bg.webp") type("image/webp"), url("assets/img/last-section-bg.jpg") type("image/jpeg"));
+      url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoR5nIg8ogRXwC5jTgizFBdva82-zZYgGyh-vUB3fjOAGp0IYcIBeBFZo4MH0cYGiXr9hVMNotZxr1j_GZZWSeshgH44IXCMhzZ4UJpMfTDqPGslgl6CXb0s0q2qYQqpZxtzQevQDOl8Y1HpYcrVrkrd16DDdqiUoDAWwHV-neqMh_nZAxEhQ8uta1JEw/s3200/last-section-bg.png");
     background-position: center, center;
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
@@ -1780,8 +1739,7 @@ ul { list-style: none; }
    =================================================================== */
 .footer {
   background-color: var(--ft-navy);
-  background-image: url("assets/img/footer-bg.jpg");
-  background-image: image-set(url("assets/img/footer-bg.webp") type("image/webp"), url("assets/img/footer-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7mCeLyCYrEzgAAuyoKvuX9nDxxJMmXkKt5iCVIAC7fCy0y6TBaO1L0vW0RerU0S18E9E6PtCrr80Cuxyu3PC7Eh9my0w1-LAvBs_cLH9bBkVWq4p5pzC-oz3Z2SUrWfyC6DiSePblUxvEOrVRwBYcfjhdyCKOvEMt7xCpOgVfDgrGVpCpaZZwqKzyJeo/s1942/footer-bg.png");
   background-position: center bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2010,24 +1968,38 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .footer { background-position: center bottom; background-size: cover; background-repeat: no-repeat; }
   .footer__inner { padding: 44px 22px 24px; }
-  /* logos keep the 2-column grid — brand crest + Unity Center on the first
-     row, One Day JLM alone on the second — but each row is centered;
-     newsletter and social span full width and keep their alignment */
+  /* logos run over two rows — brand crest + Unity Center share row one, each
+     centred in its own half; One Day JLM takes row two on its own, centred on
+     the full width. Newsletter and social span both columns below.
+     minmax(0, 1fr), NOT 1fr: plain `1fr` is `minmax(auto, 1fr)`, and that auto
+     floor is raised to the widest item's min-content — the subscribe row
+     (email input + SUBSCRIBE button) forced the track wider than the footer,
+     so the centred logos sat centred on an overflowing track. */
   .footer__top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     justify-items: start;
     text-align: left;
     gap: 30px 16px;
   }
   .footer__marks { display: contents; }
-  /* each logo unit stacked and centered in its cell; the row-two logo spans
-     both columns so it centers under the row-one pair */
-  .footer__brand { flex-direction: column; align-items: center; gap: 6px; justify-self: center; text-align: center; }
+  /* each logo unit stacked and centred within whatever it spans */
+  .footer__brand,
+  .footer__mark {
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+  }
+  /* the second mark (One Day JLM) drops to row two and centres across both
+     columns. Matched by sibling order, NOT :last-of-type — the two marks are
+     an <a> and a <div>, so :last-of-type matches both of them. */
+  .footer__mark + .footer__mark { grid-column: 1 / -1; }
+  .footer__brand { gap: 6px; }
+  .footer__mark { gap: 4px; }
   .footer__brand-text { align-items: center; }
-  .footer__crest { width: 84px; height: 84px; }
-  .footer__mark { flex-direction: column; align-items: center; gap: 4px; justify-self: center; text-align: center; }
-  .footer__mark:last-of-type { grid-column: 1 / -1; }
+  /* crest matches the mark icons so all three artwork boxes align */
+  .footer__crest { width: 76px; height: 76px; }
   /* all three footer wordmarks share one size so the row reads balanced */
   .footer__brand-name,
   .footer__mark-text { font-size: 15px; line-height: 1.2; letter-spacing: 0.12em; }
@@ -2053,13 +2025,20 @@ ul { list-style: none; }
   .footer__legal + .footer__bottom { margin-top: 24px; padding-top: 20px; }
   .footer__copy { font-size: 12.5px; }
 }
+/* Very narrow phones: the two row-one logos get only a ~132px column each, and
+   "UNITY CENTER" fills 128.6px of it. Ease the wordmarks down a step so they
+   keep clear of one another even if Cormorant falls back to a wider serif. */
+@media (max-width: 380px) {
+  .footer__brand-name,
+  .footer__mark-text { font-size: 13px; letter-spacing: 0.1em; }
+}
 
 /* ===================================================================
    SMALL PHONES (max-width: 480px) — tighter type + padding scale
    =================================================================== */
 @media (max-width: 480px) {
   .site-header { padding: 12px 16px; }
-  .brand__emblem { height: 98px; }
+  .brand__emblem { height: 66px; }
   .brand__title { font-size: 18px; }
   .brand__sub { font-size: 11px; }
   .btn-donate { font-size: 11.5px; padding: 9px 15px; }
@@ -2129,10 +2108,7 @@ ul { list-style: none; }
   background-color: #140A31;
   background-image:
     linear-gradient(180deg, rgba(15, 7, 40, 0.88), rgba(13, 6, 34, 0.94)),
-    url("assets/img/events-bg.jpg");
-  background-image:
-    linear-gradient(180deg, rgba(15, 7, 40, 0.88), rgba(13, 6, 34, 0.94)),
-    image-set(url("assets/img/events-bg.webp") type("image/webp"), url("assets/img/events-bg.jpg") type("image/jpeg"));
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirnPfcwOyKawYx76BBgeoOj4rStebXQaRy37vNAmFBbcB4B-SO2kd35WAIipNPTs9OXGtrF3ReXz6s_4KAKlUR6buarHwnNPMWFkzn4KR356llzN4QMPlnaBW4HmPEf6j_rrYT1b4bqvSA6rIXE28fJ_AwqiHj_BkEOmuqPLvZQ5Yg8btcgVEhbsp7o2E/s1600/events-bg-high-res.jpg");
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(212, 154, 78, 0.5);
@@ -2339,7 +2315,7 @@ ul { list-style: none; }
   .jm-modal__close { top: 10px; right: 12px; }
 }
 
-/* ---- footer contact / legal link row ---- */
+/* ---- footer contact link row ---- */
 .footer__legal-links {
   display: flex;
   flex-wrap: wrap;
@@ -2357,5 +2333,4 @@ ul { list-style: none; }
   transition: color 0.2s ease;
 }
 .footer__legal-links a:hover { color: var(--ft-gold); }
-.footer__legal-sep { color: var(--ft-line); font-size: 12px; }
 .footer__bottom { flex-direction: column; gap: 10px; }

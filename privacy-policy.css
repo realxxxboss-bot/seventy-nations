@@ -11,8 +11,7 @@
 .legal-hero {
   position: relative;
   background-color: var(--purple-deep, #0A0522);
-  background-image: url("assets/img/events-bg.jpg");
-  background-image: image-set(url("assets/img/events-bg.webp") type("image/webp"), url("assets/img/events-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_OA2FRx_u7fRa9Ts4jV_RyKtV5EzwcXqu-ob2fOsJkmIcijiBINyabIqSS5nkmG4HAnc2yp3SqxU1DRNnEUAfVqagT8LDnP6kac91CWIsYcJaNODhK5PWOBCzZ2Zhn3Qtux2RrQ3hYuq3xMr9gw6o-79HNWoS_9dm5dOKoPLQ5LsPBPD9chzNZ-S-Lc0/s3636/events-section-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -81,8 +80,7 @@
 /* ---- parchment body ---- */
 .legal {
   background-color: var(--s2-cream, #EFE6D6);
-  background-image: url("assets/img/section-2-bg.jpg");
-  background-image: image-set(url("assets/img/section-2-bg.webp") type("image/webp"), url("assets/img/section-2-bg.jpg") type("image/jpeg"));
+  background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1LHtQC4E_SnVtRTOgN7QDzzv9Kumhd3_F9W_SwOtO0kIj0i9fObipxiHm5nFpg3s6EOD8PE0PThUWUCU2wPEIkK4wINwZ9UzpY3Dpn0RjczalmcxQV4hbTJgBfne0yuzoAlm2hDzluIEQmsCAUTBVP2Ecbg-duQHD2_I2GiCt-zSHTq2mJBkBGt75o6w/s3200/section-2-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -42,7 +42,7 @@
         <li><a href="index.html#events">Events</a></li>
         <li><a href="index.html">News</a></li>
       </ul>
-      <a class="btn-donate" href="https://theseventynations.org/donate-now/">Donate</a>
+      <a class="btn-donate" href="https://jerusalemunity.org/donate.html">Donate</a>
     </nav>
   </header>
 
@@ -225,7 +225,7 @@
       <h2 id="s6">6. Your Choices and Rights</h2>
       <ul>
         <li>You may unsubscribe from our newsletter or email communications at any time using the link provided in each email.</li>
-        <li>You may request access to, correction of, or deletion of the personal information we hold about you by contacting us at <a href="mailto:info@theseventynations.org">info@theseventynations.org</a>.</li>
+        <li>You may request access to, correction of, or deletion of the personal information we hold about you by contacting us at <a href="mailto:info@seventynationsjerusalem.org">info@seventynationsjerusalem.org</a>.</li>
         <li>Depending on your country of residence, you may have additional rights under applicable law (such as the GDPR for visitors in the European Union, or Israeli data protection law).</li>
       </ul>
 
@@ -260,7 +260,7 @@
         </p>
         <p>
           <strong>The Seventy Nations</strong><br />
-          Email: <a href="mailto:info@theseventynations.org">info@theseventynations.org</a><br />
+          Email: <a href="mailto:info@seventynationsjerusalem.org">info@seventynationsjerusalem.org</a><br />
           for The Seventy Nations (R.A.) Jerusalem and/or The Jerusalem Unity Center USA
         </p>
       </div>
@@ -306,10 +306,15 @@
         <div class="footer__connect">
           <h3 class="footer__label">Stay Connected</h3>
           <p class="footer__connect-text">Subscribe to our newsletter for updates,<br> events, and inspiration.</p>
-          <div class="footer__subscribe">
-            <input class="footer__input" type="email" placeholder="Your email address" aria-label="Your email address" />
-            <button class="footer__sub-btn" type="button">SUBSCRIBE</button>
-          </div>
+          <form class="footer__subscribe" data-juc-newsletter novalidate>
+            <input class="footer__input" type="email" name="email" placeholder="Your email address" aria-label="Your email address" required />
+            <button class="footer__sub-btn" type="submit">SUBSCRIBE</button>
+            <div class="jm-hp" aria-hidden="true">
+              <label>Leave this field empty
+                <input type="text" name="website" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
+          </form>
         </div>
 
         <!-- 4. Follow Us -->
@@ -325,7 +330,7 @@
             <a class="footer__social-btn" href="https://www.linkedin.com/in/meirah-marianne-paradise-b34072191/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M7 9.5H4.6V19H7V9.5ZM5.8 5.3a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8ZM19.4 19v-5.2c0-2.8-1.5-4.1-3.5-4.1a3 3 0 0 0-2.7 1.5V9.5H10.8c0 .7 0 9.5 0 9.5h2.4v-5.3c0-.3 0-.6.1-.8.2-.5.7-1.1 1.6-1.1 1.1 0 1.6.9 1.6 2.1V19h2.3Z"/></svg>
             </a>
-            <a class="footer__social-btn" href="mailto:info@theseventynations.org" aria-label="Email">
+            <a class="footer__social-btn" href="mailto:info@seventynationsjerusalem.org" aria-label="Email">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5"/></svg>
             </a>
           </div>
@@ -346,7 +351,7 @@
           Your support and contributions will enable us to meet our goals and improve conditions.
           Your generous donation will fund our mission.
         </p>
-        <a class="footer__donate" href="https://theseventynations.org/donate-now/">
+        <a class="footer__donate" href="https://jerusalemunity.org/donate.html">
           <svg class="donate-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 20.3l-1.4-1.3C6 14.9 3.2 12.3 3.2 9.1 3.2 6.5 5.2 4.5 7.8 4.5c1.5 0 2.9.7 3.8 1.8.9-1.1 2.3-1.8 3.8-1.8 2.6 0 4.6 2 4.6 4.6 0 3.2-2.8 5.8-7.4 9.9L12 20.3Z"/></svg>
           Donate Now
         </a>
@@ -357,12 +362,13 @@
         <nav class="footer__legal-links" aria-label="Legal">
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="non-discrimination-policy.html">Non Discrimination</a>
-          <a href="mailto:info@theseventynations.org">info@theseventynations.org</a>
+          <a href="mailto:info@seventynationsjerusalem.org">info@seventynationsjerusalem.org</a>
         </nav>
         <p class="footer__copy">&copy; 2026 The Seventy Nations. All Rights Reserved.</p>
       </div>
 
     </div>
   </footer>
+  <script src="forms.js"></script>
 </body>
 </html>

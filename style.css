@@ -188,8 +188,12 @@ ul { list-style: none; }
      grows past a laptop. it used to be a flat 765px tall at every width, so a
      desktop monitor scaled the picture up and sliced the sky off the top and the
      hills off the bottom — the exact two bands the text has to sit in. below
-     ~1406px this never binds, so laptops render as before */
-  min-height: clamp(600px, 54.4vw, 1050px);
+     ~1406px this never binds, so laptops render as before.
+     the upper bound used to be a flat 1050px, which quietly brought the crop back
+     above ~2100px and pushed the light back down over the scripture. it now keeps
+     creeping up on very wide monitors so the dark band under the fan never gets
+     shorter than the verse that has to sit in it */
+  min-height: clamp(600px, 54.4vw, max(1200px, 42vw));
   background-color: var(--purple-deep);
   background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4NL5I6z4Fsqjk9rOCJm0djrOQAMzy40NzS8wkbIdkRNKZnsY7QqfdKvYnTonJQbKLfzsp5kefvJM5Okx48xs7QXwoocVxa5qgfTHYvI22n-U4d_lOocvNRO_q1N51jFpRMs3h9b6Nrf6HPSqzwm3_qiJ44S8NHMmNj-7c7CbjyrgLEtnBqooa5QmGypw/s3400/new-hero-bg-high-res.png");
   /* desktop artwork: full-bleed, centre-cropped and filled edge to edge */
@@ -254,48 +258,56 @@ ul { list-style: none; }
   grid-row: 1;
   align-self: end;
   justify-self: center;
-  max-width: 600px;
+  /* wider than the old 460: the verse is set large now, and its longest line
+     ("and for the sake of Jerusalem") has to stay on one line — the client's
+     seven-line shape breaks the moment a line wraps */
+  max-width: 560px;
   text-align: center;
   padding: 0 10px;
+  /* the clear wedge runs from the city out to the sun, and its underside climbs
+     to the right — far more room than the thin strip of hills we were using.
+     the block is bottom-anchored so it grows upward into that wedge.
+     it used to hang off the very hem of the frame (-44px), which pinned the
+     composition to the floor and left a dead band under the buttons opposite it.
+     lifted clear of the hem now, into the open air between the ridge and the
+     beams: the offset is in vw because the frame is 54.4vw tall, so this keeps
+     the same spot on the artwork at every desktop width */
+  margin-bottom: clamp(24px, 3vw, 64px);
   /* no plate and no scrim: down here the artwork is already deep and dark, so
      the scripture reads on its own. the box that used to dim the sunset was what
      made this look bolted on */
 }
 
-/* single gold hairline under the scripture — the same ornament language as
-   .hero__rule. it sits below the caption, on the dark hills: above the text it
-   ran parallel to the hazy ridge line and read as a second horizon */
-.hero__quote::before {
-  content: "";
-  position: absolute;
-  bottom: -24px;
-  left: 32%;
-  right: 32%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    rgba(229, 173, 60, 0) 0%,
-    rgba(229, 173, 60, 0.7) 50%,
-    rgba(229, 173, 60, 0) 100%
-  );
-  box-shadow: 0 1px 4px rgba(7, 5, 24, 0.85);
-}
+/* no gold hairline any more. the verse is set as a tapered column now, and a flat
+   rule ruled straight across its foot cancelled exactly the shape the client asked
+   for — the gold small-caps attribution is ornament enough */
+.hero__quote::before { content: none; }
 
 .hero__quote blockquote {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 1.62;
+  /* the hero frame is 54.4vw tall, so the wedge under the fan grows with the
+     viewport — the verse scales with it and keeps the same share of that wedge at
+     every width instead of overflowing it on a laptop. sized up by about a third
+     from the first pass: at 1440 this reads 23px against a 60px headline, which
+     is what makes the two halves of the composition balance */
+  font-size: clamp(19px, 1.62vw, 30px);
+  /* tighter leading than a paragraph wants: this is set as verse now, and seven
+     lines have to live where three used to */
+  line-height: 1.34;
   color: var(--quote-text);
-  text-shadow: 0 2px 10px rgba(7, 5, 24, 0.95), 0 0 26px rgba(7, 5, 24, 0.85), 0 0 52px rgba(7, 5, 24, 0.6);
+  /* deeper glow than before. set this large the verse reaches up past the hill
+     ridge into the lit haze, so each line carries its own pool of shadow */
+  text-shadow: 0 2px 12px rgba(7, 5, 24, 0.98), 0 0 30px rgba(7, 5, 24, 0.92), 0 0 64px rgba(7, 5, 24, 0.72);
 }
 
 .hero__quote figcaption {
-  margin-top: 16px;
+  margin-top: 14px;
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
-  font-size: 13px;
+  /* scaled with the verse so the attribution keeps its proportion to it */
+  font-size: clamp(12px, 0.86vw, 15px);
   letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--gold);
@@ -311,6 +323,11 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* take the whole height of the row rather than sitting at the top of it, and
+     centre the block inside it. top-anchored, every pixel the frame gained over
+     the copy piled up in one place — the empty stretch under the buttons */
+  align-self: stretch;
+  justify-content: center;
 }
 
 .hero__title {
@@ -330,7 +347,12 @@ ul { list-style: none; }
   font-size: 30px;
   letter-spacing: 0.02em;
   color: var(--gold);
-  margin-top: 10px;
+  /* the four gaps down this column (here, either side of the rule, and above the
+     buttons) all open with the viewport now. centring alone only splits the
+     surplus height between top and bottom; letting the rhythm breathe with the
+     frame is what actually closes it, and it does so without touching a single
+     type size — the headline still has to stay on one line in its track */
+  margin-top: clamp(10px, 0.9vw, 18px);
 }
 
 /* mockup ornament: thin gold line — sun/star burst — thin gold line,
@@ -341,7 +363,7 @@ ul { list-style: none; }
   gap: 12px;
   width: 100%;
   max-width: 355px;
-  margin: 20px 0 22px;
+  margin: clamp(20px, 2.2vw, 44px) 0 clamp(22px, 2.4vw, 48px);
 }
 
 .hero__rule::before,
@@ -372,13 +394,13 @@ ul { list-style: none; }
   max-width: 440px;
 }
 
-.hero__lede + .hero__lede { margin-top: 14px; }
+.hero__lede + .hero__lede { margin-top: clamp(14px, 1.3vw, 26px); }
 
 /* ---- Buttons ---- */
 .hero__actions {
   display: flex;
   gap: 18px;
-  margin-top: 30px;
+  margin-top: clamp(30px, 3.4vw, 68px);
 }
 
 .btn {
@@ -425,14 +447,25 @@ ul { list-style: none; }
   .site-header { padding: 18px 32px; }
   .main-nav { gap: 24px; }
   .main-nav__list { gap: 22px; }
-  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); column-gap: 36px; padding: 200px 32px 72px; }
-  /* a wider track still honours the three hand-set lines. that keeps the block
-     short, so bottom-aligning it can't grow the text back up into the beams —
-     and it rides a little lower to stay on the dark hills */
-  .hero__quote { max-width: 400px; margin-bottom: -28px; }
-  .hero__quote blockquote { font-size: 17px; }
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); column-gap: 36px; padding: 200px 32px 40px; }
+  /* smaller and lower than the desktop setting. seven lines are ~190px tall and
+     the dark band down here is barely wider than that, so the verse has to give
+     back both leading and a few points of size to stay off the beams */
+  /* same lift as the desktop rule, but a fixed one: below 1100 the frame is held
+     at a flat 780px (see the min-width:981 rule under this), so a vw offset would
+     keep shrinking against a height that no longer moves */
+  .hero__quote { max-width: 380px; margin-bottom: 56px; }
+  .hero__quote blockquote { font-size: 16px; }
   .hero__title { font-size: 54px; }
   .hero__lede { max-width: 640px; }
+}
+
+/* small laptops still in the two-column hero (981-1100px). here 54.4vw is only
+   ~600px, so the frame was sized by its own content at ~711px — short enough that
+   the light floor landed 40px *inside* the scripture. a hard 780px floor buys the
+   band back. scoped so the stacked layouts below 980px keep their own heights */
+@media (min-width: 981px) and (max-width: 1100px) {
+  .hero { min-height: 780px; }
 }
 
 /* Compact header for laptops/tablets so the full nav never overflows.
@@ -552,10 +585,12 @@ ul { list-style: none; }
   .hero__quote::after { display: none; }
   .hero__quote blockquote {
     font-size: 17px;
-    line-height: 1.6;
+    line-height: 1.45;
     text-shadow: 0 2px 12px rgba(7, 5, 24, 1), 0 0 30px rgba(7, 5, 24, 0.95), 0 0 56px rgba(7, 5, 24, 0.8);
   }
-  .hero__quote blockquote br { display: none; }
+  /* the hand-set breaks stay on down here too: the longest line is ~210px, so it
+     clears a 320px phone, and letting it reflow instead just wrapped it into more
+     lines than the client's layout uses anyway */
   .hero__quote figcaption { margin-top: 12px; font-size: 12px; }
   .hero__content {
     max-width: none;
@@ -1869,6 +1904,16 @@ ul { list-style: none; }
   cursor: pointer;
 }
 .footer__sub-btn:hover { filter: brightness(1.07); }
+.footer__sub-btn:disabled { opacity: 0.6; cursor: default; }
+.footer__sub-status {
+  margin: 8px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: var(--ft-muted);
+  min-height: 14px;
+}
+.footer__sub-status.is-success { color: var(--ft-gold); }
+.footer__sub-status.is-error { color: #E08A6B; }
 
 /* 4. Follow Us */
 .footer__social { display: flex; gap: 14px; }
@@ -2259,6 +2304,13 @@ ul { list-style: none; }
 }
 .jm-consent a:hover { color: var(--gold-soft); }
 
+.jm-form__status {
+  margin: 14px 0 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: #E08A6B;
+}
+
 /* ---- submit ---- */
 .jm-submit {
   display: inline-flex;
@@ -2282,6 +2334,7 @@ ul { list-style: none; }
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 .jm-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.jm-submit:disabled { opacity: 0.6; cursor: default; transform: none; }
 .jm-submit__arrow { font-size: 15px; line-height: 1; }
 .jm-submit--ghost {
   width: auto;
